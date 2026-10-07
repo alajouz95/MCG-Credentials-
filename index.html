@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#081A35">
+<title>MCG Credentials</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Montserrat:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+
+<div id="vp">
+<div id="stage" data-dir="fwd" aria-roledescription="carousel" aria-label="MCG credentials">
+
+  <!-- 1 Cover -->
+  <section class="slide s-cover is-active" data-name="Hello">
+    <img class="bg" src="assets/img-001.webp" alt="">
+    <div class="scrim"></div>
+    <span class="float" style="left:820px;top:150px;width:22px;height:22px;background:var(--orange)"></span>
+    <span class="float" style="left:900px;top:240px;width:14px;height:14px;background:var(--pink);animation-delay:-3s"></span>
+    <span class="float" style="left:1010px;top:170px;width:10px;height:10px;background:var(--cyan);animation-delay:-6s"></span>
+    <img class="logo rise" style="--d:0" src="assets/img-002.webp" alt="MCG">
+    <p class="eyebrow tag rise" style="--d:1">Credentials · 2026</p>
+    <div class="pad">
+      <p class="for rise" style="--d:1" id="forLine" hidden>Prepared for <b id="forName"></b></p>
+      <div class="kicker rise" style="--d:1"><span class="rule"></span><p class="eyebrow">MCG · Kuwait &amp; Beirut · Since 2004</p></div>
+      <h1 class="h1 rise" style="--d:2">Brands, beyond<br>the brief<span class="dots3" aria-hidden="true"><i></i><i></i><i></i></span></h1>
+      <p class="lede rise" style="--d:3">We're Kuwait's integrated creative agency. Strategy, content, digital, events and AI, all under one roof.</p>
+      <button class="btn rise" style="--d:4" data-go="1">Take the tour <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></button>
+    </div>
+  </section>
+
+  <!-- 2 Who -->
+  <section class="slide s-who" data-name="Who we are">
+    <div class="who">
+      <div class="who-l">
+        <div class="kicker rise" style="--d:0"><span class="rule"></span><p class="eyebrow">Who we are</p></div>
+        <h2 class="h2 rise" style="--d:1">Twenty-two years of building brands in Kuwait.</h2>
+        <p class="body rise" style="--d:2">We come up with the idea, make the content, run the campaign and show you what it did. We started as Media City in 2004, and we've been <b>profitable since day one</b>.</p>
+        <div class="points rise" style="--d:3">
+          <div><i style="--c:var(--cyan)"></i><b>Under one roof</b><span>Strategy, creative, production, media and AI, in one team.</span></div>
+          <div><i style="--c:var(--pink)"></i><b>Long relationships</b><span>Ford Alghanim has worked with us for over a decade.</span></div>
+          <div><i style="--c:var(--orange)"></i><b>AI-native</b><span>Our own AI tools, AI films and Kuwait's AI community.</span></div>
+        </div>
+      </div>
+      <div class="who-r">
+        <div class="counters">
+          <div class="counter rise" style="--d:2;--c:var(--cyan)"><b data-count="22">22</b><span>years in the market</span></div>
+          <div class="counter rise" style="--d:3;--c:var(--pink)"><b data-count="800" data-suffix="+">800+</b><span>clients served</span></div>
+          <div class="counter rise" style="--d:4;--c:var(--orange)"><b data-count="500" data-suffix="+">500+</b><span>projects delivered</span></div>
+          <div class="counter rise" style="--d:5;--c:var(--sky)"><b data-count="1" data-suffix="B+">1B+</b><span>impressions delivered</span></div>
+        </div>
+        <p class="small rise" style="--d:6">40+ people · Al Hamra Tower, Kuwait · Beirut</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 What do you need -->
+  <section class="slide s-need" data-name="What do you need?">
+    <div class="pad">
+      <div class="toprow">
+        <div class="head">
+          <div class="kicker rise" style="--d:0"><span class="rule"></span><p class="eyebrow">Start here</p></div>
+          <h2 class="h2 rise" style="--d:1">What do you need right now?</h2>
+        </div>
+        <p class="hint rise" style="--d:2"><i></i>Tap one. We'll show you how we'd help.</p>
+      </div>
+      <div class="need rise" style="--d:3">
+        <div class="goals" id="goals"></div>
+        <div class="answer" aria-live="polite">
+          <p class="eyebrow">Here's how we'd help</p>
+          <div class="ans-body" id="ansBody"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 Services -->
+  <section class="slide s-svc" data-name="What we do">
+    <div class="pad">
+      <div class="toprow">
+        <div class="head">
+          <div class="kicker rise" style="--d:0"><span class="rule"></span><p class="eyebrow">What we do</p></div>
+          <h2 class="h2 rise" style="--d:1">Ten things we do, in plain words.</h2>
+        </div>
+        <p class="hint rise" style="--d:2"><i></i>Tap a card to flip it.</p>
+      </div>
+      <div class="cards rise" style="--d:3" id="cards"></div>
+    </div>
+  </section>
+
+  <!-- 5 How we think -->
+  <section class="slide s-think" data-name="How we think">
+    <div class="pad">
+      <div class="toprow">
+        <div class="head">
+          <div class="kicker rise" style="--d:0"><span class="rule"></span><p class="eyebrow">How we think</p></div>
+          <h2 class="h2 rise" style="--d:1">Strategy first, always.</h2>
+          <p class="lede rise" style="--d:2">Every project, big or small, goes through the same five steps.</p>
+        </div>
+        <button class="hint rise replay" style="--d:2" id="replay"><i></i>Tap a step, or watch it play</button>
+      </div>
+      <div class="route rise" style="--d:3">
+        <svg viewBox="0 0 1168 200" id="routeSvg" aria-hidden="true">
+          <path id="routeBase" d="M14 140C60 140 80 140 110 140C190 140 250 52 340 52C430 52 500 140 584 140C650 140 702 52 664 32C624 12 598 96 666 100C726 102 762 52 828 52C910 52 980 140 1058 140C1100 140 1120 140 1154 140"/>
+          <path id="routeLit" d="M14 140C60 140 80 140 110 140C190 140 250 52 340 52C430 52 500 140 584 140C650 140 702 52 664 32C624 12 598 96 666 100C726 102 762 52 828 52C910 52 980 140 1058 140C1100 140 1120 140 1154 140"/>
+          <circle class="end-o" cx="14" cy="140" r="7"/><circle class="end-p" cx="1154" cy="140" r="7"/>
+          <circle id="runner" r="9" cx="110" cy="140"/>
+        </svg>
+        <div class="stops" id="stops"></div>
+      </div>
+      <div class="think-detail rise" style="--d:4" aria-live="polite">
+        <p class="tnum" id="tNum">01</p>
+        <div class="tmain"><h3 id="tHead"></h3><p class="body" id="tBody"></p></div>
+        <div class="tget"><p class="eyebrow">You get</p><p id="tGet"></p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 Who we work with -->
+  <section class="slide s-clients-grid" data-name="Who we work with">
+    <div class="pad">
+      <div class="toprow">
+        <div class="head">
+          <div class="kicker rise" style="--d:0"><span class="rule"></span><p class="eyebrow">Who we work with</p></div>
+          <h2 class="h2 rise" style="--d:1">800+ brands have trusted us.</h2>
+        </div>
+        <button class="link rise" style="--d:2" data-open="wall">See the full client wall <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></button>
+      </div>
+      <div class="sectors rise" style="--d:2" id="sectors" role="tablist" aria-label="Industries"></div>
+      <div class="logowall rise" style="--d:3" id="logowall"></div>
+    </div>
+  </section>
+
+  <!-- 5 Work hub -->
+  <section class="slide s-hub" data-name="Our work">
+    <div class="pad">
+      <div class="toprow">
+        <div class="head">
+          <div class="kicker rise" style="--d:0"><span class="rule"></span><p class="eyebrow">Our work</p></div>
+          <h2 class="h2 rise" style="--d:1">Work we're proud of.</h2>
+        </div>
+        <p class="hint rise" style="--d:2"><i></i>Tap a project to see the story.</p>
+      </div>
+      <div class="tiles rise" style="--d:3">
+        <button class="tile" data-go="7"><img src="assets/img-003.webp" alt="GMC Sierra campaign photo"><img class="badge" src="assets/img-004.webp" alt=""><span class="tile-t"><span class="tt"><b>GMC Behbehani</b><span class="meta">Campaign · 2023</span></span><i>→</i></span></button>
+        <button class="tile" data-go="8"><img src="assets/img-005.webp" alt="Subaru Forester ad" style="object-position:50% 70%"><img class="badge" src="assets/img-006.webp" alt=""><span class="tile-t"><span class="tt"><b>Subaru</b><span class="meta">Campaign · 2022</span></span><i>→</i></span></button>
+        <button class="tile" data-go="9"><img src="assets/img-007.webp" alt="Native Union sleeve shot for Alpha Store" style="object-position:50% 35%"><img class="badge" src="assets/img-008.webp" alt=""><span class="tile-t"><span class="tt"><b>Alpha Store</b><span class="meta">Social &amp; digital · 2023</span></span><i>→</i></span></button>
+        <button class="tile art" data-go="11"><img src="assets/img-009.webp" alt=""><img class="badge" src="assets/img-010.webp" alt=""><span class="tile-t"><span class="tt"><b>Honda Civic Type R</b><span class="meta">Launch event · 2022</span></span><i>→</i></span></button>
+        <button class="tile" data-go="10"><img src="assets/img-011.webp" alt="Bait Al Sabon summer product shoot" style="object-position:50% 40%"><img class="badge" src="assets/img-012.webp" alt=""><span class="tile-t"><span class="tt"><b>Bait Al Sabon</b><span class="meta">Photo &amp; video · 2023</span></span><i>→</i></span></button>
+        <button class="tile" data-go="11" style="background:#EAF3F9"><img src="assets/img-013.webp" alt="Al-Essa Medical brand visual" style="object-fit:contain;padding:10px 40px 50px"><span class="tile-t"><span class="tt"><b>Al-Essa Medical</b><span class="meta">Social media · 2023</span></span><i>→</i></span></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 GMC -->
+  <section class="slide s-proj" data-name="GMC Behbehani" data-proj="gmc">
+    <div class="proj">
+      <div class="media"><img class="ph on" src="assets/img-003.webp" alt="A blue GMC Sierra on an open road at golden hour" style="object-position:55% 55%"><p class="credit">GMC Behbehani · by MCG</p></div>
+      <div class="panel">
+        <div class="p-top rise" style="--d:0"><img src="assets/img-004.webp" alt="GMC"><p class="eyebrow">Campaign · 2023</p></div>
+        <h2 class="h2 rise" style="--d:1">A younger summer for GMC.</h2>
+        <dl class="story rise" style="--d:2">
+          <div><dt>The ask</dt><dd>Make GMC feel younger and fresher, without losing its tough, professional-grade image.</dd></div>
+          <div><dt>What we did</dt><dd>One summer campaign across social media, online ads, billboards and banners, all telling the same story.</dd></div>
+          <div><dt>What changed</dt><dd>More people online, more people in the showroom and more leads for the sales team.</dd></div>
+        </dl>
+        <div class="results rise" style="--d:3"></div>
+        <div class="chips rise" style="--d:4"><span>Social media</span><span>Digital ads</span><span>Outdoor</span><span>Design</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 Subaru -->
+  <section class="slide s-proj" data-name="Subaru" data-proj="subaru">
+    <div class="proj">
+      <div class="media">
+        <img class="ph on" src="assets/img-005.webp" alt="Subaru Forester ad: Unforgettable drives">
+        <img class="ph" src="assets/img-014.webp" alt="Subaru WRX ad: Extraordinary">
+        <img class="ph" src="assets/img-015.webp" alt="Subaru BRZ ad: Pure driving pleasure">
+        <div class="thumbs"></div>
+      </div>
+      <div class="panel">
+        <div class="p-top rise" style="--d:0"><img src="assets/img-006.webp" alt="Subaru"><p class="eyebrow">Campaign · 2022</p></div>
+        <h2 class="h2 rise" style="--d:1">Subaru, made for today's car buyer.</h2>
+        <dl class="story rise" style="--d:2">
+          <div><dt>The ask</dt><dd>Bring Subaru's online presence up to speed with how people shop for cars today.</dd></div>
+          <div><dt>What we did</dt><dd>Social media and digital ads for the range, from the Forester to the WRX and BRZ.</dd></div>
+          <div><dt>What changed</dt><dd>Strong online growth, a surge in engagement and a clear lift in sales.</dd></div>
+        </dl>
+        <div class="results rise" style="--d:3"></div>
+        <div class="chips rise" style="--d:4"><span>Social media</span><span>Digital ads</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 Alpha Store -->
+  <section class="slide s-proj" data-name="Alpha Store" data-proj="alpha">
+    <div class="proj">
+      <div class="media">
+        <img class="ph on" src="assets/img-007.webp" alt="Native Union MacBook sleeve shot" style="object-position:50% 30%">
+        <img class="ph" src="assets/img-016.webp" alt="Porodo multi-port hub ad">
+        <img class="ph" src="assets/img-017.webp" alt="iMac ad: All in one. All in color.">
+        <img class="ph" src="assets/img-018.webp" alt="Same-day iPhone screen repair ad">
+        <img class="ph" src="assets/img-019.webp" alt="MacBook trade-in ad">
+        <div class="thumbs"></div>
+      </div>
+      <div class="panel">
+        <div class="p-top rise" style="--d:0"><img src="assets/img-008.webp" alt="Alpha Store"><p class="eyebrow">Social &amp; digital · 2023</p></div>
+        <h2 class="h2 rise" style="--d:1">Alpha Store, refreshed online.</h2>
+        <dl class="story rise" style="--d:2">
+          <div><dt>The ask</dt><dd>Kuwait's Apple authorised service provider wanted a fresh, consistent look online and a stronger brand.</dd></div>
+          <div><dt>What we did</dt><dd>Social media, digital ads, product photo shoots and video across a wide product range.</dd></div>
+          <div><dt>What changed</dt><dd>Fast online growth, more engagement, a lift in sales and one consistent brand image.</dd></div>
+        </dl>
+        <div class="results rise" style="--d:3"></div>
+        <div class="chips rise" style="--d:4"><span>Social media</span><span>Digital ads</span><span>Photography</span><span>Video</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9 Bait Al Sabon -->
+  <section class="slide s-proj" data-name="Bait Al Sabon" data-proj="bait">
+    <div class="proj">
+      <div class="media"><img class="ph on" src="assets/img-011.webp" alt="Bait Al Sabon skincare bottles on a summer picnic blanket" style="object-position:50% 45%"><p class="credit">Summer outdoor shoot · by MCG</p></div>
+      <div class="panel">
+        <div class="p-top rise" style="--d:0"><img src="assets/img-012.webp" alt="Bait Al Sabon"><p class="eyebrow">Photo &amp; video · 2023</p></div>
+        <h2 class="h2 rise" style="--d:1">Handmade skincare, told honestly.</h2>
+        <dl class="story rise" style="--d:2">
+          <div><dt>The ask</dt><dd>Tell the story of traditional, handmade skincare without making it feel old-fashioned or overdone.</dd></div>
+          <div><dt>What we did</dt><dd>A summer outdoor photo and video shoot, turned into content for social media.</dd></div>
+          <div><dt>What changed</dt><dd>A clearer brand story, more engagement and a stronger brand image.</dd></div>
+        </dl>
+        <div class="results rise" style="--d:3"></div>
+        <div class="chips rise" style="--d:4"><span>Photography</span><span>Video</span><span>Social media</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 More work -->
+  <section class="slide s-more" data-name="More work">
+    <div class="pad">
+      <div class="head">
+        <div class="kicker rise" style="--d:0"><span class="rule"></span><p class="eyebrow">More work</p></div>
+        <h2 class="h2 rise" style="--d:1">A launch, and a healthcare brand.</h2>
+      </div>
+      <div class="duo">
+        <article class="mcard rise" style="--d:2" data-proj="honda">
+          <img class="art" src="assets/img-020.webp" alt="">
+          <div class="p-top"><img src="assets/img-010.webp" alt="Honda Alghanim"><p class="eyebrow">Launch event · 2022</p></div>
+          <h3>The Civic Type R launch for Honda Alghanim.</h3>
+          <dl class="story">
+            <div><dt>The ask</dt><dd>Launch a car enthusiasts had waited years for, and live up to very high expectations.</dd></div>
+            <div><dt>What we did</dt><dd>The launch event with 3D event design, plus photos, video and live social coverage.</dd></div>
+            <div><dt>What changed</dt><dd>A memorable launch, a buzz in the media and strong sales.</dd></div>
+          </dl>
+          <div class="results"></div>
+        </article>
+        <article class="mcard rise" style="--d:3" data-proj="alessa">
+          <img class="art" src="assets/img-021.webp" alt="">
+          <div class="p-top"><img src="assets/img-022.webp" alt="Al-Essa Medical"><p class="eyebrow">Social media · 2023</p></div>
+          <h3>A trusted healthcare name, online.</h3>
+          <dl class="story">
+            <div><dt>The ask</dt><dd>Bring a traditional healthcare brand online in a way that feels caring and follows health-sector rules.</dd></div>
+            <div><dt>What we did</dt><dd>Social media management, showroom coverage, photo shoots and video.</dd></div>
+            <div><dt>What changed</dt><dd>A stronger online presence, more trust and an engaged community.</dd></div>
+          </dl>
+          <div class="results"></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11 AI -->
+  <section class="slide s-ai" data-name="AI + real shoots">
+    <div class="ai">
+      <div class="ai-l">
+        <div class="kicker rise" style="--d:0"><span class="rule"></span><p class="eyebrow">Our newest service</p></div>
+        <h2 class="h2 rise" style="--d:1">AI + real shoots.</h2>
+        <p class="lede rise" style="--d:2">We film what must be real, then let AI build the world around it.</p>
+        <p class="body rise" style="--d:3;font-size:14.5px">Bigger ideas, fewer shoot days, and a version for every platform. We've already made AI films for brands like Baraka Dates. Pick a format:</p>
+        <div class="tabs rise" style="--d:4" role="tablist" id="tabs"></div>
+        <dl class="rows rise" style="--d:5" id="fRows">
+          <div><dt>We shoot</dt><dd id="fShoot"></dd></div>
+          <div><dt>AI builds</dt><dd id="fBuild"></dd></div>
+          <div><dt>Great for</dt><dd id="fFor"></dd></div>
+        </dl>
+      </div>
+      <div class="ai-r" id="fMedia">
+        <img class="ph on" src="assets/img-023.webp" alt="A presenter walks through a Gulf courtyard; half today, half seventy years ago">
+        <img class="ph" src="assets/img-024.webp" alt="A luxury SUV on a mirror-still salt flat under an enormous moon">
+        <img class="ph" src="assets/img-025.webp" alt="Golden smoke from a perfume bottle forms a tiny desert with a caravan">
+        <img class="ph" src="assets/img-026.webp" alt="A lone athlete in a packed stadium at night">
+        <img class="ph" src="assets/img-027.webp" alt="A family on an empty plot as their future villas appear">
+        <img class="ph" src="assets/img-028.webp" alt="Four versions of one campaign in a grid">
+        <div class="ai-cap"><b id="fName">Time Shift</b><span>Visual made with AI</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12 Clients -->
+  <section class="slide s-clients" data-name="What clients say">
+    <span class="bigq" aria-hidden="true">“</span>
+    <div class="pad">
+      <div class="head">
+        <div class="kicker rise" style="--d:0"><span class="rule"></span><p class="eyebrow">In their words</p></div>
+        <h2 class="h2 rise" style="--d:1">What clients say.</h2>
+      </div>
+      <div class="quotes rise" style="--d:2" aria-live="polite">
+        <figure class="q on"><p>“MCG has been a game-changer for our automotive business. Their marketing expertise and innovative strategies have significantly boosted our brand visibility and sales.”</p><small>Automotive client</small></figure>
+        <figure class="q"><p>“Their marketing brilliance has attracted more guests and increased bookings, driving our success to new heights.”</p><small>Hospitality client</small></figure>
+        <figure class="q"><p>“We started seeing more customers come through our doors. The quick response to briefs and situations is very much appreciated.”</p><small>Food &amp; beverage client</small></figure>
+      </div>
+      <div class="cl-bottom rise" style="--d:3">
+        <div class="qnav" id="qnav"></div>
+      </div>
+      <div class="marquee rise" style="--d:4" aria-label="Some of our clients">
+        <div class="track" id="track"><img src="assets/img-029.webp" alt="Honda Alghanim"><img src="assets/img-030.webp" alt="Behbehani"><img src="assets/img-031.webp" alt="Mashawi"><img src="assets/img-032.webp" alt="Beyout Investment Group"><img src="assets/img-033.webp" alt="KCB"><img src="assets/img-034.webp" alt="Ali Alghanim &amp; Sons Automotive"><img src="assets/img-035.webp" alt="Behbehani Prestige"><img src="assets/img-036.webp" alt="CFMOTO"><img src="assets/img-037.webp" alt="ZO"><img src="assets/img-038.webp" alt="Behbehani Watch World"><img src="assets/img-039.webp" alt="Commercial Facilities Co."><img src="assets/img-040.webp" alt="Honda"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 13 Contact -->
+  <section class="slide s-contact" data-name="Let's talk">
+    <img class="bg" src="assets/img-001.webp" alt="">
+    <div class="scrim"></div>
+    <div class="contact">
+      <div class="contact-l">
+        <img class="logo rise" style="--d:0" src="assets/img-002.webp" alt="MCG">
+        <h2 class="h2 rise" style="--d:1">Let's build what's next<span class="dots3" aria-hidden="true"><i></i><i></i><i></i></span></h2>
+        <p class="lede rise" style="--d:2">Send us the brief. We'll come back with ideas you can see.</p>
+        <dl class="clist rise" style="--d:3">
+          <dt>Web</dt><dd><a href="https://www.mcgmasters.com" target="_blank" rel="noopener">mcgmasters.com</a></dd>
+          <dt>Email</dt><dd>info@mcgmasters.com</dd>
+          <dt>Phone</dt><dd>+965 2220 2220</dd>
+          <dt>Instagram</dt><dd><a href="https://www.instagram.com/mcgroupkw/" target="_blank" rel="noopener">@mcgroupkw</a></dd>
+          <dt>Offices</dt><dd>Al Hamra Tower, Floor 18, Kuwait · Yarzeh, Baabda, Lebanon</dd>
+        </dl>
+        <div class="qrs rise" style="--d:4">
+          <figure><a href="https://calendly.com/husseinajouz/30min" target="_blank" rel="noopener" aria-label="Book a call"><svg class="qr" viewBox="0 0 33 33" shape-rendering="crispEdges" role="img" aria-label="QR code: https://calendly.com/husseinajouz/30min"><rect width="33" height="33" fill="#fff"/><path d="M2,2h1v1h-1zM3,2h1v1h-1zM4,2h1v1h-1zM5,2h1v1h-1zM6,2h1v1h-1zM7,2h1v1h-1zM8,2h1v1h-1zM12,2h1v1h-1zM14,2h1v1h-1zM15,2h1v1h-1zM16,2h1v1h-1zM17,2h1v1h-1zM21,2h1v1h-1zM24,2h1v1h-1zM25,2h1v1h-1zM26,2h1v1h-1zM27,2h1v1h-1zM28,2h1v1h-1zM29,2h1v1h-1zM30,2h1v1h-1zM2,3h1v1h-1zM8,3h1v1h-1zM10,3h1v1h-1zM11,3h1v1h-1zM12,3h1v1h-1zM15,3h1v1h-1zM16,3h1v1h-1zM17,3h1v1h-1zM19,3h1v1h-1zM20,3h1v1h-1zM21,3h1v1h-1zM24,3h1v1h-1zM30,3h1v1h-1zM2,4h1v1h-1zM4,4h1v1h-1zM5,4h1v1h-1zM6,4h1v1h-1zM8,4h1v1h-1zM11,4h1v1h-1zM12,4h1v1h-1zM13,4h1v1h-1zM14,4h1v1h-1zM18,4h1v1h-1zM22,4h1v1h-1zM24,4h1v1h-1zM26,4h1v1h-1zM27,4h1v1h-1zM28,4h1v1h-1zM30,4h1v1h-1zM2,5h1v1h-1zM4,5h1v1h-1zM5,5h1v1h-1zM6,5h1v1h-1zM8,5h1v1h-1zM11,5h1v1h-1zM16,5h1v1h-1zM17,5h1v1h-1zM18,5h1v1h-1zM20,5h1v1h-1zM24,5h1v1h-1zM26,5h1v1h-1zM27,5h1v1h-1zM28,5h1v1h-1zM30,5h1v1h-1zM2,6h1v1h-1zM4,6h1v1h-1zM5,6h1v1h-1zM6,6h1v1h-1zM8,6h1v1h-1zM10,6h1v1h-1zM11,6h1v1h-1zM13,6h1v1h-1zM14,6h1v1h-1zM15,6h1v1h-1zM16,6h1v1h-1zM17,6h1v1h-1zM18,6h1v1h-1zM21,6h1v1h-1zM24,6h1v1h-1zM26,6h1v1h-1zM27,6h1v1h-1zM28,6h1v1h-1zM30,6h1v1h-1zM2,7h1v1h-1zM8,7h1v1h-1zM11,7h1v1h-1zM12,7h1v1h-1zM13,7h1v1h-1zM14,7h1v1h-1zM15,7h1v1h-1zM17,7h1v1h-1zM18,7h1v1h-1zM21,7h1v1h-1zM22,7h1v1h-1zM24,7h1v1h-1zM30,7h1v1h-1zM2,8h1v1h-1zM3,8h1v1h-1zM4,8h1v1h-1zM5,8h1v1h-1zM6,8h1v1h-1zM7,8h1v1h-1zM8,8h1v1h-1zM10,8h1v1h-1zM12,8h1v1h-1zM14,8h1v1h-1zM16,8h1v1h-1zM18,8h1v1h-1zM20,8h1v1h-1zM22,8h1v1h-1zM24,8h1v1h-1zM25,8h1v1h-1zM26,8h1v1h-1zM27,8h1v1h-1zM28,8h1v1h-1zM29,8h1v1h-1zM30,8h1v1h-1zM11,9h1v1h-1zM14,9h1v1h-1zM15,9h1v1h-1zM16,9h1v1h-1zM19,9h1v1h-1zM20,9h1v1h-1zM22,9h1v1h-1zM2,10h1v1h-1zM4,10h1v1h-1zM6,10h1v1h-1zM8,10h1v1h-1zM11,10h1v1h-1zM12,10h1v1h-1zM15,10h1v1h-1zM19,10h1v1h-1zM21,10h1v1h-1zM22,10h1v1h-1zM26,10h1v1h-1zM29,10h1v1h-1zM3,11h1v1h-1zM4,11h1v1h-1zM7,11h1v1h-1zM10,11h1v1h-1zM12,11h1v1h-1zM19,11h1v1h-1zM20,11h1v1h-1zM23,11h1v1h-1zM24,11h1v1h-1zM27,11h1v1h-1zM30,11h1v1h-1zM2,12h1v1h-1zM3,12h1v1h-1zM5,12h1v1h-1zM6,12h1v1h-1zM7,12h1v1h-1zM8,12h1v1h-1zM10,12h1v1h-1zM15,12h1v1h-1zM19,12h1v1h-1zM20,12h1v1h-1zM23,12h1v1h-1zM25,12h1v1h-1zM26,12h1v1h-1zM28,12h1v1h-1zM29,12h1v1h-1zM30,12h1v1h-1zM2,13h1v1h-1zM3,13h1v1h-1zM5,13h1v1h-1zM10,13h1v1h-1zM11,13h1v1h-1zM13,13h1v1h-1zM14,13h1v1h-1zM15,13h1v1h-1zM18,13h1v1h-1zM19,13h1v1h-1zM20,13h1v1h-1zM21,13h1v1h-1zM22,13h1v1h-1zM23,13h1v1h-1zM24,13h1v1h-1zM29,13h1v1h-1zM4,14h1v1h-1zM7,14h1v1h-1zM8,14h1v1h-1zM10,14h1v1h-1zM16,14h1v1h-1zM17,14h1v1h-1zM18,14h1v1h-1zM19,14h1v1h-1zM21,14h1v1h-1zM22,14h1v1h-1zM23,14h1v1h-1zM24,14h1v1h-1zM27,14h1v1h-1zM29,14h1v1h-1zM30,14h1v1h-1zM10,15h1v1h-1zM11,15h1v1h-1zM14,15h1v1h-1zM19,15h1v1h-1zM22,15h1v1h-1zM23,15h1v1h-1zM24,15h1v1h-1zM27,15h1v1h-1zM30,15h1v1h-1zM5,16h1v1h-1zM7,16h1v1h-1zM8,16h1v1h-1zM9,16h1v1h-1zM11,16h1v1h-1zM12,16h1v1h-1zM15,16h1v1h-1zM18,16h1v1h-1zM23,16h1v1h-1zM24,16h1v1h-1zM26,16h1v1h-1zM27,16h1v1h-1zM29,16h1v1h-1zM30,16h1v1h-1zM3,17h1v1h-1zM6,17h1v1h-1zM7,17h1v1h-1zM9,17h1v1h-1zM10,17h1v1h-1zM19,17h1v1h-1zM20,17h1v1h-1zM22,17h1v1h-1zM23,17h1v1h-1zM26,17h1v1h-1zM27,17h1v1h-1zM29,17h1v1h-1zM2,18h1v1h-1zM4,18h1v1h-1zM7,18h1v1h-1zM8,18h1v1h-1zM9,18h1v1h-1zM11,18h1v1h-1zM14,18h1v1h-1zM17,18h1v1h-1zM19,18h1v1h-1zM21,18h1v1h-1zM22,18h1v1h-1zM23,18h1v1h-1zM24,18h1v1h-1zM27,18h1v1h-1zM29,18h1v1h-1zM30,18h1v1h-1zM5,19h1v1h-1zM7,19h1v1h-1zM9,19h1v1h-1zM10,19h1v1h-1zM12,19h1v1h-1zM13,19h1v1h-1zM14,19h1v1h-1zM15,19h1v1h-1zM18,19h1v1h-1zM22,19h1v1h-1zM23,19h1v1h-1zM24,19h1v1h-1zM27,19h1v1h-1zM28,19h1v1h-1zM30,19h1v1h-1zM2,20h1v1h-1zM5,20h1v1h-1zM6,20h1v1h-1zM7,20h1v1h-1zM8,20h1v1h-1zM9,20h1v1h-1zM11,20h1v1h-1zM12,20h1v1h-1zM13,20h1v1h-1zM16,20h1v1h-1zM20,20h1v1h-1zM23,20h1v1h-1zM25,20h1v1h-1zM26,20h1v1h-1zM29,20h1v1h-1zM30,20h1v1h-1zM3,21h1v1h-1zM4,21h1v1h-1zM5,21h1v1h-1zM6,21h1v1h-1zM7,21h1v1h-1zM10,21h1v1h-1zM11,21h1v1h-1zM13,21h1v1h-1zM15,21h1v1h-1zM16,21h1v1h-1zM17,21h1v1h-1zM18,21h1v1h-1zM19,21h1v1h-1zM20,21h1v1h-1zM23,21h1v1h-1zM25,21h1v1h-1zM27,21h1v1h-1zM29,21h1v1h-1zM2,22h1v1h-1zM4,22h1v1h-1zM5,22h1v1h-1zM6,22h1v1h-1zM8,22h1v1h-1zM9,22h1v1h-1zM11,22h1v1h-1zM16,22h1v1h-1zM19,22h1v1h-1zM22,22h1v1h-1zM23,22h1v1h-1zM24,22h1v1h-1zM25,22h1v1h-1zM26,22h1v1h-1zM10,23h1v1h-1zM11,23h1v1h-1zM13,23h1v1h-1zM16,23h1v1h-1zM18,23h1v1h-1zM21,23h1v1h-1zM22,23h1v1h-1zM26,23h1v1h-1zM28,23h1v1h-1zM29,23h1v1h-1zM30,23h1v1h-1zM2,24h1v1h-1zM3,24h1v1h-1zM4,24h1v1h-1zM5,24h1v1h-1zM6,24h1v1h-1zM7,24h1v1h-1zM8,24h1v1h-1zM13,24h1v1h-1zM14,24h1v1h-1zM15,24h1v1h-1zM19,24h1v1h-1zM21,24h1v1h-1zM22,24h1v1h-1zM24,24h1v1h-1zM26,24h1v1h-1zM27,24h1v1h-1zM29,24h1v1h-1zM30,24h1v1h-1zM2,25h1v1h-1zM8,25h1v1h-1zM12,25h1v1h-1zM14,25h1v1h-1zM18,25h1v1h-1zM19,25h1v1h-1zM22,25h1v1h-1zM26,25h1v1h-1zM27,25h1v1h-1zM30,25h1v1h-1zM2,26h1v1h-1zM4,26h1v1h-1zM5,26h1v1h-1zM6,26h1v1h-1zM8,26h1v1h-1zM10,26h1v1h-1zM11,26h1v1h-1zM12,26h1v1h-1zM14,26h1v1h-1zM17,26h1v1h-1zM18,26h1v1h-1zM19,26h1v1h-1zM22,26h1v1h-1zM23,26h1v1h-1zM24,26h1v1h-1zM25,26h1v1h-1zM26,26h1v1h-1zM29,26h1v1h-1zM30,26h1v1h-1zM2,27h1v1h-1zM4,27h1v1h-1zM5,27h1v1h-1zM6,27h1v1h-1zM8,27h1v1h-1zM14,27h1v1h-1zM15,27h1v1h-1zM18,27h1v1h-1zM19,27h1v1h-1zM21,27h1v1h-1zM22,27h1v1h-1zM25,27h1v1h-1zM26,27h1v1h-1zM28,27h1v1h-1zM29,27h1v1h-1zM30,27h1v1h-1zM2,28h1v1h-1zM4,28h1v1h-1zM5,28h1v1h-1zM6,28h1v1h-1zM8,28h1v1h-1zM10,28h1v1h-1zM11,28h1v1h-1zM14,28h1v1h-1zM18,28h1v1h-1zM20,28h1v1h-1zM21,28h1v1h-1zM23,28h1v1h-1zM25,28h1v1h-1zM26,28h1v1h-1zM27,28h1v1h-1zM30,28h1v1h-1zM2,29h1v1h-1zM8,29h1v1h-1zM12,29h1v1h-1zM13,29h1v1h-1zM16,29h1v1h-1zM19,29h1v1h-1zM20,29h1v1h-1zM21,29h1v1h-1zM22,29h1v1h-1zM23,29h1v1h-1zM24,29h1v1h-1zM26,29h1v1h-1zM29,29h1v1h-1zM2,30h1v1h-1zM3,30h1v1h-1zM4,30h1v1h-1zM5,30h1v1h-1zM6,30h1v1h-1zM7,30h1v1h-1zM8,30h1v1h-1zM10,30h1v1h-1zM12,30h1v1h-1zM13,30h1v1h-1zM14,30h1v1h-1zM16,30h1v1h-1zM17,30h1v1h-1zM18,30h1v1h-1zM19,30h1v1h-1zM22,30h1v1h-1zM23,30h1v1h-1zM24,30h1v1h-1zM26,30h1v1h-1zM29,30h1v1h-1zM30,30h1v1h-1z" fill="#144074"/></svg></a><figcaption>Book a call</figcaption></figure>
+          <figure><a href="https://www.mcgmasters.com" target="_blank" rel="noopener" aria-label="Visit mcgmasters.com"><svg class="qr" viewBox="0 0 29 29" shape-rendering="crispEdges" role="img" aria-label="QR code: https://www.mcgmasters.com"><rect width="29" height="29" fill="#fff"/><path d="M2,2h1v1h-1zM3,2h1v1h-1zM4,2h1v1h-1zM5,2h1v1h-1zM6,2h1v1h-1zM7,2h1v1h-1zM8,2h1v1h-1zM10,2h1v1h-1zM11,2h1v1h-1zM12,2h1v1h-1zM13,2h1v1h-1zM14,2h1v1h-1zM15,2h1v1h-1zM20,2h1v1h-1zM21,2h1v1h-1zM22,2h1v1h-1zM23,2h1v1h-1zM24,2h1v1h-1zM25,2h1v1h-1zM26,2h1v1h-1zM2,3h1v1h-1zM8,3h1v1h-1zM10,3h1v1h-1zM11,3h1v1h-1zM12,3h1v1h-1zM16,3h1v1h-1zM18,3h1v1h-1zM20,3h1v1h-1zM26,3h1v1h-1zM2,4h1v1h-1zM4,4h1v1h-1zM5,4h1v1h-1zM6,4h1v1h-1zM8,4h1v1h-1zM10,4h1v1h-1zM11,4h1v1h-1zM13,4h1v1h-1zM15,4h1v1h-1zM16,4h1v1h-1zM17,4h1v1h-1zM18,4h1v1h-1zM20,4h1v1h-1zM22,4h1v1h-1zM23,4h1v1h-1zM24,4h1v1h-1zM26,4h1v1h-1zM2,5h1v1h-1zM4,5h1v1h-1zM5,5h1v1h-1zM6,5h1v1h-1zM8,5h1v1h-1zM12,5h1v1h-1zM14,5h1v1h-1zM15,5h1v1h-1zM18,5h1v1h-1zM20,5h1v1h-1zM22,5h1v1h-1zM23,5h1v1h-1zM24,5h1v1h-1zM26,5h1v1h-1zM2,6h1v1h-1zM4,6h1v1h-1zM5,6h1v1h-1zM6,6h1v1h-1zM8,6h1v1h-1zM10,6h1v1h-1zM12,6h1v1h-1zM13,6h1v1h-1zM18,6h1v1h-1zM20,6h1v1h-1zM22,6h1v1h-1zM23,6h1v1h-1zM24,6h1v1h-1zM26,6h1v1h-1zM2,7h1v1h-1zM8,7h1v1h-1zM11,7h1v1h-1zM13,7h1v1h-1zM14,7h1v1h-1zM16,7h1v1h-1zM20,7h1v1h-1zM26,7h1v1h-1zM2,8h1v1h-1zM3,8h1v1h-1zM4,8h1v1h-1zM5,8h1v1h-1zM6,8h1v1h-1zM7,8h1v1h-1zM8,8h1v1h-1zM10,8h1v1h-1zM12,8h1v1h-1zM14,8h1v1h-1zM16,8h1v1h-1zM18,8h1v1h-1zM20,8h1v1h-1zM21,8h1v1h-1zM22,8h1v1h-1zM23,8h1v1h-1zM24,8h1v1h-1zM25,8h1v1h-1zM26,8h1v1h-1zM13,9h1v1h-1zM14,9h1v1h-1zM15,9h1v1h-1zM16,9h1v1h-1zM18,9h1v1h-1zM2,10h1v1h-1zM5,10h1v1h-1zM6,10h1v1h-1zM7,10h1v1h-1zM8,10h1v1h-1zM9,10h1v1h-1zM10,10h1v1h-1zM12,10h1v1h-1zM16,10h1v1h-1zM18,10h1v1h-1zM19,10h1v1h-1zM22,10h1v1h-1zM24,10h1v1h-1zM25,10h1v1h-1zM26,10h1v1h-1zM2,11h1v1h-1zM5,11h1v1h-1zM6,11h1v1h-1zM7,11h1v1h-1zM9,11h1v1h-1zM11,11h1v1h-1zM16,11h1v1h-1zM17,11h1v1h-1zM19,11h1v1h-1zM21,11h1v1h-1zM22,11h1v1h-1zM23,11h1v1h-1zM24,11h1v1h-1zM25,11h1v1h-1zM4,12h1v1h-1zM5,12h1v1h-1zM6,12h1v1h-1zM7,12h1v1h-1zM8,12h1v1h-1zM9,12h1v1h-1zM12,12h1v1h-1zM13,12h1v1h-1zM17,12h1v1h-1zM18,12h1v1h-1zM20,12h1v1h-1zM21,12h1v1h-1zM23,12h1v1h-1zM26,12h1v1h-1zM3,13h1v1h-1zM6,13h1v1h-1zM9,13h1v1h-1zM11,13h1v1h-1zM13,13h1v1h-1zM16,13h1v1h-1zM17,13h1v1h-1zM21,13h1v1h-1zM23,13h1v1h-1zM24,13h1v1h-1zM25,13h1v1h-1zM26,13h1v1h-1zM4,14h1v1h-1zM5,14h1v1h-1zM7,14h1v1h-1zM8,14h1v1h-1zM9,14h1v1h-1zM10,14h1v1h-1zM11,14h1v1h-1zM12,14h1v1h-1zM13,14h1v1h-1zM14,14h1v1h-1zM17,14h1v1h-1zM18,14h1v1h-1zM20,14h1v1h-1zM26,14h1v1h-1zM2,15h1v1h-1zM3,15h1v1h-1zM4,15h1v1h-1zM5,15h1v1h-1zM6,15h1v1h-1zM7,15h1v1h-1zM14,15h1v1h-1zM15,15h1v1h-1zM17,15h1v1h-1zM18,15h1v1h-1zM19,15h1v1h-1zM22,15h1v1h-1zM25,15h1v1h-1zM2,16h1v1h-1zM3,16h1v1h-1zM4,16h1v1h-1zM5,16h1v1h-1zM6,16h1v1h-1zM8,16h1v1h-1zM17,16h1v1h-1zM19,16h1v1h-1zM20,16h1v1h-1zM22,16h1v1h-1zM23,16h1v1h-1zM24,16h1v1h-1zM25,16h1v1h-1zM26,16h1v1h-1zM2,17h1v1h-1zM11,17h1v1h-1zM12,17h1v1h-1zM16,17h1v1h-1zM17,17h1v1h-1zM18,17h1v1h-1zM19,17h1v1h-1zM21,17h1v1h-1zM23,17h1v1h-1zM24,17h1v1h-1zM26,17h1v1h-1zM2,18h1v1h-1zM4,18h1v1h-1zM5,18h1v1h-1zM6,18h1v1h-1zM8,18h1v1h-1zM9,18h1v1h-1zM10,18h1v1h-1zM11,18h1v1h-1zM12,18h1v1h-1zM14,18h1v1h-1zM15,18h1v1h-1zM17,18h1v1h-1zM18,18h1v1h-1zM19,18h1v1h-1zM20,18h1v1h-1zM21,18h1v1h-1zM22,18h1v1h-1zM24,18h1v1h-1zM25,18h1v1h-1zM10,19h1v1h-1zM12,19h1v1h-1zM16,19h1v1h-1zM18,19h1v1h-1zM22,19h1v1h-1zM24,19h1v1h-1zM25,19h1v1h-1zM2,20h1v1h-1zM3,20h1v1h-1zM4,20h1v1h-1zM5,20h1v1h-1zM6,20h1v1h-1zM7,20h1v1h-1zM8,20h1v1h-1zM10,20h1v1h-1zM11,20h1v1h-1zM12,20h1v1h-1zM13,20h1v1h-1zM16,20h1v1h-1zM18,20h1v1h-1zM20,20h1v1h-1zM22,20h1v1h-1zM26,20h1v1h-1zM2,21h1v1h-1zM8,21h1v1h-1zM10,21h1v1h-1zM11,21h1v1h-1zM12,21h1v1h-1zM13,21h1v1h-1zM15,21h1v1h-1zM17,21h1v1h-1zM18,21h1v1h-1zM22,21h1v1h-1zM2,22h1v1h-1zM4,22h1v1h-1zM5,22h1v1h-1zM6,22h1v1h-1zM8,22h1v1h-1zM10,22h1v1h-1zM11,22h1v1h-1zM12,22h1v1h-1zM13,22h1v1h-1zM14,22h1v1h-1zM17,22h1v1h-1zM18,22h1v1h-1zM19,22h1v1h-1zM20,22h1v1h-1zM21,22h1v1h-1zM22,22h1v1h-1zM2,23h1v1h-1zM4,23h1v1h-1zM5,23h1v1h-1zM6,23h1v1h-1zM8,23h1v1h-1zM10,23h1v1h-1zM11,23h1v1h-1zM12,23h1v1h-1zM13,23h1v1h-1zM15,23h1v1h-1zM16,23h1v1h-1zM17,23h1v1h-1zM18,23h1v1h-1zM20,23h1v1h-1zM25,23h1v1h-1zM26,23h1v1h-1zM2,24h1v1h-1zM4,24h1v1h-1zM5,24h1v1h-1zM6,24h1v1h-1zM8,24h1v1h-1zM13,24h1v1h-1zM15,24h1v1h-1zM18,24h1v1h-1zM19,24h1v1h-1zM22,24h1v1h-1zM23,24h1v1h-1zM24,24h1v1h-1zM25,24h1v1h-1zM26,24h1v1h-1zM2,25h1v1h-1zM8,25h1v1h-1zM14,25h1v1h-1zM21,25h1v1h-1zM22,25h1v1h-1zM24,25h1v1h-1zM25,25h1v1h-1zM26,25h1v1h-1zM2,26h1v1h-1zM3,26h1v1h-1zM4,26h1v1h-1zM5,26h1v1h-1zM6,26h1v1h-1zM7,26h1v1h-1zM8,26h1v1h-1zM10,26h1v1h-1zM12,26h1v1h-1zM13,26h1v1h-1zM14,26h1v1h-1zM18,26h1v1h-1zM19,26h1v1h-1zM23,26h1v1h-1zM26,26h1v1h-1z" fill="#144074"/></svg></a><figcaption>Visit our site</figcaption></figure>
+        </div>
+      </div>
+      <aside class="ps rise" style="--d:3">
+        <p class="eyebrow">P.S.</p>
+        <h3>You just used an interactive credentials.</h3>
+        <p>We build these for brands too: company profiles, catalogues and menus that people actually enjoy opening, and that work on any screen.</p>
+        <a class="btn" href="https://calendly.com/husseinajouz/30min" target="_blank" rel="noopener">Ask us about it <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
+      </aside>
+    </div>
+  </section>
+
+  <!-- nav -->
+  <nav class="pill" aria-label="Navigation">
+    <button id="prev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <div class="navdots" id="dots"></div>
+    <span class="sep"></span>
+    <button id="fs" aria-label="Full screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
+    <button id="menuBtn" aria-label="All slides" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 7h14M5 12h14M5 17h14"/></svg></button>
+    <button id="next" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+  </nav>
+  <div class="menu" id="menu"><ol id="menuList"></ol></div>
+
+  <div class="modal" id="wall" role="dialog" aria-modal="true" aria-label="Client wall">
+    <button class="close" data-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <div class="kicker"><span class="rule"></span><p class="eyebrow">Client wall</p></div>
+    <h2 class="h2">Some of the brands we've worked with.</h2>
+    <div class="wall"><img src="assets/img-041.webp" alt="MCG portfolio of clients: logos including Honda, Mercedes-Benz, GMC, Geely, BYD, Mitsubishi, KFH, KIC, GIG, Microsoft, Huawei, Kuwait Airways, Baraka Dates, Crowne Plaza and Johnson &amp; Johnson"></div>
+  </div>
+</div>
+</div>
+
+<div class="turn" id="turn" role="status"><div>
+  <svg viewBox="0 0 64 64" fill="none" stroke="#F6F8FB" stroke-width="2.4" aria-hidden="true"><rect x="20" y="8" width="24" height="44" rx="4"/><path d="M29 46h6"/></svg>
+  <p>Turn your phone sideways<br>for the full view.</p><small>Tap anywhere to continue</small>
+</div></div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
