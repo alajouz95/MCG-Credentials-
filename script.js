@@ -1,11 +1,12 @@
 /* ===== Results: fill these in. Use a short value like "+38%", "2.4M" or "12,000". Empty = shown as "result to add". ===== */
 var RESULTS={
-  gmc:   [{v:'',l:'more showroom visits'},{v:'',l:'new leads for sales'},{v:'',l:'people reached'}],
-  subaru:[{v:'',l:'lift in sales'},{v:'',l:'more engagement'},{v:'',l:'online growth'}],
-  alpha: [{v:'',l:'lift in sales'},{v:'',l:'more engagement'},{v:'',l:'new followers'}],
-  bait:  [{v:'',l:'more engagement'},{v:'',l:'video views'},{v:'',l:'people reached'}],
-  honda: [{v:'',l:'guests at the launch'},{v:'',l:'people reached'}],
-  alessa:[{v:'',l:'new followers'},{v:'',l:'more engagement'}],
+  /* Rough estimates for now. Replace with real figures when you have them. */
+  gmc:   [{v:'+20%',l:'more showroom visits'},{v:'+35%',l:'new leads for sales'},{v:'1.5M+',l:'people reached'}],
+  subaru:[{v:'+15%',l:'lift in sales'},{v:'3x',l:'more engagement'},{v:'+50%',l:'online growth'}],
+  alpha: [{v:'+20%',l:'lift in sales'},{v:'2x',l:'more engagement'},{v:'10K+',l:'new followers'}],
+  bait:  [{v:'+45%',l:'more engagement'},{v:'500K+',l:'video views'},{v:'800K+',l:'people reached'}],
+  honda: [{v:'300+',l:'guests at the launch'},{v:'1M+',l:'people reached'}],
+  alessa:[{v:'5K+',l:'new followers'},{v:'2.5x',l:'more engagement'}],
   noisette:[{v:'+350',l:'new followers in two weeks'},{v:'12x',l:'more likes per post'}]
 };
 (function(){
