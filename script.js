@@ -1,11 +1,12 @@
 /* ===== Results: fill these in. Use a short value like "+38%", "2.4M" or "12,000". Empty = shown as "result to add". ===== */
 var RESULTS={
-  /* Rough estimates for now. Replace with real figures when you have them. */
-  gmc:   [{v:'+20%',l:'more showroom visits'},{v:'+35%',l:'new leads for sales'},{v:'1.5M+',l:'people reached'}],
+  /* Real figures: GMC leads, Honda, Baraka, Noisette. The rest are rough estimates for now. */
+  gmc:   [{v:'1,800+',l:'qualified leads'},{v:'+20%',l:'more showroom visits'},{v:'1.5M+',l:'people reached'}],
   subaru:[{v:'+15%',l:'lift in sales'},{v:'3x',l:'more engagement'},{v:'+50%',l:'online growth'}],
   alpha: [{v:'+20%',l:'lift in sales'},{v:'2x',l:'more engagement'},{v:'10K+',l:'new followers'}],
   bait:  [{v:'+45%',l:'more engagement'},{v:'500K+',l:'video views'},{v:'800K+',l:'people reached'}],
-  honda: [{v:'300+',l:'guests at the launch'},{v:'1M+',l:'people reached'}],
+  honda: [{v:'25,000+',l:'leads in 12 months'},{v:'<15 KWD',l:'average cost per lead'}],
+  baraka:[{v:'40,000+',l:'KWD in Ramadan sales'},{v:'+20%',l:'sales growth, year on year'}],
   alessa:[{v:'5K+',l:'new followers'},{v:'2.5x',l:'more engagement'}],
   noisette:[{v:'+350',l:'new followers in two weeks'},{v:'12x',l:'more likes per post'}]
 };
@@ -124,6 +125,7 @@ var RESULTS={
     if(s.classList.contains('s-think')) playThink(); else stopAuto();
     if(s.classList.contains('s-story')) playStory(); else stopStory();
     if(s.classList.contains('s-work')) wallEnter(); else popStop();
+    if(s.classList.contains('s-num')) playNum(); else stopNum();
     if(s.classList.contains('s-clients-grid')) showSector('all');
   }
 
@@ -711,7 +713,7 @@ var RESULTS={
     subaru:{c:'Subaru',t:'Online relaunch',y:2022,k:'camp',im:['#subaru:0','#subaru:1','#subaru:2'],d:'Social media and digital ads for the whole range, from the Forester to the WRX and BRZ.',go:'subaru'},
     alpha:{c:'Alpha Store',t:'Social & digital',y:2023,k:'social',im:['#alpha:0','#alpha:1','#alpha:2','#alpha:3','#alpha:4'],d:'Social media, digital ads, product shoots and video for Kuwait’s Apple authorised service provider.',go:'alpha'},
     bait:{c:'Bait Al Sabon',t:'Summer shoot',y:2023,k:'film',im:['#bait:0'],d:'A summer outdoor photo and video shoot for a handmade skincare brand, turned into social content.',go:'bait'},
-    honda:{c:'Honda Alghanim',t:'Civic Type R launch',y:2022,k:'camp',im:['honda2','honda1','honda3'],d:'The launch of a car fans had waited years for: 3D event design, photos, video and live social coverage.',res:'honda'},
+    honda:{c:'Honda Alghanim',t:'Launches & lead generation',y:2022,k:'camp',im:['honda2','honda1','honda3'],d:'The Civic Type R launch, with 3D event design, photos, video and live coverage, plus always-on lead campaigns on Meta, Google and TikTok.',res:'honda'},
     fl_snd:{c:'Foot Locker',t:'Saudi National Day',y:2026,k:'camp',im:['fl_snd'],d:'Content for Foot Locker Middle East’s Saudi National Day celebration.',ig:'Ddn-1jPsNtU'},
     ford:{c:'Ford Alghanim',t:'A weekend with Ford',y:2026,k:'camp',im:['ford'],d:'An exciting weekend with Ford Alghanim, a client of ours for over a decade.',ig:'DbQm10asyJV'},
     gmc_social:{c:'GMC Behbehani',t:'Power in every frame',y:2026,k:'social',im:['gmc_social'],d:'Social media content for GMC: power in every frame.',ig:'Dak1NRSDBLk'},
@@ -720,7 +722,7 @@ var RESULTS={
     noisette:{c:'Noisette Chocolate',t:'Social media',y:2026,k:'social',im:['noisette'],d:'Social media for Noisette Chocolate. Within two weeks, likes per post went from 22 to 265.',ig:'DdRMy5NjCkK',res:'noisette'},
     loyac:{c:'Loyac',t:'Social video',y:2026,k:'social',im:['loyac'],d:'A social video for Loyac Kuwait.',ig:'DbaGOp0M4lU'},
     italian:{c:'Italian Home',t:'Social media',y:2026,k:'social',im:['italian'],d:'Social media content for Italian Home.',ig:'DaXjXx8jFcf'},
-    baraka:{c:'Baraka Dates',t:'Social media',y:2026,k:'social',im:['baraka'],d:'Social media content for Baraka Dates.',ig:'DaNwO7njP-r'},
+    baraka:{c:'Baraka Dates',t:'Ramadan campaigns & social',y:2026,k:'social',im:['baraka'],d:'Ramadan campaigns on Meta, Snapchat and TikTok, influencer collaborations and social content.',ig:'DaNwO7njP-r',res:'baraka'},
     petpad:{c:'PetPad',t:'App launch',y:2026,k:'social',im:['petpad2','petpad1'],d:'Launching PetPad, a social app for pets, on social media from zero posts.',ig:'DdEBSAaDJV6'},
     gmc_film:{c:'GMC Behbehani',t:'Through the generations',y:2026,k:'film',im:['gmc_film'],d:'A brand film for GMC about a truck that passes through the generations.',ig:'Dax2xTGM2ee'},
     btb:{c:'Bumper to Bumper',t:'TV commercial',y:2026,k:'film',im:['btb'],d:'Our TV commercial shoot for BTB All Makes, with Timeline Pro.',ig:'DbftU8TMhqW'},
@@ -787,6 +789,26 @@ var RESULTS={
   document.getElementById('lbPrev').onclick=function(e){e.stopPropagation();lbStep(-1)};
   document.getElementById('lbNext').onclick=function(e){e.stopPropagation();lbStep(1)};
   lb.addEventListener('click',function(e){if(e.target===lb)closeModal()});
+
+  /* digital results (from the digital marketing team's portfolio) */
+  var NUM=[
+    {c:'Honda Alghanim',logo:'Honda Alghanim',v:'25,000+',l:'leads in 12 months',sub:'Average cost per lead under 15 KWD, well below the market.',goal:'Keep quality leads coming in for several models, all year round.',did:'Always-on campaigns with video and carousel ads for offers and new launches, and constant A/B testing to bring the cost per lead down.',where:['Meta','Google','TikTok']},
+    {c:'Baraka Dates',logo:'Baraka Dates',v:'40,000+',l:'KWD in Ramadan sales',sub:'+20% sales growth year on year, kept after the campaign.',goal:'Grow seasonal sales and strengthen the brand online.',did:'Ramadan campaigns, influencer collaborations and storytelling ads, plus an online store set up to sell directly.',where:['Meta','Snapchat','TikTok','E-commerce']},
+    {c:'Kuwait Airways',logo:'Kuwait Airways',v:'25M+',l:'impressions in one winter',sub:'200K+ clicks through to booking.',goal:'Drive bookings and visibility in the peak travel season.',did:'A full-funnel winter campaign: high-impact video ads built around winter destinations, from awareness to booking.',where:['Meta','YouTube','Programmatic']},
+    {c:'GMC Behbehani',logo:'GMC',v:'1,800+',l:'qualified leads',sub:'Cost per lead kept steady, within competitive benchmarks.',goal:'Bring in quality leads for new GMC launches.',did:'Lead campaigns with creatives made for Kuwait’s car buyers, optimised continuously to keep the cost per lead low.',where:['Meta','Google','TikTok']},
+    {c:'Box Hill College',logo:'Box Hill College Kuwait',v:'3,000+',l:'student enquiries',sub:'A clear lift in awareness during the admissions cycle.',goal:'Boost student enrolments for the academic year.',did:'Lead campaigns aimed at parents and students, in more than one language, with retargeting for people who had already shown interest.',where:['Meta','Google','Retargeting']}
+  ];
+  var nBox=document.getElementById('ncards'), nDet=document.getElementById('ndet'), nI=-1, nT=null;
+  function logoOf(n){for(var i=0;i<CL.length;i++)if(CL[i].n===n)return CL[i].u;return ''}
+  var nBtns=NUM.map(function(x,i){var b=document.createElement('button');b.className='nc';
+    var m=x.v.match(/^([^\d]*)([\d][\d,]*\.?\d*)(.*)$/);
+    b.innerHTML='<span class="lg"><img alt="'+esc(x.c)+'" src="'+logoOf(x.logo)+'"></span><span class="nwho">'+esc(x.c)+'</span><b data-prefix="'+m[1]+'" data-count="'+m[2].replace(/,/g,'')+'" data-suffix="'+m[3]+'">'+esc(x.v)+'</b><span class="l">'+esc(x.l)+'</span><span class="sub">'+esc(x.sub)+'</span>';
+    b.onclick=function(){stopNum();setNum(i)}; nBox.appendChild(b); return b});
+  function setNum(i){var first=nI<0;nI=i;nBtns.forEach(function(b,j){b.classList.toggle('on',j===i);b.setAttribute('aria-pressed',j===i)});var x=NUM[i];nDet.classList.add('fade');
+    setTimeout(function(){document.getElementById('nGoal').textContent=x.goal;document.getElementById('nDid').textContent=x.did;document.getElementById('nWhere').innerHTML=x.where.map(function(w){return '<span>'+esc(w)+'</span>'}).join('');nDet.classList.remove('fade')},first?0:200)}
+  function stopNum(){clearInterval(nT);nT=null}
+  function playNum(){stopNum();setNum(0);var i=0;nT=setInterval(function(){i++;if(i>=NUM.length){stopNum();return}setNum(i)},4200)}
+  setNum(0);
 
   /* "prepared for" from the link, e.g. #for-Alghanim-Industries */
   var h=decodeURIComponent((location.hash||'').slice(1));
