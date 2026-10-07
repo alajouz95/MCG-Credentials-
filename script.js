@@ -6,7 +6,7 @@ var RESULTS={
   alpha: [{v:'+20%',l:'lift in sales'},{v:'2x',l:'more engagement'},{v:'10K+',l:'new followers'}],
   bait:  [{v:'+45%',l:'more engagement'},{v:'500K+',l:'video views'},{v:'800K+',l:'people reached'}],
   honda: [{v:'25,000+',l:'leads in 12 months'},{v:'<15 KWD',l:'average cost per lead'}],
-  baraka:[{v:'40,000+',l:'KWD in Ramadan sales'},{v:'+20%',l:'sales growth, year on year'}],
+  baraka:[{v:'+20%',l:'sales growth, year on year'}],
   alessa:[{v:'5K+',l:'new followers'},{v:'2.5x',l:'more engagement'}],
   noisette:[{v:'+350',l:'new followers in two weeks'},{v:'12x',l:'more likes per post'}]
 };
@@ -790,10 +790,10 @@ var RESULTS={
   document.getElementById('lbNext').onclick=function(e){e.stopPropagation();lbStep(1)};
   lb.addEventListener('click',function(e){if(e.target===lb)closeModal()});
 
-  /* digital results (from the digital marketing team's portfolio) */
+  /* digital marketing campaigns (figures from the digital team's portfolio; no sales amounts, by request) */
   var NUM=[
     {c:'Honda Alghanim',logo:'Honda Alghanim',v:'25,000+',l:'leads in 12 months',sub:'Average cost per lead under 15 KWD, well below the market.',goal:'Keep quality leads coming in for several models, all year round.',did:'Always-on campaigns with video and carousel ads for offers and new launches, and constant A/B testing to bring the cost per lead down.',where:['Meta','Google','TikTok']},
-    {c:'Baraka Dates',logo:'Baraka Dates',v:'40,000+',l:'KWD in Ramadan sales',sub:'+20% sales growth year on year, kept after the campaign.',goal:'Grow seasonal sales and strengthen the brand online.',did:'Ramadan campaigns, influencer collaborations and storytelling ads, plus an online store set up to sell directly.',where:['Meta','Snapchat','TikTok','E-commerce']},
+    {c:'Baraka Dates',logo:'Baraka Dates',v:'+20%',l:'sales growth, year on year',sub:'Growth that stayed after the Ramadan campaign ended.',goal:'Grow seasonal sales and strengthen the brand online.',did:'Ramadan campaigns, influencer collaborations and storytelling ads, plus an online store set up to sell directly.',where:['Meta','Snapchat','TikTok','E-commerce']},
     {c:'Kuwait Airways',logo:'Kuwait Airways',v:'25M+',l:'impressions in one winter',sub:'200K+ clicks through to booking.',goal:'Drive bookings and visibility in the peak travel season.',did:'A full-funnel winter campaign: high-impact video ads built around winter destinations, from awareness to booking.',where:['Meta','YouTube','Programmatic']},
     {c:'GMC Behbehani',logo:'GMC',v:'1,800+',l:'qualified leads',sub:'Cost per lead kept steady, within competitive benchmarks.',goal:'Bring in quality leads for new GMC launches.',did:'Lead campaigns with creatives made for Kuwait’s car buyers, optimised continuously to keep the cost per lead low.',where:['Meta','Google','TikTok']},
     {c:'Box Hill College',logo:'Box Hill College Kuwait',v:'3,000+',l:'student enquiries',sub:'A clear lift in awareness during the admissions cycle.',goal:'Boost student enrolments for the academic year.',did:'Lead campaigns aimed at parents and students, in more than one language, with retargeting for people who had already shown interest.',where:['Meta','Google','Retargeting']}

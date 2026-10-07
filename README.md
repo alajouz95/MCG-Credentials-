@@ -13,7 +13,7 @@ Plain HTML, CSS and JavaScript, with no build step. Please pull before you edit,
 ## Where to edit (in script.js)
 - `RESULTS`: case-study numbers. An empty `v` shows a dashed "Result to add" box.
 - `W`: the projects on the "Work we're proud of" wall.
-- `NUM`: the "Results" slide (real figures from the digital marketing team).
+- `NUM`: the "Digital campaigns" slide (figures from the digital marketing team; no sales amounts).
 - `WT`: where each project sits on that wall.
 - `ST`: the "Our story" timeline.
 - `STEPS`: "How we work".
