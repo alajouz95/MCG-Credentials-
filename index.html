@@ -15,15 +15,14 @@
 
 <div id="vp">
 <div id="stage" data-dir="fwd" aria-roledescription="carousel" aria-label="MCG credentials">
-
   <!-- 1 Cover -->
-  <section class="slide s-cover is-active" data-name="Hello">
-    <img class="bg" src="assets/img-001.webp" alt="">
+  <section class="slide s-cover is-active" data-id="hello" data-name="Hello">
+    <img class="bg" src="assets/orbs1.webp" alt="">
     <div class="scrim"></div>
     <span class="float" style="left:820px;top:150px;width:22px;height:22px;background:var(--orange)"></span>
     <span class="float" style="left:900px;top:240px;width:14px;height:14px;background:var(--pink);animation-delay:-3s"></span>
     <span class="float" style="left:1010px;top:170px;width:10px;height:10px;background:var(--cyan);animation-delay:-6s"></span>
-    <img class="logo rise" style="--d:0" src="assets/img-002.webp" alt="MCG">
+    <img class="logo rise" style="--d:0" src="assets/logo_white.webp" alt="MCG">
     <p class="eyebrow tag rise" style="--d:1">Credentials · 2026</p>
     <div class="pad">
       <p class="for rise" style="--d:1" id="forLine" hidden>Prepared for <b id="forName"></b></p>
@@ -35,7 +34,7 @@
   </section>
 
   <!-- 2 Who -->
-  <section class="slide s-who" data-name="Who we are">
+  <section class="slide s-who" data-id="who" data-name="Who we are">
     <div class="who">
       <div class="who-l">
         <div class="kicker rise" style="--d:0"><span class="rule"></span><p class="eyebrow">Who we are</p></div>
@@ -59,28 +58,38 @@
     </div>
   </section>
 
-  <!-- 3 What do you need -->
-  <section class="slide s-need" data-name="What do you need?">
+  <!-- 3 Our story -->
+  <section class="slide s-story" data-id="story" data-name="Our story">
     <div class="pad">
       <div class="toprow">
         <div class="head">
-          <div class="kicker rise" style="--d:0"><span class="rule"></span><p class="eyebrow">Start here</p></div>
-          <h2 class="h2 rise" style="--d:1">What do you need right now?</h2>
+          <div class="kicker rise" style="--d:0"><span class="rule"></span><p class="eyebrow">Our story</p></div>
+          <h2 class="h2 rise" style="--d:1">From one office in 2004 to an AI-first agency.</h2>
         </div>
-        <p class="hint rise" style="--d:2"><i></i>Tap one. We'll show you how we'd help.</p>
+        <button class="hint rise replay" style="--d:2" id="stReplay"><i></i>Tap a moment, or watch it play</button>
       </div>
-      <div class="need rise" style="--d:3">
-        <div class="goals" id="goals"></div>
-        <div class="answer" aria-live="polite">
-          <p class="eyebrow">Here's how we'd help</p>
-          <div class="ans-body" id="ansBody"></div>
-        </div>
+      <div class="st-detail rise" style="--d:3" aria-live="polite">
+        <p class="st-big" id="stBig">2004</p>
+        <div class="st-main"><p class="eyebrow" id="stEy">2004</p><h3 id="stHead"></h3><p class="body" id="stBody"></p></div>
+      </div>
+      <div class="st-chart rise" style="--d:4">
+        <svg viewBox="0 0 1168 190" aria-hidden="true">
+          <defs><linearGradient id="stFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F29123" stop-opacity=".22"/><stop offset="1" stop-color="#F29123" stop-opacity="0"/></linearGradient></defs>
+          <g id="stTicks"></g>
+          <path id="stArea" d=""/>
+          <path id="stBase" d=""/>
+          <path id="stLit" d=""/>
+          <path id="stNext" d=""/>
+          <g id="stStorms"></g>
+          <circle id="stRunner" r="8"/>
+        </svg>
+        <div class="st-stops" id="stStops"></div>
       </div>
     </div>
   </section>
 
   <!-- 4 Services -->
-  <section class="slide s-svc" data-name="What we do">
+  <section class="slide s-svc" data-id="services" data-name="What we do">
     <div class="pad">
       <div class="toprow">
         <div class="head">
@@ -93,36 +102,8 @@
     </div>
   </section>
 
-  <!-- 5 How we think -->
-  <section class="slide s-think" data-name="How we think">
-    <div class="pad">
-      <div class="toprow">
-        <div class="head">
-          <div class="kicker rise" style="--d:0"><span class="rule"></span><p class="eyebrow">How we think</p></div>
-          <h2 class="h2 rise" style="--d:1">Strategy first, always.</h2>
-          <p class="lede rise" style="--d:2">Every project, big or small, goes through the same five steps.</p>
-        </div>
-        <button class="hint rise replay" style="--d:2" id="replay"><i></i>Tap a step, or watch it play</button>
-      </div>
-      <div class="route rise" style="--d:3">
-        <svg viewBox="0 0 1168 200" id="routeSvg" aria-hidden="true">
-          <path id="routeBase" d="M14 140C60 140 80 140 110 140C190 140 250 52 340 52C430 52 500 140 584 140C650 140 702 52 664 32C624 12 598 96 666 100C726 102 762 52 828 52C910 52 980 140 1058 140C1100 140 1120 140 1154 140"/>
-          <path id="routeLit" d="M14 140C60 140 80 140 110 140C190 140 250 52 340 52C430 52 500 140 584 140C650 140 702 52 664 32C624 12 598 96 666 100C726 102 762 52 828 52C910 52 980 140 1058 140C1100 140 1120 140 1154 140"/>
-          <circle class="end-o" cx="14" cy="140" r="7"/><circle class="end-p" cx="1154" cy="140" r="7"/>
-          <circle id="runner" r="9" cx="110" cy="140"/>
-        </svg>
-        <div class="stops" id="stops"></div>
-      </div>
-      <div class="think-detail rise" style="--d:4" aria-live="polite">
-        <p class="tnum" id="tNum">01</p>
-        <div class="tmain"><h3 id="tHead"></h3><p class="body" id="tBody"></p></div>
-        <div class="tget"><p class="eyebrow">You get</p><p id="tGet"></p></div>
-      </div>
-    </div>
-  </section>
-
   <!-- 6 Who we work with -->
-  <section class="slide s-clients-grid" data-name="Who we work with">
+  <section class="slide s-clients-grid" data-id="clients" data-name="Who we work with">
     <div class="pad">
       <div class="toprow">
         <div class="head">
@@ -136,33 +117,43 @@
     </div>
   </section>
 
-  <!-- 5 Work hub -->
-  <section class="slide s-hub" data-name="Our work">
+  <!-- 6 How we think -->
+  <section class="slide s-think" data-id="think" data-name="How we work">
     <div class="pad">
       <div class="toprow">
         <div class="head">
-          <div class="kicker rise" style="--d:0"><span class="rule"></span><p class="eyebrow">Our work</p></div>
-          <h2 class="h2 rise" style="--d:1">Work we're proud of.</h2>
+          <div class="kicker rise" style="--d:0"><span class="rule"></span><p class="eyebrow">How we work</p></div>
+          <h2 class="h2 rise" style="--d:1">Strategy first, always.</h2>
+          <p class="lede rise" style="--d:2">Every project, big or small, goes through the same five simple steps.</p>
         </div>
-        <p class="hint rise" style="--d:2"><i></i>Tap a project to see the story.</p>
+        <button class="hint rise replay" style="--d:2" id="replay"><i></i>Tap a step, or watch it play</button>
       </div>
-      <div class="tiles rise" style="--d:3">
-        <button class="tile" data-go="7"><img src="assets/img-003.webp" alt="GMC Sierra campaign photo"><img class="badge" src="assets/img-004.webp" alt=""><span class="tile-t"><span class="tt"><b>GMC Behbehani</b><span class="meta">Campaign · 2023</span></span><i>→</i></span></button>
-        <button class="tile" data-go="8"><img src="assets/img-005.webp" alt="Subaru Forester ad" style="object-position:50% 70%"><img class="badge" src="assets/img-006.webp" alt=""><span class="tile-t"><span class="tt"><b>Subaru</b><span class="meta">Campaign · 2022</span></span><i>→</i></span></button>
-        <button class="tile" data-go="9"><img src="assets/img-007.webp" alt="Native Union sleeve shot for Alpha Store" style="object-position:50% 35%"><img class="badge" src="assets/img-008.webp" alt=""><span class="tile-t"><span class="tt"><b>Alpha Store</b><span class="meta">Social &amp; digital · 2023</span></span><i>→</i></span></button>
-        <button class="tile art" data-go="11"><img src="assets/img-009.webp" alt=""><img class="badge" src="assets/img-010.webp" alt=""><span class="tile-t"><span class="tt"><b>Honda Civic Type R</b><span class="meta">Launch event · 2022</span></span><i>→</i></span></button>
-        <button class="tile" data-go="10"><img src="assets/img-011.webp" alt="Bait Al Sabon summer product shoot" style="object-position:50% 40%"><img class="badge" src="assets/img-012.webp" alt=""><span class="tile-t"><span class="tt"><b>Bait Al Sabon</b><span class="meta">Photo &amp; video · 2023</span></span><i>→</i></span></button>
-        <button class="tile" data-go="11" style="background:#EAF3F9"><img src="assets/img-013.webp" alt="Al-Essa Medical brand visual" style="object-fit:contain;padding:10px 40px 50px"><span class="tile-t"><span class="tt"><b>Al-Essa Medical</b><span class="meta">Social media · 2023</span></span><i>→</i></span></button>
-      </div>
+      <div class="steps rise" style="--d:3" id="steps"></div>
+      <div class="steptrack rise" style="--d:4" aria-hidden="true"><i id="stepFill"></i></div>
     </div>
   </section>
 
+  <!-- 7 Work wall -->
+  <section class="slide s-work" data-id="work" data-name="Our work">
+    <div class="work-head">
+      <div class="head">
+        <div class="kicker rise" style="--d:0"><span class="rule"></span><p class="eyebrow">Our work</p></div>
+        <h2 class="h2 rise" style="--d:1">Work we're proud of.</h2>
+      </div>
+      <div class="work-side rise" style="--d:2">
+        <p class="hint"><i></i><span><b id="wCount">25</b> recent projects. Tap any one to open it.</span></p>
+        <div class="wfilters" id="wFilters" role="tablist" aria-label="Type of work"></div>
+      </div>
+    </div>
+    <div class="wgrid" id="wGrid"></div>
+  </section>
+
   <!-- 6 GMC -->
-  <section class="slide s-proj" data-name="GMC Behbehani" data-proj="gmc">
+  <section class="slide s-proj" data-id="gmc" data-name="GMC Behbehani" data-proj="gmc">
     <div class="proj">
-      <div class="media"><img class="ph on" src="assets/img-003.webp" alt="A blue GMC Sierra on an open road at golden hour" style="object-position:55% 55%"><p class="credit">GMC Behbehani · by MCG</p></div>
+      <div class="media"><img class="ph on" src="assets/p_gmc.webp" alt="A blue GMC Sierra on an open road at golden hour" style="object-position:55% 55%"><p class="credit">GMC Behbehani · by MCG</p></div>
       <div class="panel">
-        <div class="p-top rise" style="--d:0"><img src="assets/img-004.webp" alt="GMC"><p class="eyebrow">Campaign · 2023</p></div>
+        <div class="p-top rise" style="--d:0"><img src="assets/b_gmc.webp" alt="GMC"><p class="eyebrow">Campaign · 2023</p></div>
         <h2 class="h2 rise" style="--d:1">A younger summer for GMC.</h2>
         <dl class="story rise" style="--d:2">
           <div><dt>The ask</dt><dd>Make GMC feel younger and fresher, without losing its tough, professional-grade image.</dd></div>
@@ -176,16 +167,16 @@
   </section>
 
   <!-- 7 Subaru -->
-  <section class="slide s-proj" data-name="Subaru" data-proj="subaru">
+  <section class="slide s-proj" data-id="subaru" data-name="Subaru" data-proj="subaru">
     <div class="proj">
       <div class="media">
-        <img class="ph on" src="assets/img-005.webp" alt="Subaru Forester ad: Unforgettable drives">
-        <img class="ph" src="assets/img-014.webp" alt="Subaru WRX ad: Extraordinary">
-        <img class="ph" src="assets/img-015.webp" alt="Subaru BRZ ad: Pure driving pleasure">
+        <img class="ph on" src="assets/p_subaru1.webp" alt="Subaru Forester ad: Unforgettable drives">
+        <img class="ph" src="assets/p_subaru2.webp" alt="Subaru WRX ad: Extraordinary">
+        <img class="ph" src="assets/p_subaru3.webp" alt="Subaru BRZ ad: Pure driving pleasure">
         <div class="thumbs"></div>
       </div>
       <div class="panel">
-        <div class="p-top rise" style="--d:0"><img src="assets/img-006.webp" alt="Subaru"><p class="eyebrow">Campaign · 2022</p></div>
+        <div class="p-top rise" style="--d:0"><img src="assets/b_subaru.webp" alt="Subaru"><p class="eyebrow">Campaign · 2022</p></div>
         <h2 class="h2 rise" style="--d:1">Subaru, made for today's car buyer.</h2>
         <dl class="story rise" style="--d:2">
           <div><dt>The ask</dt><dd>Bring Subaru's online presence up to speed with how people shop for cars today.</dd></div>
@@ -199,18 +190,18 @@
   </section>
 
   <!-- 8 Alpha Store -->
-  <section class="slide s-proj" data-name="Alpha Store" data-proj="alpha">
+  <section class="slide s-proj" data-id="alpha" data-name="Alpha Store" data-proj="alpha">
     <div class="proj">
       <div class="media">
-        <img class="ph on" src="assets/img-007.webp" alt="Native Union MacBook sleeve shot" style="object-position:50% 30%">
-        <img class="ph" src="assets/img-016.webp" alt="Porodo multi-port hub ad">
-        <img class="ph" src="assets/img-017.webp" alt="iMac ad: All in one. All in color.">
-        <img class="ph" src="assets/img-018.webp" alt="Same-day iPhone screen repair ad">
-        <img class="ph" src="assets/img-019.webp" alt="MacBook trade-in ad">
+        <img class="ph on" src="assets/p_alpha1.webp" alt="Native Union MacBook sleeve shot" style="object-position:50% 30%">
+        <img class="ph" src="assets/p_alpha2.webp" alt="Porodo multi-port hub ad">
+        <img class="ph" src="assets/p_alpha3.webp" alt="iMac ad: All in one. All in color.">
+        <img class="ph" src="assets/p_alpha4.webp" alt="Same-day iPhone screen repair ad">
+        <img class="ph" src="assets/p_alpha5.webp" alt="MacBook trade-in ad">
         <div class="thumbs"></div>
       </div>
       <div class="panel">
-        <div class="p-top rise" style="--d:0"><img src="assets/img-008.webp" alt="Alpha Store"><p class="eyebrow">Social &amp; digital · 2023</p></div>
+        <div class="p-top rise" style="--d:0"><img src="assets/b_alpha.webp" alt="Alpha Store"><p class="eyebrow">Social &amp; digital · 2023</p></div>
         <h2 class="h2 rise" style="--d:1">Alpha Store, refreshed online.</h2>
         <dl class="story rise" style="--d:2">
           <div><dt>The ask</dt><dd>Kuwait's Apple authorised service provider wanted a fresh, consistent look online and a stronger brand.</dd></div>
@@ -224,11 +215,11 @@
   </section>
 
   <!-- 9 Bait Al Sabon -->
-  <section class="slide s-proj" data-name="Bait Al Sabon" data-proj="bait">
+  <section class="slide s-proj" data-id="bait" data-name="Bait Al Sabon" data-proj="bait">
     <div class="proj">
-      <div class="media"><img class="ph on" src="assets/img-011.webp" alt="Bait Al Sabon skincare bottles on a summer picnic blanket" style="object-position:50% 45%"><p class="credit">Summer outdoor shoot · by MCG</p></div>
+      <div class="media"><img class="ph on" src="assets/p_bait.webp" alt="Bait Al Sabon skincare bottles on a summer picnic blanket" style="object-position:50% 45%"><p class="credit">Summer outdoor shoot · by MCG</p></div>
       <div class="panel">
-        <div class="p-top rise" style="--d:0"><img src="assets/img-012.webp" alt="Bait Al Sabon"><p class="eyebrow">Photo &amp; video · 2023</p></div>
+        <div class="p-top rise" style="--d:0"><img src="assets/b_bait.webp" alt="Bait Al Sabon"><p class="eyebrow">Photo &amp; video · 2023</p></div>
         <h2 class="h2 rise" style="--d:1">Handmade skincare, told honestly.</h2>
         <dl class="story rise" style="--d:2">
           <div><dt>The ask</dt><dd>Tell the story of traditional, handmade skincare without making it feel old-fashioned or overdone.</dd></div>
@@ -241,42 +232,8 @@
     </div>
   </section>
 
-  <!-- 10 More work -->
-  <section class="slide s-more" data-name="More work">
-    <div class="pad">
-      <div class="head">
-        <div class="kicker rise" style="--d:0"><span class="rule"></span><p class="eyebrow">More work</p></div>
-        <h2 class="h2 rise" style="--d:1">A launch, and a healthcare brand.</h2>
-      </div>
-      <div class="duo">
-        <article class="mcard rise" style="--d:2" data-proj="honda">
-          <img class="art" src="assets/img-020.webp" alt="">
-          <div class="p-top"><img src="assets/img-010.webp" alt="Honda Alghanim"><p class="eyebrow">Launch event · 2022</p></div>
-          <h3>The Civic Type R launch for Honda Alghanim.</h3>
-          <dl class="story">
-            <div><dt>The ask</dt><dd>Launch a car enthusiasts had waited years for, and live up to very high expectations.</dd></div>
-            <div><dt>What we did</dt><dd>The launch event with 3D event design, plus photos, video and live social coverage.</dd></div>
-            <div><dt>What changed</dt><dd>A memorable launch, a buzz in the media and strong sales.</dd></div>
-          </dl>
-          <div class="results"></div>
-        </article>
-        <article class="mcard rise" style="--d:3" data-proj="alessa">
-          <img class="art" src="assets/img-021.webp" alt="">
-          <div class="p-top"><img src="assets/img-022.webp" alt="Al-Essa Medical"><p class="eyebrow">Social media · 2023</p></div>
-          <h3>A trusted healthcare name, online.</h3>
-          <dl class="story">
-            <div><dt>The ask</dt><dd>Bring a traditional healthcare brand online in a way that feels caring and follows health-sector rules.</dd></div>
-            <div><dt>What we did</dt><dd>Social media management, showroom coverage, photo shoots and video.</dd></div>
-            <div><dt>What changed</dt><dd>A stronger online presence, more trust and an engaged community.</dd></div>
-          </dl>
-          <div class="results"></div>
-        </article>
-      </div>
-    </div>
-  </section>
-
   <!-- 11 AI -->
-  <section class="slide s-ai" data-name="AI + real shoots">
+  <section class="slide s-ai" data-id="ai" data-name="AI + real shoots">
     <div class="ai">
       <div class="ai-l">
         <div class="kicker rise" style="--d:0"><span class="rule"></span><p class="eyebrow">Our newest service</p></div>
@@ -291,19 +248,19 @@
         </dl>
       </div>
       <div class="ai-r" id="fMedia">
-        <img class="ph on" src="assets/img-023.webp" alt="A presenter walks through a Gulf courtyard; half today, half seventy years ago">
-        <img class="ph" src="assets/img-024.webp" alt="A luxury SUV on a mirror-still salt flat under an enormous moon">
-        <img class="ph" src="assets/img-025.webp" alt="Golden smoke from a perfume bottle forms a tiny desert with a caravan">
-        <img class="ph" src="assets/img-026.webp" alt="A lone athlete in a packed stadium at night">
-        <img class="ph" src="assets/img-027.webp" alt="A family on an empty plot as their future villas appear">
-        <img class="ph" src="assets/img-028.webp" alt="Four versions of one campaign in a grid">
+        <img class="ph on" src="assets/f_time.webp" alt="A presenter walks through a Gulf courtyard; half today, half seventy years ago">
+        <img class="ph" src="assets/f_place.webp" alt="A luxury SUV on a mirror-still salt flat under an enormous moon">
+        <img class="ph" src="assets/f_product.webp" alt="Golden smoke from a perfume bottle forms a tiny desert with a caravan">
+        <img class="ph" src="assets/f_scale.webp" alt="A lone athlete in a packed stadium at night">
+        <img class="ph" src="assets/f_future.webp" alt="A family on an empty plot as their future villas appear">
+        <img class="ph" src="assets/f_versions.webp" alt="Four versions of one campaign in a grid">
         <div class="ai-cap"><b id="fName">Time Shift</b><span>Visual made with AI</span></div>
       </div>
     </div>
   </section>
 
   <!-- 12 Clients -->
-  <section class="slide s-clients" data-name="What clients say">
+  <section class="slide s-clients" data-id="say" data-name="What clients say">
     <span class="bigq" aria-hidden="true">“</span>
     <div class="pad">
       <div class="head">
@@ -319,18 +276,38 @@
         <div class="qnav" id="qnav"></div>
       </div>
       <div class="marquee rise" style="--d:4" aria-label="Some of our clients">
-        <div class="track" id="track"><img src="assets/img-029.webp" alt="Honda Alghanim"><img src="assets/img-030.webp" alt="Behbehani"><img src="assets/img-031.webp" alt="Mashawi"><img src="assets/img-032.webp" alt="Beyout Investment Group"><img src="assets/img-033.webp" alt="KCB"><img src="assets/img-034.webp" alt="Ali Alghanim &amp; Sons Automotive"><img src="assets/img-035.webp" alt="Behbehani Prestige"><img src="assets/img-036.webp" alt="CFMOTO"><img src="assets/img-037.webp" alt="ZO"><img src="assets/img-038.webp" alt="Behbehani Watch World"><img src="assets/img-039.webp" alt="Commercial Facilities Co."><img src="assets/img-040.webp" alt="Honda"></div>
+        <div class="track" id="track"><img src="assets/lg_016.webp" alt="Honda Alghanim"><img src="assets/lg_015.webp" alt="Behbehani"><img src="assets/lg_017.webp" alt="Mashawi"><img src="assets/lg_018.webp" alt="Beyout Investment Group"><img src="assets/lg_019.webp" alt="KCB"><img src="assets/lg_021.webp" alt="Ali Alghanim &amp; Sons Automotive"><img src="assets/lg_022.webp" alt="Behbehani Prestige"><img src="assets/lg_023.webp" alt="CFMOTO"><img src="assets/lg_024.webp" alt="ZO"><img src="assets/lg_025.webp" alt="Behbehani Watch World"><img src="assets/lg_012.webp" alt="Commercial Facilities Co."><img src="assets/lg_014.webp" alt="Honda"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 What do you need -->
+  <section class="slide s-need" data-id="need" data-name="What do you need?">
+    <div class="pad">
+      <div class="toprow">
+        <div class="head">
+          <div class="kicker rise" style="--d:0"><span class="rule"></span><p class="eyebrow">Your turn</p></div>
+          <h2 class="h2 rise" style="--d:1">So, what do you need right now?</h2>
+        </div>
+        <p class="hint rise" style="--d:2"><i></i>Tap one. We'll show you how we'd help.</p>
+      </div>
+      <div class="need rise" style="--d:3">
+        <div class="goals" id="goals"></div>
+        <div class="answer" aria-live="polite">
+          <p class="eyebrow">Here's how we'd help</p>
+          <div class="ans-body" id="ansBody"></div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- 13 Contact -->
-  <section class="slide s-contact" data-name="Let's talk">
-    <img class="bg" src="assets/img-001.webp" alt="">
+  <section class="slide s-contact" data-id="contact" data-name="Let's talk">
+    <img class="bg" src="assets/orbs1.webp" alt="">
     <div class="scrim"></div>
     <div class="contact">
       <div class="contact-l">
-        <img class="logo rise" style="--d:0" src="assets/img-002.webp" alt="MCG">
+        <img class="logo rise" style="--d:0" src="assets/logo_white.webp" alt="MCG">
         <h2 class="h2 rise" style="--d:1">Let's build what's next<span class="dots3" aria-hidden="true"><i></i><i></i><i></i></span></h2>
         <p class="lede rise" style="--d:2">Send us the brief. We'll come back with ideas you can see.</p>
         <dl class="clist rise" style="--d:3">
@@ -369,7 +346,26 @@
     <button class="close" data-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
     <div class="kicker"><span class="rule"></span><p class="eyebrow">Client wall</p></div>
     <h2 class="h2">Some of the brands we've worked with.</h2>
-    <div class="wall"><img src="assets/img-041.webp" alt="MCG portfolio of clients: logos including Honda, Mercedes-Benz, GMC, Geely, BYD, Mitsubishi, KFH, KIC, GIG, Microsoft, Huawei, Kuwait Airways, Baraka Dates, Crowne Plaza and Johnson &amp; Johnson"></div>
+    <div class="wall"><img src="assets/clientwall.webp" alt="MCG portfolio of clients: logos including Honda, Mercedes-Benz, GMC, Geely, BYD, Mitsubishi, KFH, KIC, GIG, Microsoft, Huawei, Kuwait Airways, Baraka Dates, Crowne Plaza and Johnson &amp; Johnson"></div>
+  </div>
+  <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Project">
+    <div class="lb-card">
+      <div class="lb-media" id="lbMedia"><div class="lb-thumbs" id="lbThumbs"></div></div>
+      <div class="lb-info">
+        <p class="eyebrow" id="lbCat"></p>
+        <h3 id="lbClient"></h3>
+        <p class="lede" id="lbTitle"></p>
+        <p class="body" id="lbDesc"></p>
+        <div class="results" id="lbRes"></div>
+        <div class="lb-actions" id="lbAct"></div>
+        <div class="lb-nav">
+          <button id="lbPrev" aria-label="Previous project"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+          <span id="lbPos">1 / 25</span>
+          <button id="lbNext" aria-label="Next project"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+    </div>
+    <button class="close" data-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
   </div>
 </div>
 </div>
