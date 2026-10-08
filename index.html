@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap">
-<link rel="stylesheet" href="styles.css?v=a00be7f0">
+<link rel="stylesheet" href="styles.css?v=8f43650e">
 </head>
 <body>
 
@@ -26,9 +26,10 @@
     <p class="eyebrow tag rise" style="--d:1">Credentials · 2026</p>
     <div class="pad">
       <p class="for rise" style="--d:1" id="forLine" hidden>Prepared for <b id="forName"></b></p>
+      <p class="for rise" style="--d:1" id="focusLine" hidden>Focused on <b id="focusName"></b></p>
       <div class="kicker rise" style="--d:1"><span class="rule"></span><p class="eyebrow">MCG · Kuwait &amp; Beirut · Since 2004</p></div>
-      <h1 class="h1 rise" style="--d:2">Brands, beyond<br>the brief<span class="dots3" aria-hidden="true"><i></i><i></i><i></i></span></h1>
-      <p class="lede rise" style="--d:3">We're Kuwait's integrated creative agency. Strategy, content, digital, events and AI, all under one roof.</p>
+      <h1 class="h1 rise" style="--d:2">We think it.<br>We make it.<br>We grow it<span class="dots3" aria-hidden="true"><i></i><i></i><i></i></span></h1>
+      <p class="lede rise" style="--d:3">Strategy, content, campaigns, events and AI films, all under one roof. For Honda, GMC, Kuwait Airways, Microsoft and 800+ more brands since 2004.</p>
       <button class="btn rise" style="--d:4" data-go="1">Take the tour <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></button>
     </div>
   </section>
@@ -50,16 +51,16 @@
         <div class="counters">
           <div class="counter rise" style="--d:2;--c:var(--cyan)"><b data-count="22">22</b><span>years in the market</span></div>
           <div class="counter rise" style="--d:3;--c:var(--pink)"><b data-count="800" data-suffix="+">800+</b><span>clients served</span></div>
-          <div class="counter rise" style="--d:4;--c:var(--orange)"><b data-count="500" data-suffix="+">500+</b><span>projects delivered</span></div>
+          <div class="counter rise" style="--d:4;--c:var(--orange)"><b data-count="40" data-suffix="+">40+</b><span>people, all in-house</span></div>
           <div class="counter rise" style="--d:5;--c:var(--sky)"><b data-count="1" data-suffix="B+">1B+</b><span>impressions delivered</span></div>
         </div>
-        <p class="small rise" style="--d:6">40+ people · Al Hamra Tower, Kuwait · Beirut</p>
+        <p class="small rise" style="--d:6">Al Hamra Tower, Kuwait · Beirut, Lebanon</p>
       </div>
     </div>
   </section>
 
   <!-- 3 Our story -->
-  <section class="slide s-story" data-id="story" data-name="Our story">
+  <section data-off="cut" class="slide s-story" data-id="story" data-name="Our story">
     <div class="pad">
       <div class="toprow">
         <div class="head">
@@ -88,36 +89,23 @@
     </div>
   </section>
 
-  <!-- 4 Services -->
-  <section class="slide s-svc" data-id="services" data-name="What we do">
-    <div class="pad">
-      <div class="toprow">
-        <div class="head">
-          <div class="kicker rise" style="--d:0"><span class="rule"></span><p class="eyebrow">What we do</p></div>
-          <h2 class="h2 rise" style="--d:1">Ten things we do, in plain words.</h2>
-        </div>
-        <p class="hint rise" style="--d:2"><i></i>Tap a card to flip it.</p>
-      </div>
-      <div class="cards rise" style="--d:3" id="cards"></div>
-    </div>
-  </section>
-
   <!-- 6 Who we work with -->
   <section class="slide s-clients-grid" data-id="clients" data-name="Who we work with">
     <div class="pad">
       <div class="toprow">
         <div class="head">
           <div class="kicker rise" style="--d:0"><span class="rule"></span><p class="eyebrow">Who we work with</p></div>
-          <h2 class="h2 rise" style="--d:1">800+ brands have trusted us.</h2>
+          <h2 class="h2 rise" style="--d:1">Some of the 800+ brands that trust us.</h2>
         </div>
       </div>
       <div class="sectors rise" style="--d:2" id="sectors" role="tablist" aria-label="Industries"></div>
       <div class="logowall rise" style="--d:3" id="logowall"></div>
+      <button class="link wallmore" id="wallMore">Show all the brands <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></button>
     </div>
   </section>
 
   <!-- 6 How we think -->
-  <section class="slide s-think" data-id="think" data-name="How we work">
+  <section data-off="cut" class="slide s-think" data-id="think" data-name="How we work">
     <div class="pad">
       <div class="toprow">
         <div class="head">
@@ -132,132 +120,78 @@
     </div>
   </section>
 
-  <!-- 7 Work wall -->
-  <section class="slide s-work" data-id="work" data-name="Our work">
-    <div class="work-head">
-      <div class="head">
-        <div class="kicker rise" style="--d:0"><span class="rule"></span><p class="eyebrow">Our work</p></div>
-        <h2 class="h2 rise" style="--d:1">Work we're proud of.</h2>
+  <!-- Our team: our leadership, side by side, and the in-house teams -->
+  <section class="slide s-team" data-id="team" data-name="Our team">
+    <div class="org">
+      <div class="org-l">
+        <div class="kicker rise" style="--d:0"><span class="rule"></span><p class="eyebrow">Our team</p></div>
+        <h2 class="h2 rise" style="--d:1">The people behind MCG.</h2>
+        <p class="body rise" style="--d:2">MCG started in 2004 as Media City, founded by Ahmad Al Ajouz. Today our leadership team works side by side with 40+ specialists across seven in-house teams, in Kuwait and Beirut.</p>
+        <div class="ostats rise" style="--d:3"><div><b>2004</b><span>founded</span></div><div><b>40+</b><span>people</span></div><div><b>7</b><span>in-house teams</span></div><div><b>2</b><span>offices</span></div></div>
+        <div class="odet rise" style="--d:4" id="oDet" aria-live="polite"></div>
       </div>
-      <div class="work-side rise" style="--d:2">
-        <p class="hint"><i></i><span><b id="wCount">25</b> recent projects. Tap any one to open it.</span></p>
-        <div class="wfilters" id="wFilters" role="tablist" aria-label="Type of work"></div>
+      <div class="ochart rise" style="--d:2" id="oChart">
+        <div class="og"><p class="og-l">Our leadership</p><div class="orow r2"><figure class="op"><img src="assets/team_ahmad.webp" alt="Ahmad Al Ajouz"><figcaption><b>Ahmad Al Ajouz</b><span>Chairman &amp; Founder</span></figcaption></figure><figure class="op"><img src="assets/team_ali.webp" alt="Ali Al Ajouz"><figcaption><b>Ali Al Ajouz</b><span>Chief Executive Officer</span></figcaption></figure><figure class="op"><img src="assets/team_hussein.webp" alt="Hussein Al Ajouz"><figcaption><b>Hussein Al Ajouz</b><span>Managing Director &amp; Business Development</span></figcaption></figure><figure class="op"><img src="assets/team_mohamad.webp" alt="Mohamad Zouhairy"><figcaption><b>Mohamad Zouhairy</b><span>Business Director</span></figcaption></figure></div></div>
+        <div class="og"><p class="og-l">And 40+ specialists in seven in-house teams</p><div class="orow r3" id="oDeps"></div></div>
       </div>
     </div>
-    <div class="wgrid" id="wGrid"></div>
   </section>
 
-  <!-- 8 Digital results -->
-  <section class="slide s-num" data-id="results" data-name="Digital campaigns">
+  <!-- What we do: the client picks what they want to see -->
+  <section class="slide s-pick" data-id="services" data-name="What we do">
     <div class="pad">
-      <div class="toprow">
-        <div class="head">
-          <div class="kicker rise" style="--d:0"><span class="rule"></span><p class="eyebrow">Our work · Digital marketing</p></div>
-          <h2 class="h2 rise" style="--d:1">Digital marketing campaigns we’re proud of.</h2>
+      <div class="head">
+        <div class="kicker rise" style="--d:0"><span class="rule"></span><p class="eyebrow">What we do · 10 services</p></div>
+        <h2 class="h2 rise" style="--d:1">What would you like to see?</h2>
+        <p class="lede rise" style="--d:2">Pick the services you care about, and we’ll shape the rest of this tour around them.</p>
+      </div>
+      <div class="ptiles rise" style="--d:3" id="ptiles" role="group" aria-label="Services"></div>
+      <div class="pbar rise" style="--d:4">
+        <button class="btn" id="pGo"><span id="pGoT">Show me everything</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></button>
+        <button class="pclear" id="pClear" hidden>Clear</button>
+        <p class="small" id="pNote">Pick one or more. Or just press next to see everything.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- One slide per service, filled from SVD in the script. Hidden when the client picked other services. -->
+  <section class="slide s-svx" data-id="svc-brand" data-svc="brand" data-name="Brand &amp; creative"></section>
+  <section class="slide s-svx" data-id="svc-social" data-svc="social" data-name="Social media"></section>
+  <section class="slide s-svx" data-id="svc-digital" data-svc="digital" data-name="Digital marketing"></section>
+  <section class="slide s-svx" data-id="svc-media" data-svc="media" data-name="Media buying"></section>
+  <section class="slide s-svx" data-id="svc-infl" data-svc="infl" data-name="Influencers"></section>
+  <section class="slide s-svx" data-id="svc-film" data-svc="film" data-name="Film &amp; photo"></section>
+  <section class="slide s-svx" data-id="svc-events" data-svc="events" data-name="Events &amp; launches"></section>
+  <section class="slide s-svx" data-id="svc-mall" data-svc="mall" data-name="Mall activations &amp; booths"></section>
+  <section class="slide s-svx" data-id="svc-podcast" data-svc="podcast" data-name="Podcasts"></section>
+
+  <!-- Our AI department (always shown) -->
+  <section class="slide s-aid" data-id="svc-ai" data-name="Our AI department">
+    <div class="aid">
+      <div class="aid-l">
+        <div class="kicker rise" style="--d:0"><span class="rule"></span><p class="eyebrow" id="aidEy">What we do · Our AI department</p></div>
+        <h2 class="h2 rise" style="--d:1">Our own AI department.</h2>
+        <p class="lede rise" style="--d:2">AI images, AI films and hybrid shoots, made in-house by our own team of AI artists, editors and producers.</p>
+        <div class="points rise" style="--d:3">
+          <div><i style="--c:var(--pink)"></i><b>Big brands</b><span>Leading brands in Kuwait come to us directly.</span></div>
+          <div><i style="--c:var(--cyan)"></i><b>Other agencies</b><span>Agencies bring us in to make their AI work.</span></div>
+          <div><i style="--c:var(--orange)"></i><b>Real + AI</b><span>We film for real too, so we know where AI fits best.</span></div>
         </div>
-        <p class="hint rise" style="--d:2"><i></i>Tap a campaign to see how we did it.</p>
+        <div class="trust rise" style="--d:4"><p class="eyebrow">AI work for brands like</p><div class="row" id="aidLogos"></div></div>
+        <button class="link rise" style="--d:5" data-go="work:@ai" id="aidAll">See all our AI work <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></button>
       </div>
-      <div class="ncards rise" style="--d:3" id="ncards"></div>
-      <div class="ndet rise" style="--d:4" id="ndet" aria-live="polite">
-        <div><p class="eyebrow">The goal</p><p id="nGoal"></p></div>
-        <div><p class="eyebrow">What we did</p><p id="nDid"></p></div>
-        <div><p class="eyebrow">Where</p><div class="chips" id="nWhere"></div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 6 GMC -->
-  <section class="slide s-proj" data-id="gmc" data-name="GMC Behbehani" data-proj="gmc">
-    <div class="proj">
-      <div class="media"><img class="ph on" src="assets/p_gmc.webp" alt="A blue GMC Sierra on an open road at golden hour" style="object-position:55% 55%"><p class="credit">GMC Behbehani · by MCG</p></div>
-      <div class="panel">
-        <div class="p-top rise" style="--d:0"><img src="assets/b_gmc.webp" alt="GMC"><p class="eyebrow">Campaign · 2023</p></div>
-        <h2 class="h2 rise" style="--d:1">A younger summer for GMC.</h2>
-        <dl class="story rise" style="--d:2">
-          <div><dt>The ask</dt><dd>Make GMC feel younger and fresher, without losing its tough, professional-grade image.</dd></div>
-          <div><dt>What we did</dt><dd>One summer campaign across social media, online ads, billboards and banners, plus lead campaigns on Meta, Google and TikTok.</dd></div>
-          <div><dt>What changed</dt><dd>More people online, more people in the showroom and more leads for the sales team.</dd></div>
-        </dl>
-        <div class="results rise" style="--d:3"></div>
-        <div class="chips rise" style="--d:4"><span>Social media</span><span>Digital ads</span><span>Outdoor</span><span>Design</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 7 Subaru -->
-  <section class="slide s-proj" data-id="subaru" data-name="Subaru" data-proj="subaru">
-    <div class="proj">
-      <div class="media">
-        <img class="ph on" src="assets/p_subaru1.webp" alt="Subaru Forester ad: Unforgettable drives">
-        <img class="ph" src="assets/p_subaru2.webp" alt="Subaru WRX ad: Extraordinary">
-        <img class="ph" src="assets/p_subaru3.webp" alt="Subaru BRZ ad: Pure driving pleasure">
-        <div class="thumbs"></div>
-      </div>
-      <div class="panel">
-        <div class="p-top rise" style="--d:0"><img src="assets/b_subaru.webp" alt="Subaru"><p class="eyebrow">Campaign · 2022</p></div>
-        <h2 class="h2 rise" style="--d:1">Subaru, made for today's car buyer.</h2>
-        <dl class="story rise" style="--d:2">
-          <div><dt>The ask</dt><dd>Bring Subaru's online presence up to speed with how people shop for cars today.</dd></div>
-          <div><dt>What we did</dt><dd>Social media and digital ads for the range, from the Forester to the WRX and BRZ.</dd></div>
-          <div><dt>What changed</dt><dd>Strong online growth, a surge in engagement and a clear lift in sales.</dd></div>
-        </dl>
-        <div class="results rise" style="--d:3"></div>
-        <div class="chips rise" style="--d:4"><span>Social media</span><span>Digital ads</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 8 Alpha Store -->
-  <section class="slide s-proj" data-id="alpha" data-name="Alpha Store" data-proj="alpha">
-    <div class="proj">
-      <div class="media">
-        <img class="ph on" src="assets/p_alpha1.webp" alt="Native Union MacBook sleeve shot" style="object-position:50% 30%">
-        <img class="ph" src="assets/p_alpha2.webp" alt="Porodo multi-port hub ad">
-        <img class="ph" src="assets/p_alpha3.webp" alt="iMac ad: All in one. All in color.">
-        <img class="ph" src="assets/p_alpha4.webp" alt="Same-day iPhone screen repair ad">
-        <img class="ph" src="assets/p_alpha5.webp" alt="MacBook trade-in ad">
-        <div class="thumbs"></div>
-      </div>
-      <div class="panel">
-        <div class="p-top rise" style="--d:0"><img src="assets/b_alpha.webp" alt="Alpha Store"><p class="eyebrow">Social &amp; digital · 2023</p></div>
-        <h2 class="h2 rise" style="--d:1">Alpha Store, refreshed online.</h2>
-        <dl class="story rise" style="--d:2">
-          <div><dt>The ask</dt><dd>Kuwait's Apple authorised service provider wanted a fresh, consistent look online and a stronger brand.</dd></div>
-          <div><dt>What we did</dt><dd>Social media, digital ads, product photo shoots and video across a wide product range.</dd></div>
-          <div><dt>What changed</dt><dd>Fast online growth, more engagement, a lift in sales and one consistent brand image.</dd></div>
-        </dl>
-        <div class="results rise" style="--d:3"></div>
-        <div class="chips rise" style="--d:4"><span>Social media</span><span>Digital ads</span><span>Photography</span><span>Video</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 9 Bait Al Sabon -->
-  <section class="slide s-proj" data-id="bait" data-name="Bait Al Sabon" data-proj="bait">
-    <div class="proj">
-      <div class="media"><img class="ph on" src="assets/p_bait.webp" alt="Bait Al Sabon skincare bottles on a summer picnic blanket" style="object-position:50% 45%"><p class="credit">Summer outdoor shoot · by MCG</p></div>
-      <div class="panel">
-        <div class="p-top rise" style="--d:0"><img src="assets/b_bait.webp" alt="Bait Al Sabon"><p class="eyebrow">Photo &amp; video · 2023</p></div>
-        <h2 class="h2 rise" style="--d:1">Handmade skincare, told honestly.</h2>
-        <dl class="story rise" style="--d:2">
-          <div><dt>The ask</dt><dd>Tell the story of traditional, handmade skincare without making it feel old-fashioned or overdone.</dd></div>
-          <div><dt>What we did</dt><dd>A summer outdoor photo and video shoot, turned into content for social media.</dd></div>
-          <div><dt>What changed</dt><dd>A clearer brand story, more engagement and a stronger brand image.</dd></div>
-        </dl>
-        <div class="results rise" style="--d:3"></div>
-        <div class="chips rise" style="--d:4"><span>Photography</span><span>Video</span><span>Social media</span></div>
-      </div>
+      <div class="aid-r" id="aidTiles"></div>
     </div>
   </section>
 
   <!-- 11 AI -->
-  <section class="slide s-ai" data-id="ai" data-name="AI + real shoots">
+  <section class="slide s-ai" data-id="ai" data-svc="ai" data-name="AI + real shoots">
     <div class="ai">
       <div class="ai-l">
-        <div class="kicker rise" style="--d:0"><span class="rule"></span><p class="eyebrow">Our newest service</p></div>
+        <div class="kicker rise" style="--d:0"><span class="rule"></span><p class="eyebrow">Our AI department · Hybrid</p></div>
         <h2 class="h2 rise" style="--d:1">AI + real shoots.</h2>
         <p class="lede rise" style="--d:2">We film what must be real, then let AI build the world around it.</p>
-        <p class="body rise" style="--d:3;font-size:14.5px">Bigger ideas, fewer shoot days, and a version for every platform. We've already made AI films for brands like Baraka Dates. Pick a format:</p>
+        <p class="body rise" style="--d:3;font-size:14.5px">Bigger ideas, fewer shoot days, and a version for every platform. Six ways we do it. Pick a format:</p>
         <div class="tabs rise" style="--d:4" role="tablist" id="tabs"></div>
         <dl class="rows rise" style="--d:5" id="fRows">
           <div><dt>We shoot</dt><dd id="fShoot"></dd></div>
@@ -277,8 +211,51 @@
     </div>
   </section>
 
+  <!-- Work: a paged grid, filtered by what the client picked -->
+  <section class="slide s-work" data-id="work" data-name="Our work">
+    <div class="pad">
+      <div class="toprow">
+        <div class="head">
+          <div class="kicker rise" style="--d:0"><span class="rule"></span><p class="eyebrow">Our work</p></div>
+          <h2 class="h2 rise" style="--d:1" id="wH">Work we're proud of.</h2>
+        </div>
+        <div class="work-side2 rise" style="--d:2"><p class="hint"><i></i><span id="wHint"></span></p></div>
+      </div>
+      <div class="wbar rise" style="--d:2">
+        <div class="wtabs" id="wFilters" role="tablist" aria-label="Type of work"></div>
+        <div class="spager">
+          <button id="sPrev" aria-label="Previous projects"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+          <span class="sbar"><i id="sBar"></i></span>
+          <button id="sNext" aria-label="More projects"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+          <span id="sPos">1 / 1</span>
+        </div>
+      </div>
+      <div class="strip rise" style="--d:3" id="strip"><div class="strack" id="wGrid"></div></div>
+      <button class="link wmore" id="wMore">Show more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></button>
+    </div>
+  </section>
+
+  <!-- Featured case studies: five slots, refilled to match what the client picked -->
+  <section class="slide s-case" data-id="case-honda" data-name="Case: Honda Alghanim" data-case="honda"><div class="proj"><div class="media"></div><div class="panel"></div></div></section>
+  <section class="slide s-case" data-id="case-kac" data-name="Case: Kuwait Airways" data-case="kac"><div class="proj"><div class="media"></div><div class="panel"></div></div></section>
+  <section class="slide s-case" data-id="case-baraka" data-name="Case: Baraka Dates" data-case="baraka"><div class="proj"><div class="media"></div><div class="panel"></div></div></section>
+
+  <!-- Case studies index -->
+  <section class="slide s-cases" data-id="cases" data-name="All case studies">
+    <div class="work-head">
+      <div class="head">
+        <div class="kicker rise" style="--d:0"><span class="rule"></span><p class="eyebrow">Case studies</p></div>
+        <h2 class="h2 rise" style="--d:1">Client stories, in depth.</h2>
+      </div>
+      <div class="work-side rise" style="--d:2">
+        <p class="hint"><i></i><span><b id="cCount">19</b> clients. Tap one to open their story.</span></p>
+      </div>
+    </div>
+    <div class="cgrid" id="cGrid"></div>
+  </section>
+
   <!-- 12 Clients -->
-  <section class="slide s-clients" data-id="say" data-name="What clients say">
+  <section data-off="cut" class="slide s-clients" data-id="say" data-name="What clients say">
     <span class="bigq" aria-hidden="true">“</span>
     <div class="pad">
       <div class="head">
@@ -300,7 +277,7 @@
   </section>
 
   <!-- 3 What do you need -->
-  <section class="slide s-need" data-id="need" data-name="What do you need?">
+  <section data-off="cut" class="slide s-need" data-id="need" data-name="What do you need?">
     <div class="pad">
       <div class="toprow">
         <div class="head">
@@ -342,8 +319,8 @@
       </div>
       <aside class="ps rise" style="--d:3">
         <p class="eyebrow">P.S.</p>
-        <h3>You just used an interactive credentials.</h3>
-        <p>We build these for brands too: company profiles, catalogues and menus that people actually enjoy opening, and that work on any screen.</p>
+        <h3>Liked this tour? We build them for brands too.</h3>
+        <p>Company profiles, catalogues and menus that people actually enjoy opening, on any screen.</p>
         <a class="btn" href="https://calendly.com/husseinajouz/30min" target="_blank" rel="noopener">Ask us about it <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
       </aside>
     </div>
@@ -379,15 +356,36 @@
     </div>
     <button class="close" data-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
   </div>
+  <div class="cv" id="cv" role="dialog" aria-modal="true" aria-label="Case study">
+    <div class="proj">
+      <div class="media" id="cvMedia"></div>
+      <div class="panel cv-panel" id="cvPanel">
+        <div class="p-top"><span class="cv-logo" id="cvLogo"></span><p class="eyebrow" id="cvEy"></p></div>
+        <h2 class="h2" id="cvH"></h2>
+        <div class="cstep"><p class="eyebrow">The brief</p><p class="body" id="cvP"></p></div>
+        <div class="cv-did"><p class="eyebrow">What we did</p><ul id="cvDid"></ul></div>
+        <div class="cstep" id="cvResW"><p class="eyebrow">The result</p><div class="results" id="cvRes"></div></div>
+        <div class="cv-watch" id="cvWatch"></div>
+        <div class="cv-nav">
+          <button id="cvPrev" aria-label="Previous case study"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+          <span id="cvPos"></span>
+          <button id="cvNext" aria-label="Next case study"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+          <button class="cv-all" id="cvAll">All case studies</button>
+        </div>
+      </div>
+    </div>
+    <button class="close" data-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
 </div>
 </div>
 
+<a class="fcta" href="https://calendly.com/husseinajouz/30min" target="_blank" rel="noopener">Book a call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
 <div class="turn" id="turn" role="status"><div>
   <svg viewBox="0 0 64 64" fill="none" stroke="#F6F8FB" stroke-width="2.4" aria-hidden="true"><rect x="20" y="8" width="24" height="44" rx="4"/><path d="M29 46h6"/></svg>
   <p>Turn your phone sideways<br>for the full view.</p><small>Tap anywhere to continue</small>
 </div></div>
 
-<script src="script.js?v=95ec616e"></script>
+<script src="script.js?v=829ca873"></script>
 
 </body>
 </html>
