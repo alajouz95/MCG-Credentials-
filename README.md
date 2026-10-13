@@ -18,7 +18,7 @@ Plain HTML, CSS and JavaScript, with no build step. Please pull before you edit,
 - `assets/`: photos and project images. Client logos are in `assets/logos/`. Video loops (if added) go here as `.mp4`.
 
 ## Switched-off slides
-"Our story", "How we work", "What clients say" and "What do you need?" are still in `index.html` with `data-off="cut"`. Delete that attribute to bring one back.
+"Our story", "How we work", "What clients say", "What do you need?", the budget slider and "Ads we wish we'd made" are still in `index.html` with `data-off="cut"`. Delete that attribute to bring one back.
 
 ## Where to edit (in script.js)
 - `RESULTS`: case-study numbers. Real, confirmed figures only.
@@ -30,6 +30,7 @@ Plain HTML, CSS and JavaScript, with no build step. Please pull before you edit,
 - `CASES`: the 19 case studies (brief, what we did, result).
 - `DEPS`: the seven in-house teams on the "Our team" slide.
 - `AIT`: the three tiles on the AI department slide.
+- `GROW_KW`, `GBEIRUT`, `GLEAD`, `GERA`: the "Watch us grow up" slider game (Kuwait headcount by year, the Beirut branch, the four leadership moments, and the caption for each year). Headcounts between 2004 and today are estimates; replace them with real numbers when available.
 - `CL`: client logos. Sector codes:
   - `A` automotive
   - `F` finance

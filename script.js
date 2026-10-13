@@ -21,6 +21,10 @@ var RESULTS={
     /* landscape on every screen, like before (the scrolling phone layout is switched off) */
     rotated=coarse&&h>w*1.1;
     var s=rotated?Math.min(h/1280,w/720):Math.min(w/1280,h/720);
+    /* fill the whole screen: backgrounds run edge to edge, content stays in the centred 1280x720 area */
+    var SW=Math.max(1280,(rotated?h:w)/s), SH=Math.max(720,(rotated?w:h)/s);
+    stage.style.width=SW+'px'; stage.style.height=SH+'px';
+    stage.style.setProperty('--bx',((SW-1280)/2)+'px'); stage.style.setProperty('--by',((SH-720)/2)+'px');
     stage.style.setProperty('--s',s); stage.classList.toggle('rot',rotated);
     if(rotated&&!turnShown){turnShown=true;turnEl.classList.add('on');setTimeout(function(){turnEl.classList.remove('on')},3200);}
   }
@@ -85,6 +89,7 @@ var RESULTS={
   document.addEventListener('keydown',function(e){
     if(openModal){if(e.key==='Escape')closeModal();else if(openModal===lb&&e.key==='ArrowRight')lbStep(1);else if(openModal===lb&&e.key==='ArrowLeft')lbStep(-1);else if(openModal===cv&&e.key==='ArrowRight')caseStep(1);else if(openModal===cv&&e.key==='ArrowLeft')caseStep(-1);return}
     if(flow)return;
+    if(e.target&&e.target.closest&&e.target.closest('input'))return;
     if(e.key==='Escape'){closeMenu();return}
     if(e.key==='ArrowRight'||e.key==='PageDown'){e.preventDefault();stepTour(1)}
     else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();stepTour(-1)}
@@ -93,7 +98,7 @@ var RESULTS={
   /* swipe (works when the stage is turned sideways too) */
   var sx,sy,st,down=false;
   var inStrip=false;
-  vp.addEventListener('pointerdown',function(e){down=true;sx=e.clientX;sy=e.clientY;st=Date.now();inStrip=!!e.target.closest('#strip')});
+  vp.addEventListener('pointerdown',function(e){if(e.target.closest('.bslide')){down=false;return}down=true;sx=e.clientX;sy=e.clientY;st=Date.now();inStrip=!!e.target.closest('#strip')});
   vp.addEventListener('pointerup',function(e){
     if(!down) return; down=false;
     var dx=e.clientX-sx, dy=e.clientY-sy; if(rotated){var t=dx;dx=dy;dy=-t;}
@@ -156,6 +161,8 @@ var RESULTS={
     if(s.classList.contains('s-clients-grid')) showSector('all');
     if(s.classList.contains('s-aid')) aiPlay(); else if(!flow) aiStop();
     if(s.classList.contains('s-team')) oPlay(); else oStop();
+    if(s.classList.contains('s-bud')) budEnter();
+    if(s.classList.contains('s-grow')) grEnter();
   }
 
   /* goals */
@@ -249,12 +256,149 @@ var RESULTS={
   oDeps.addEventListener('click',function(e){var b=e.target.closest('.od');if(!b||flow)return;oStop();oSet(+b.dataset.j)});
   oDeps.addEventListener('mouseover',function(e){var b=e.target.closest('.od');if(!b||flow||!oT&&oSel==b.dataset.j)return;if(oT){oStop()}oSet(+b.dataset.j)});
 
+  /* just for fun: what can your budget do? (not a price list) */
+  var BUD=[
+    [0,'The dream stage.','Everyone starts here. We did too, in one small office in 2004.',['A big idea','Big ambition','Our phone number'],'Just you. And your laptop.'],
+    [1000,'Starting point.','A logo you love, and posts your group chat will actually like.',['Logo & look','First posts'],'Your group chat'],
+    [5000,'Your feed wakes up.','A month of content and a proper photo shoot. We reply faster than your delivery app.',['Monthly content','Photo shoot','Replies'],'Your whole diwaniya'],
+    [10000,'Here come the influencers.','Kuwait’s creators start talking about you. Your phone starts buzzing.',['Influencers','Reels','Giveaways'],'Everyone who scrolls past 1 a.m.'],
+    [25000,'Ads that actually sell.','Meta, TikTok, Google and Snapchat, working while you sleep.',['Paid ads','Leads','Weekly reports'],'Half of Instagram Kuwait'],
+    [50000,'Lights. Camera. Action.','A full film shoot with our own crew. Yes, there’s a drone.',['Brand film','Drone shots','AI magic'],'People who don’t even have TikTok'],
+    [100000,'Launch night.','An event people post about for a week. Fire performers optional.',['Launch event','Stage design','Live coverage'],'All of Salmiya on a Thursday night'],
+    [250000,'Your name, ten storeys tall.','Billboards, giant screens and mall takeovers. Traffic jams become free advertising.',['Billboards','Giant screens','Mall takeovers'],'Every car on Gulf Road'],
+    [500000,'Everywhere at once.','TV, radio, malls and every phone in Kuwait. Your competitors start a group chat about you.',['TV & radio','Every screen','360° campaign'],'The whole GCC'],
+    [1000000,'Now you’re bigger than Apple.','Okay, maybe not. But your competitors are definitely nervous.',['Everything','Confetti','A very happy agency'],'Basically everyone. Hi, Apple.']
+  ];
+  var BSAT=[
+    ['Brand','<path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.6 7.6"/><circle cx="11" cy="11" r="2"/>'],
+    ['Social','<path d="M4 5h16v11H9l-5 4z"/><path d="M12 13.4l-2.2-2.1a1.35 1.35 0 0 1 2.2-1.6 1.35 1.35 0 0 1 2.2 1.6z"/>'],
+    ['Influencers','<circle cx="12" cy="8" r="3.5"/><path d="M5 20c1-4 4-6 7-6s6 2 7 6"/>'],
+    ['Ads','<path d="M4 19h16"/><path d="M6 15l4-4 3 3 6-6"/><path d="M15 8h4v4"/>'],
+    ['Film','<rect x="3" y="7" width="13" height="10" rx="2"/><path d="M16 11l5-3v8l-5-3"/>'],
+    ['Events','<path d="M12 3l2.6 5.6 6 .7-4.5 4.1 1.2 6L12 16.8 6.7 19.4l1.2-6L3.4 9.3l6-.7z"/>'],
+    ['Billboards','<rect x="3" y="4" width="18" height="11" rx="1.5"/><path d="M8 15v5M16 15v5M6 20h12"/>'],
+    ['TV','<rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8M12 17v4"/>']
+  ];
+  var bSec=document.querySelector('.s-bud'), bIn=document.getElementById('bRange'), bAmt=document.getElementById('bAmt'), bStageEl=document.getElementById('bStage'), bCore=document.getElementById('bCore'), bFill=document.getElementById('bFill'), bOrbit=document.getElementById('bOrbit'), bConf=document.getElementById('bConf'), bStg=-1, bBoom=false;
+  bOrbit.innerHTML=BSAT.map(function(s,i){return '<div class="bsat" style="--a:'+(-90+i*45)+'deg"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+s[1]+'</svg></span><em>'+esc(s[0])+'</em></div>'}).join('');
+  var bSats=[].slice.call(bOrbit.children);
+  function bLbl(a){return a>=1e6?'$1M':a>=1000?'$'+(a/1000)+'K':'$'+a}
+  document.getElementById('bTicks').innerHTML=BUD.map(function(b,i){return '<i style="left:calc(15px + (100% - 30px)*'+(i/9)+')"></i>'}).join('');
+  document.getElementById('bLabels').innerHTML=BUD.map(function(b,i){return '<button data-j="'+i+'" style="left:calc(15px + (100% - 30px)*'+(i/9)+')">'+bLbl(b[0])+'</button>'}).join('');
+  var bTicks=[].slice.call(document.getElementById('bTicks').children), bLabs=[].slice.call(document.getElementById('bLabels').children);
+  function bAmount(pos){var i=Math.min(8,Math.floor(pos/100)),f=(pos-i*100)/100;return BUD[i][0]+(BUD[i+1][0]-BUD[i][0])*f}
+  function bFmt(a){if(a>=1e6)return '$1,000,000';var v=a<1000?Math.round(a/10)*10:a<10000?Math.round(a/100)*100:a<100000?Math.round(a/1000)*1000:Math.round(a/5000)*5000;return '$'+v.toLocaleString('en-US')}
+  function bConfetti(){var C=['#F29123','#E94C97','#1FA7E0','#FFFFFF','#F8BC70'],h='';for(var i=0;i<70;i++){h+='<i style="left:'+(Math.random()*100)+'%;background:'+C[i%C.length]+';--dx:'+(Math.random()*160-80)+'px;--r:'+(Math.random()*720-360)+'deg;animation-delay:'+(Math.random()*.5)+'s"></i>'}bConf.innerHTML=h;setTimeout(function(){bConf.innerHTML=''},3400)}
+  function bSet(pos,instant){
+    pos=Math.max(0,Math.min(900,pos)); var a=bAmount(pos), k=pos/900, st=Math.min(9,Math.floor(pos/100));
+    bSec.style.setProperty('--k',Math.pow(k,.85).toFixed(3)); bAmt.textContent=bFmt(a); bIn.setAttribute('aria-valuetext',bFmt(a));
+    bFill.style.width='calc(15px + (100% - 30px)*'+k+')';
+    bTicks.forEach(function(t,i){t.classList.toggle('on',i<=st)}); bLabs.forEach(function(l,i){l.classList.toggle('on',i===st)});
+    bSats.forEach(function(s,i){s.classList.toggle('on',st>=i+1)});
+    bCore.classList.toggle('max',st===9);
+    if(st===9&&!bBoom){bBoom=true;bConfetti()} if(st<9)bBoom=false;
+    if(st!==bStg){var b=BUD[st];bStg=st;var fill=function(){document.getElementById('bHead').textContent=b[1];document.getElementById('bLine').textContent=b[2];document.getElementById('bChips').innerHTML=b[3].map(function(c){return '<span>'+esc(c)+'</span>'}).join('');document.getElementById('bFame').textContent=b[4];bStageEl.classList.remove('fade')};
+      if(instant)fill();else{bStageEl.classList.add('fade');setTimeout(fill,160)}}
+  }
+  bIn.addEventListener('input',function(){bSet(+bIn.value)});
+  bIn.addEventListener('change',function(){bSec.classList.remove('bhint')});
+  document.getElementById('bLabels').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;e.stopPropagation();bSec.classList.remove('bhint');var to=+b.dataset.j*100,from=+bIn.value,t0=null;function step(t){if(!t0)t0=t;var p=Math.min(1,(t-t0)/600),v=from+(to-from)*(1-Math.pow(1-p,3));bIn.value=v;bSet(v);if(p<1)requestAnimationFrame(step)}requestAnimationFrame(step)});
+  function budEnter(){bIn.value=0;bStg=-1;bBoom=false;bSet(0,true);bSec.classList.add('bhint')}
+  bSet(0,true);
+
+  /* bonus round: slide from 2004 to 2027 and watch the team grow.
+     Confirmed: Media City 2004 (Ahmad Al Ajouz), Ali Al Ajouz joins 2008, MC Group 2009, Hussein Al Ajouz joins 2019,
+     MCG 2020, Beirut branch 4 people in 2024, 30 people today, Mohamad Zouhairy appointed Business Director 2026.
+     GROW_KW = [year, people in Kuwait]. The years between 2004 and today are estimates until real headcounts come in.
+     Kuwait 26 + Beirut 4 = 30 today. */
+  var GROW_KW=[[2004,1],[2009,8],[2014,14],[2020,19],[2024,22],[2026,26]], GBEIRUT=[2024,4], GEND=2027;
+  /* leaders: [name on the team slide, tag text, year]. Each gets the same tag when their moment comes. */
+  var GLEAD=[['Ahmad Al Ajouz','Ahmad starts it',2004],['Ali Al Ajouz','Ali joins',2008],['Hussein Al Ajouz','Hussein joins',2019],['Mohamad Zouhairy','Mohamad steps up',2026]];
+  var GERA=[
+    [2004,'Day one.','Ahmad Al Ajouz opens Media City in Kuwait, with one rule: do the work properly and protect the name.',0],
+    [2008,'Storm one, and Ali joins.','The world goes into recession. Ali Al Ajouz joins, and we stay profitable without cutting corners.',1],
+    [2009,'Media City becomes MC Group.','A bigger name for a growing agency, trusted by the country’s leading brands.'],
+    [2014,'Storm two: oil prices crash.','Budgets shrink across the Gulf. We stay profitable again.'],
+    [2019,'Storm three, and Hussein joins.','Lebanon’s crisis hits close to home. Hussein Al Ajouz joins, and we stay profitable.',2],
+    [2020,'Storm four, and a new name.','The world stops for the pandemic. We stay profitable through all four storms, and MC Group becomes MCG.'],
+    [2023,'Bigger team, new tools.','The team keeps growing, and starts building with AI.'],
+    [2024,'Hello, Beirut.','Our Lebanon branch joins the story, with 4 people.'],
+    [2026,'Today: 30 people, all in-house.','Seven teams across Kuwait and Beirut, including our own AI department. And Mohamad Zouhairy is appointed Business Director.',3],
+    [2027,'2027: exciting things coming.','We can’t say more yet. Stay close, and you’ll be the first to know.']
+  ];
+  var gSec=document.querySelector('.s-grow'), gIn=document.getElementById('gRange'), gCrowd=document.getElementById('gCrowd'), gCap=document.getElementById('gCap'), gFill=document.getElementById('gFill'), gConf=document.getElementById('gConf'), gEra=-1, gParty=false;
+  /* two group photos: Kuwait (filled from the front middle out) and Beirut, plus a row of "who's next?" figures for 2027 */
+  var GZ=1.05, KX=-80, BX=265;
+  var GGROUPS=[{g:'kw',x0:KX,rows:[[7,1,58,6],[7,.92,56,42],[6,.85,54,74],[6,.78,50,103]]},{g:'br',x0:BX,rows:[[2,1,62,6],[2,.92,58,42]]}], gSlots=[];
+  GGROUPS.forEach(function(G){var list=[];G.rows.forEach(function(r,ri){for(var j=0;j<r[0];j++){var x=(j-(r[0]-1)/2)*r[2]*GZ;list.push({g:G.g,x:Math.round(G.x0+x),b:Math.round(r[3]*GZ),s:+(r[1]*GZ).toFixed(3),r:ri,o:Math.abs(x)/(r[2]*GZ)+ri*1.25+(x<0?.01:0)})}});list.sort(function(a,b){return a.o-b.o});gSlots=gSlots.concat(list)});
+  [-160,-80,0,80,160].forEach(function(x){gSlots.push({g:'nx',x:Math.round(KX+x*GZ),b:Math.round(140*GZ),s:+(.7*GZ).toFixed(3),r:5})});
+  var GBODY=['#F29123','#E94C97','#1FA7E0','#2694CF','#F8BC70','#F1EBDF','#7FD0F0','#F36FAE','#FFB25C'], GHAIR=['#2A1A12','#3B2416','#17130F','#5A3A22','#4A2C1A'];
+  var bi=0, ni=0;
+  gCrowd.insertAdjacentHTML('beforeend',gSlots.map(function(p,i){
+    if(p.g==='nx') return '<div class="pp ghost" data-g="nx" style="transition-delay:'+(ni++*0.1)+'s;left:calc(50% + '+p.x+'px);bottom:'+p.b+'px;z-index:4;--s:'+p.s+';--from:0px;--lean:0deg;--dl:'+((i*0.37)%2.6).toFixed(2)+'s;--jd:0ms"><svg viewBox="0 0 56 84" aria-hidden="true"><path class="bd" d="M6 84V66c0-12 10-21 22-21s22 9 22 21v18z"/><circle class="hd" cx="28" cy="26" r="13"/><text x="28" y="31.5" text-anchor="middle">?</text></svg></div>';
+    var v=i===0?0:(i*7+3)%4, h=GHAIR[(i*3)%GHAIR.length], cap='<path class="hr" d="M15 25c0-9 6-14 13-14s13 5 13 14c-3-4-7-6-13-6s-10 2-13 6z"/>', hair=v===0?cap:v===2?cap+'<circle class="hr" cx="28" cy="10" r="6"/>':'';
+    var back=v===1?'<path class="hr" d="M13 27c0-10 7-16 15-16s15 6 15 16v15c-2 2-5 3-8 3H21c-3 0-6-1-8-3z"/>':'';
+    var left=p.g==='kw'?p.x<=KX:false, from=left?-(420+Math.abs(p.x)):(420+Math.abs(p.x)), lean=left?9:-9, dl=p.g==='br'?'transition-delay:'+(bi++*0.12)+'s;':'';
+    return '<div class="pp'+(p.r>1&&p.g==='kw'?' back':'')+'" data-g="'+p.g+'" style="'+dl+'left:calc(50% + '+p.x+'px);bottom:'+p.b+'px;z-index:'+(10-p.r)+';--s:'+p.s+';--from:'+from+'px;--lean:'+lean+'deg;--c:'+GBODY[(i*5)%GBODY.length]+';--h:'+h+';--dl:'+((i*0.37)%2.6).toFixed(2)+'s;--jd:'+(i*14)+'ms"><svg viewBox="0 0 56 84" aria-hidden="true">'+back+'<path class="bd" d="M6 84V66c0-12 10-21 22-21s22 9 22 21v18z"/><circle class="hd" cx="28" cy="26" r="13"/><circle class="ey" cx="23.6" cy="27.5" r="1.5"/><circle class="ey" cx="32.4" cy="27.5" r="1.5"/><path class="sm" d="M24.5 31.6q3.5 2.8 7 0"/>'+hair+'</svg></div>'}).join(''));
+  var gKw=[].slice.call(gCrowd.querySelectorAll('.pp[data-g="kw"]')), gBr=[].slice.call(gCrowd.querySelectorAll('.pp[data-g="br"]')), gNx=[].slice.call(gCrowd.querySelectorAll('.pp[data-g="nx"]'));
+  var kwSlots=gSlots.filter(function(p){return p.g==='kw'});
+  function gCount(y){var G=GROW_KW;for(var i=0;i<G.length-1;i++){if(y<=G[i+1][0]){var a=G[i],b=G[i+1];return a[1]+(b[1]-a[1])*(y-a[0])/(b[0]-a[0])}}return G[G.length-1][1]}
+  /* each leader's tag sits over a figure: the founder is the first person; Ali and Hussein are the person who arrives in their year; Mohamad is already in the front row */
+  var gLeadSlot=[0,Math.max(1,Math.round(gCount(2008)))-1,Math.max(1,Math.round(gCount(2019)))-1,3];
+  gCrowd.insertAdjacentHTML('beforeend',GLEAD.map(function(L,j){var p=kwSlots[gLeadSlot[j]],im=document.querySelector('.s-team img[alt="'+L[0]+'"]');return '<span class="gtag lead" style="left:calc(50% + '+p.x+'px);bottom:'+Math.round(p.b+71*p.s+10)+'px">'+(im?'<img alt="" src="'+im.getAttribute('src')+'">':'')+esc(L[1])+'</span>'}).join('')+'<span class="gtag loc" style="left:calc(50% + '+KX+'px);bottom:182px">Kuwait</span><span class="gtag loc" style="left:calc(50% + '+BX+'px);bottom:124px">Beirut</span>');
+  var gLeadTags=[].slice.call(gCrowd.querySelectorAll('.gtag.lead')), gLocTags=[].slice.call(gCrowd.querySelectorAll('.gtag.loc'));
+  gCrowd.querySelector('.gspot').style.left='calc(50% + '+KX+'px)';
+  var GMARK=[[2004,'2004'],[2008,'2008'],[2009,'2009'],[2014,'2014'],[2019,'2019'],[2020,'2020'],[2024,'2024'],[2026,'Today'],[2027,'2027']];
+  function gPos(y){return 'calc(15px + (100% - 30px)*'+((y-2004)/(GEND-2004))+')'}
+  var gt='';for(var y=2004;y<=GEND;y++){gt+='<i data-y="'+y+'"'+(GMARK.some(function(m){return m[0]===y})?' class="m"':'')+' style="left:'+gPos(y)+'"></i>'}
+  document.getElementById('gTicks').innerHTML=gt;
+  document.getElementById('gLabels').innerHTML=GMARK.map(function(m){return '<button data-y="'+m[0]+'" style="left:'+gPos(m[0])+'">'+m[1]+'</button>'}).join('');
+  var gTicks=[].slice.call(document.getElementById('gTicks').children), gLabs=[].slice.call(document.getElementById('gLabels').children);
+  function gConfetti(){var C=['#F29123','#E94C97','#1FA7E0','#FFFFFF','#F8BC70'],h='';for(var i=0;i<60;i++){h+='<i style="left:'+(Math.random()*100)+'%;background:'+C[i%C.length]+';--dx:'+(Math.random()*160-80)+'px;--r:'+(Math.random()*720-360)+'deg;animation-delay:'+(Math.random()*.5)+'s"></i>'}gConf.innerHTML=h;setTimeout(function(){gConf.innerHTML=''},3400)}
+  function gSet(v,instant){
+    v=Math.max(2004,Math.min(GEND,v)); var top=v>=GEND-0.005, yr=top?GEND:Math.floor(v), kw=yr>=2026?gKw.length:Math.max(1,Math.round(gCount(v))), br=yr>=GBEIRUT[0]?GBEIRUT[1]:0, n=kw+br, k=(v-2004)/(GEND-2004);
+    gSec.style.setProperty('--k',k.toFixed(3)); gFill.style.width=gPos(v);
+    document.getElementById('gYear').textContent=yr;
+    document.getElementById('gNum').textContent=n; document.getElementById('gWord').textContent=(n===1?'person':'people')+(top?', for now':'');
+    gIn.setAttribute('aria-valuetext',yr+', '+n+(n===1?' person':' people'));
+    gKw.forEach(function(p,i){p.classList.toggle('on',i<kw)}); gBr.forEach(function(p,i){p.classList.toggle('on',i<br)}); gNx.forEach(function(p){p.classList.toggle('on',top)});
+    gTicks.forEach(function(t){t.classList.toggle('on',+t.dataset.y<=yr)});
+    var li=0;GMARK.forEach(function(m,i){if(m[0]===GEND?top:yr>=m[0])li=i});gLabs.forEach(function(l,i){l.classList.toggle('on',i===li)});
+    if(top&&!gParty){gParty=true;gSec.classList.add('party');gConfetti();setTimeout(function(){gSec.classList.remove('party')},1800)} if(!top)gParty=false;
+    var e=0;for(var i=0;i<GERA.length;i++){if(GERA[i][0]===GEND?top:yr>=GERA[i][0])e=i}
+    var lead=GERA[e][3]; gLeadTags.forEach(function(t,j){t.classList.toggle('on',j===lead)});
+    gLocTags.forEach(function(t){t.classList.toggle('on',br>0&&!top)});
+    if(e!==gEra){gEra=e;var g=GERA[e],fill=function(){document.getElementById('gHead').textContent=g[1];document.getElementById('gLine').textContent=g[2];document.getElementById('gChips').innerHTML=(g[0]===2026?['30 people','7 teams','2 offices','AI department']:[]).map(function(c){return '<span>'+esc(c)+'</span>'}).join('');gCap.classList.remove('fade')};
+      if(instant)fill();else{gCap.classList.add('fade');setTimeout(fill,160)}}
+  }
+  gIn.addEventListener('input',function(){gSet(+gIn.value)});
+  gIn.addEventListener('change',function(){gSec.classList.remove('ghint')});
+  document.getElementById('gLabels').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;e.stopPropagation();gSec.classList.remove('ghint');var to=+b.dataset.y,from=+gIn.value,t0=null,dur=500+Math.abs(to-from)*60;function step(t){if(!t0)t0=t;var p=Math.min(1,(t-t0)/dur),v=from+(to-from)*(1-Math.pow(1-p,3));gIn.value=v;gSet(v);if(p<1)requestAnimationFrame(step)}requestAnimationFrame(step)});
+  function grEnter(){gIn.value=2004;gEra=-1;gParty=false;gSet(2004,true);gSec.classList.add('ghint')}
+  gSet(2004,true);
+
+  /* bonus round: ads we wish we'd made. Facts kept simple: brand, campaign, year, agency. Links search YouTube. */
+  var FAV=[
+    ['Apple','Think Different','1997','TBWA\\Chiat\\Day','It never shows a single computer. It sells a belief, and the product comes along for the ride.','Stand for something bigger than what you sell.','#123A69'],
+    ['Nike','Just Do It','1988','Wieden+Kennedy','Three words that work on a marathon runner and on someone getting off the sofa.','Find the one line your whole brand can live in.','#E94C97'],
+    ['Old Spice','The Man Your Man Could Smell Like','2010','Wieden+Kennedy','It took a dusty brand and made it the funniest thing online, in one take.','Humour sells, even in the most boring category.','#1FA7E0'],
+    ['Volvo Trucks','The Epic Split','2013','Forsman & Bodenfors','A truck ad that millions watched on purpose. The product is the stunt.','Show what your product can do, and make it unforgettable.','#F29123'],
+    ['Dove','Real Beauty Sketches','2013','Ogilvy Brazil','A simple experiment that made people stop, think and share.','Touch a real feeling and people will spread it for you.','#125D99'],
+    ['Coca-Cola','Share a Coke','2011','Ogilvy Sydney','It swapped the logo for people’s names and turned every bottle into a gift.','Make your customer the star.','#E94C97'],
+    ['Spotify','Wrapped','2016','Spotify in-house','Once a year, millions of people post Spotify’s ads for free, because the ads are about them.','Turn what you know about customers into something they want to share.','#144074'],
+    ['Burger King','The Moldy Whopper','2020','INGO, David & Publicis','A rotting burger, on purpose, to prove there are no preservatives. Brave and unforgettable.','Be bold enough to be a little ugly.','#F29123']
+  ];
+  var favs=document.getElementById('favs'), FARR='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>';
+  favs.innerHTML=FAV.map(function(f,j){var q=encodeURIComponent(f[0]+' '+f[1]+' ad');return '<div class="fv" role="button" tabindex="0" style="--j:'+j+';--c:'+f[6]+'" aria-label="'+esc(f[0]+': '+f[1]+'. Tap to flip.')+'"><div class="fv-in"><div class="fv-f"><span class="fv-n">0'+(j+1)+'</span><span class="fv-tap">+</span><span class="fv-br">'+esc(f[0])+'</span><span class="fv-ad">'+esc(f[1])+'</span><span class="fv-y">'+f[2]+' · '+esc(f[3])+'</span></div><div class="fv-b"><p class="eyebrow">Why we love it</p><p>'+esc(f[4])+'</p><p class="eyebrow">Steal this</p><p class="st">'+esc(f[5])+'</p><a href="https://www.youtube.com/results?search_query='+q+'" target="_blank" rel="noopener">Watch it '+FARR+'</a></div></div></div>'}).join('');
+  favs.addEventListener('click',function(e){if(e.target.closest('a'))return;var c=e.target.closest('.fv');if(c)c.classList.toggle('flipped')});
+  favs.addEventListener('keydown',function(e){var c=e.target.closest('.fv');if(c&&(e.key==='Enter'||e.key===' ')){e.preventDefault();c.classList.toggle('flipped')}});
+
   /* our story */
   var ST=[
     {y:2004,big:'2004',ey:'2004',h:'It starts as Media City.',b:'A small agency in Kuwait with one rule: do the work properly and protect the name.',l:'2004'},
-    {y:2006.4,big:'Growth',ey:'The growth years',h:'Media City becomes MCG.',b:'A full-service agency across Kuwait and Beirut, trusted by the country’s leading brands.',l:'Growth'},
+    {y:2009,big:'2009',ey:'2009',h:'Media City becomes MC Group.',b:'A bigger name for a growing agency, trusted by the country’s leading brands.',l:'2009'},
     {y:2020,big:'4 storms',ey:'2008 – 2020',h:'Four storms. Profitable through every one.',b:'The 2008 financial crisis, the 2014 oil price collapse, Lebanon’s 2019 crisis and the 2020 pandemic. We never traded quality or reputation for a quick win.',l:'Storms'},
-    {y:2026,big:'Today',ey:'2026',h:'An AI-first agency.',b:'40+ people rebuilding how creative work gets made: AI content, our own tools and automations, and The AI Club by MCG.',l:'Today'},
+    {y:2026,big:'Today',ey:'2026',h:'An AI-first agency.',b:'30 people rebuilding how creative work gets made: AI content, our own tools and automations, and The AI Club by MCG.',l:'Today'},
     {y:0,big:'Next',ey:'Our vision',h:'The region’s reference for AI-powered creativity.',b:'Ideas that move people, made faster and smarter, for brands that want to lead.',l:'Next'}
   ];
   var X=function(y){return 24+(y-2004)*(980/22)}, BASEY=172;
@@ -721,12 +865,63 @@ var RESULTS={
   var secEl=document.getElementById('sectors'), wall=document.getElementById('logowall'), secBtns=[];
   document.getElementById('wallMore').onclick=function(e){e.stopPropagation();wall.classList.add('all');this.hidden=true};
   function layoutWall(n){var W=1168,H=wall.clientHeight||380,g=8,best=null;for(var c=3;c<=16;c++){var w=(W-(c-1)*g)/c,r=Math.ceil(n/c),h=(H-(r-1)*g)/r;if(h<34)continue;var tw=Math.min(w,h*1.55,196),th=Math.min(h,tw/1.55);var sc=tw*th;if(!best||sc>best.s)best={c:c,w:tw,h:th,s:sc}}return best}
+  /* key clients get bigger tiles: TIER1 = large, TIER2 = wide, everyone else = small */
+  var TIER1=['Honda Alghanim','GMC','Kuwait Airways','Microsoft','KFH','BYD Alghanim','Mercedes-Benz','Huawei'];
+  var TIER2=['Baraka Dates','MADO','Kuwait International Fair','Subaru','Caltex','Pirelli','Mitsubishi','Johnson & Johnson','Gulf Insurance Group','Capital Markets Authority','Crowne Plaza','Enaya Insurance'];
+  function tierOf(n){return TIER1.indexOf(n)>=0?1:TIER2.indexOf(n)>=0?2:0}
+  function caseByLogo(n){for(var i=0;i<CASES.length;i++)if(CASES[i].logo===n)return CASES[i].id;return ''}
+  function layoutMosaic(list){var W=1168,H=wall.clientHeight||420,g=6,u=0,best=null,big=false;list.forEach(function(x){u+=x.t===1?4:x.t===2?2:1;if(x.t)big=true});
+    for(var c=4;c<=20;c++){var w=(W-(c-1)*g)/c,r=Math.ceil(u/c)+(big?1:0),h=(H-(r-1)*g)/r;if(h<28)continue;var cw=Math.min(w,h*1.6,150),ch=Math.min(h,cw/1.15);var sc=cw*ch;if(!best||sc>best.s)best={c:c,w:cw,h:ch,s:sc}}return best}
+  /* place every tile ourselves so the wall is always a full rectangle: a few small tiles become wide to fill the last row */
+  function tryPack(list,c,r,gap){
+    var items=list.map(function(x){return {x:x,t:x.t}}), si=[], k, y, x, i;
+    items.forEach(function(it,j){if(!it.t)si.push(j)});
+    if(gap>si.length)return null;
+    for(k=0;k<gap;k++)items[si[Math.floor((k+.5)*si.length/gap)]].t=2;
+    var occ=[];for(y=0;y<r;y++){occ.push([]);for(x=0;x<c;x++)occ[y].push(false)}
+    function fits(t,y,x){if(t===0)return true;if(x+1>=c||occ[y][x+1])return false;if(t===2)return true;return y+1<r&&!occ[y+1][x]&&!occ[y+1][x+1]}
+    var rem=items.slice(), out=[];
+    for(y=0;y<r;y++)for(x=0;x<c;x++){if(occ[y][x])continue;
+      var pick=-1;for(i=0;i<rem.length;i++){if(fits(rem[i].t,y,x)){pick=i;break}}
+      if(pick<0)return null;
+      var it=rem.splice(pick,1)[0], sw=it.t?2:1, sh=it.t===1?2:1;
+      for(var dy=0;dy<sh;dy++)for(var dx=0;dx<sw;dx++)occ[y+dy][x+dx]=true;
+      out.push({x:it.x,t:it.t,col:x+1,row:y+1});
+    }
+    return rem.length?null:out;
+  }
+  function packWall(list){
+    var W=1168,H=wall.clientHeight||420,g=6,U=0,best=null;
+    list.forEach(function(x){U+=x.t===1?4:x.t===2?2:1});
+    for(var c=4;c<=22;c++){
+      for(var r=Math.ceil(U/c);r<=Math.ceil(U/c)+1;r++){
+        var w=(W-(c-1)*g)/c,h=(H-(r-1)*g)/r; if(h<28)continue;
+        var cw=Math.min(w,h*1.6,150),ch=Math.min(h,cw/1.15),sc=cw*ch;
+        if(best&&sc<=best.s)continue;
+        var pl=tryPack(list,c,r,c*r-U); if(pl){best={c:c,r:r,w:cw,h:ch,s:sc,pl:pl};break}
+      }
+    }
+    return best;
+  }
   function showSector(k){
     secBtns.forEach(function(b){b.setAttribute('aria-selected',b.dataset.k===k)});
-    var list=CL.filter(function(x){return k==='all'||x.s===k}), L2=layoutWall(list.length);
-    wall.style.gridTemplateColumns='repeat('+L2.c+','+Math.floor(L2.w)+'px)'; wall.style.gridAutoRows=Math.floor(L2.h)+'px';
-    wall.innerHTML=list.map(function(x,i){return '<div class="lt" style="--i:'+Math.min(i,60)+'"><img alt="'+esc(x.n)+'" title="'+esc(x.n)+'" src="'+x.u+'"></div>'}).join('');
+    var all=CL.filter(function(x){return k==='all'||x.s===k}).map(function(x){return {n:x.n,u:x.u,t:tierOf(x.n),cs:caseByLogo(x.n)}});
+    /* spread the big tiles through the top three-quarters of the wall */
+    var big=all.filter(function(x){return x.t}), small=all.filter(function(x){return !x.t}), list=[], every=Math.max(1,Math.round(small.length*.75/(big.length+1)));
+    big.sort(function(a,b){return a.t-b.t});
+    small.forEach(function(x,i){if(i%every===0&&big.length)list.push(big.shift());list.push(x)}); list=big.concat(list);
+    var P=packWall(list), tile=function(x,t,i,pos){return '<div class="lt'+(t===1?' t1':t===2?' t2':'')+(x.cs?' cs':'')+'" style="--i:'+Math.min(i,60)+(pos||'')+'"'+(x.cs?' data-cs="'+x.cs+'" role="button" tabindex="0" aria-label="'+esc(x.n)+': see the case study"':'')+'><img alt="'+esc(x.n)+'" src="'+x.u+'"><span class="ln">'+esc(x.n)+(x.cs?' · See the work':'')+'</span></div>'};
+    if(P){
+      wall.style.gridTemplateColumns='repeat('+P.c+','+Math.floor(P.w)+'px)'; wall.style.gridTemplateRows='repeat('+P.r+','+Math.floor(P.h)+'px)'; wall.style.gridAutoRows='';
+      wall.innerHTML=P.pl.map(function(p,i){return tile(p.x,p.t,i,';grid-column:'+p.col+' / span '+(p.t?2:1)+';grid-row:'+p.row+' / span '+(p.t===1?2:1))}).join('');
+    }else{
+      var L2=layoutMosaic(list);
+      wall.style.gridTemplateColumns='repeat('+L2.c+','+Math.floor(L2.w)+'px)'; wall.style.gridTemplateRows=''; wall.style.gridAutoRows=Math.floor(L2.h)+'px';
+      wall.innerHTML=list.map(function(x,i){return tile(x,x.t,i)}).join('');
+    }
   }
+  wall.addEventListener('click',function(e){var tl=e.target.closest('.lt');if(!tl)return;if(tl.dataset.cs){openCase(tl.dataset.cs);return}[].forEach.call(wall.querySelectorAll('.lt.show'),function(o){if(o!==tl)o.classList.remove('show')});tl.classList.toggle('show')});
+  wall.addEventListener('keydown',function(e){var tl=e.target.closest('.lt.cs');if(tl&&(e.key==='Enter'||e.key===' ')){e.preventDefault();openCase(tl.dataset.cs)}});
   SEC.forEach(function(s){var n=s[0]==='all'?CL.length:CL.filter(function(x){return x.s===s[0]}).length;var b=document.createElement('button');b.setAttribute('role','tab');b.dataset.k=s[0];b.innerHTML=esc(s[1])+' <em>'+n+'</em>';b.onclick=function(){showSector(s[0])};secEl.appendChild(b);secBtns.push(b)});
 
   /* the ten services: key, name, tile colour, one line for the picker */

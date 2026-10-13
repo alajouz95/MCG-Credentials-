@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap">
-<link rel="stylesheet" href="styles.css?v=8f43650e">
+<link rel="stylesheet" href="styles.css?v=1bc04813">
 </head>
 <body>
 
@@ -51,7 +51,7 @@
         <div class="counters">
           <div class="counter rise" style="--d:2;--c:var(--cyan)"><b data-count="22">22</b><span>years in the market</span></div>
           <div class="counter rise" style="--d:3;--c:var(--pink)"><b data-count="800" data-suffix="+">800+</b><span>clients served</span></div>
-          <div class="counter rise" style="--d:4;--c:var(--orange)"><b data-count="40" data-suffix="+">40+</b><span>people, all in-house</span></div>
+          <div class="counter rise" style="--d:4;--c:var(--orange)"><b data-count="30">30</b><span>people, all in-house</span></div>
           <div class="counter rise" style="--d:5;--c:var(--sky)"><b data-count="1" data-suffix="B+">1B+</b><span>impressions delivered</span></div>
         </div>
         <p class="small rise" style="--d:6">Al Hamra Tower, Kuwait · Beirut, Lebanon</p>
@@ -97,6 +97,7 @@
           <div class="kicker rise" style="--d:0"><span class="rule"></span><p class="eyebrow">Who we work with</p></div>
           <h2 class="h2 rise" style="--d:1">Some of the 800+ brands that trust us.</h2>
         </div>
+        <p class="hint rise" style="--d:2"><i></i>Tap a logo with a dot to see our work for them.</p>
       </div>
       <div class="sectors rise" style="--d:2" id="sectors" role="tablist" aria-label="Industries"></div>
       <div class="logowall rise" style="--d:3" id="logowall"></div>
@@ -126,13 +127,13 @@
       <div class="org-l">
         <div class="kicker rise" style="--d:0"><span class="rule"></span><p class="eyebrow">Our team</p></div>
         <h2 class="h2 rise" style="--d:1">The people behind MCG.</h2>
-        <p class="body rise" style="--d:2">MCG started in 2004 as Media City, founded by Ahmad Al Ajouz. Today our leadership team works side by side with 40+ specialists across seven in-house teams, in Kuwait and Beirut.</p>
-        <div class="ostats rise" style="--d:3"><div><b>2004</b><span>founded</span></div><div><b>40+</b><span>people</span></div><div><b>7</b><span>in-house teams</span></div><div><b>2</b><span>offices</span></div></div>
+        <p class="body rise" style="--d:2">MCG started in 2004 as Media City, founded by Ahmad Al Ajouz. It became MC Group in 2009, and MCG in 2020. Today we’re a team of 30 across seven in-house teams, in Kuwait and Beirut.</p>
+        <div class="ostats rise" style="--d:3"><div><b>2004</b><span>founded</span></div><div><b>30</b><span>people</span></div><div><b>7</b><span>in-house teams</span></div><div><b>2</b><span>offices</span></div></div>
         <div class="odet rise" style="--d:4" id="oDet" aria-live="polite"></div>
       </div>
       <div class="ochart rise" style="--d:2" id="oChart">
         <div class="og"><p class="og-l">Our leadership</p><div class="orow r2"><figure class="op"><img src="assets/team_ahmad.webp" alt="Ahmad Al Ajouz"><figcaption><b>Ahmad Al Ajouz</b><span>Chairman &amp; Founder</span></figcaption></figure><figure class="op"><img src="assets/team_ali.webp" alt="Ali Al Ajouz"><figcaption><b>Ali Al Ajouz</b><span>Chief Executive Officer</span></figcaption></figure><figure class="op"><img src="assets/team_hussein.webp" alt="Hussein Al Ajouz"><figcaption><b>Hussein Al Ajouz</b><span>Managing Director &amp; Business Development</span></figcaption></figure><figure class="op"><img src="assets/team_mohamad.webp" alt="Mohamad Zouhairy"><figcaption><b>Mohamad Zouhairy</b><span>Business Director</span></figcaption></figure></div></div>
-        <div class="og"><p class="og-l">And 40+ specialists in seven in-house teams</p><div class="orow r3" id="oDeps"></div></div>
+        <div class="og"><p class="og-l">30 of us in total, across seven in-house teams</p><div class="orow r3" id="oDeps"></div></div>
       </div>
     </div>
   </section>
@@ -296,6 +297,77 @@
     </div>
   </section>
 
+  <!-- Just for fun: what can your budget do? -->
+  <section data-off="cut" class="slide s-bud" data-id="budget" data-name="Bonus round">
+    <div class="pad">
+      <div class="toprow">
+        <div class="head">
+          <div class="kicker rise" style="--d:0"><span class="bbadge">Bonus round</span></div>
+          <h2 class="h2 rise" style="--d:1">You made it. Here’s some imaginary money.</h2>
+        </div>
+      </div>
+      <div class="bmain rise" style="--d:3">
+        <div class="btext" aria-live="polite">
+          <p class="bamt" id="bAmt">$0</p>
+          <div class="bstage" id="bStage">
+            <h3 id="bHead"></h3>
+            <p class="bline" id="bLine"></p>
+            <div class="bchips" id="bChips"></div>
+            <p class="bfame">Who's heard of you: <b id="bFame"></b></p>
+          </div>
+        </div>
+        <div class="bviz" id="bViz">
+          <div class="bring"></div><div class="bring r2"></div>
+          <div class="borbit" id="bOrbit"></div>
+          <div class="bcore" id="bCore"><b>Your<br>brand</b></div>
+          <div class="bconf" id="bConf"></div>
+        </div>
+      </div>
+      <div class="bslide rise" style="--d:4">
+        <div class="btrack" id="bTrack"><i class="bfill" id="bFill"></i><i class="bpulse"></i><div class="bticks" id="bTicks"></div><input type="range" id="bRange" min="0" max="900" step="1" value="0" aria-label="Budget"></div>
+        <div class="blabels" id="bLabels"></div>
+      </div>
+      <p class="bnote rise" style="--d:5">Slide responsibly. No real money involved. Real numbers come with a real brief. <button class="link" data-go="contact">Let's talk about yours <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></button></p>
+    </div>
+  </section>
+
+  <!-- Bonus round: ads we wish we'd made (text and links only, no other brands' images or logos) -->
+  <section data-off="cut" class="slide s-fav" data-id="favs" data-name="Ads we wish we'd made">
+    <div class="pad">
+      <div class="head">
+        <div class="kicker rise" style="--d:0"><span class="bbadge">Bonus round</span></div>
+        <h2 class="h2 rise" style="--d:1">Ads we wish we’d made.</h2>
+        <p class="lede rise" style="--d:2">The brands we look up to. Tap one to see why we love it, and what your brand can steal from it.</p>
+      </div>
+      <div class="favs rise" style="--d:3" id="favs"></div>
+      <p class="bnote rise" style="--d:4">Your brand could be on a list like this one day. <button class="link" data-go="contact">Let’s make it happen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></button></p>
+    </div>
+  </section>
+
+  <!-- Bonus round: slide from 2004 to today and watch the team grow. Headcounts live in GROW (script). -->
+  <section class="slide s-grow" data-id="grow" data-name="Watch us grow">
+    <div class="pad">
+      <div class="head">
+        <div class="kicker rise" style="--d:0"><span class="bbadge">Bonus round</span></div>
+        <h2 class="h2 rise" style="--d:1">Watch us grow up.</h2>
+        <p class="lede rise" style="--d:2">Drag the slider from 2004 to today (and a little beyond) and watch the team fill the room.</p>
+      </div>
+      <div class="gmain rise" style="--d:3">
+        <div class="gtext" aria-live="polite">
+          <p class="gyear" id="gYear">2004</p>
+          <p class="gcount"><b id="gNum">1</b> <span id="gWord">person</span></p>
+          <div class="gcap" id="gCap"><h3 id="gHead"></h3><p id="gLine"></p><div class="bchips" id="gChips"></div></div>
+        </div>
+        <div class="gcrowd" id="gCrowd"><div class="gspot"></div><div class="gfloor"></div><div class="gconf" id="gConf"></div></div>
+      </div>
+      <div class="bslide rise" style="--d:4">
+        <div class="btrack gtrack"><i class="bfill" id="gFill"></i><i class="bpulse"></i><div class="bticks" id="gTicks"></div><input type="range" id="gRange" min="2004" max="2027" step="0.01" value="2004" aria-label="Year"></div>
+        <div class="blabels" id="gLabels"></div>
+      </div>
+      <p class="bnote rise" style="--d:5">Every one of them works in-house, in Kuwait and Beirut. <button class="link" data-go="contact">Come meet them <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></button></p>
+    </div>
+  </section>
+
   <!-- 13 Contact -->
   <section class="slide s-contact" data-id="contact" data-name="Let's talk">
     <img class="bg" src="assets/orbs1.webp" alt="">
@@ -385,7 +457,7 @@
   <p>Turn your phone sideways<br>for the full view.</p><small>Tap anywhere to continue</small>
 </div></div>
 
-<script src="script.js?v=e86962e5"></script>
+<script src="script.js?v=6bedfdfd"></script>
 
 </body>
 </html>
