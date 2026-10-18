@@ -229,32 +229,9 @@ var RESULTS={
     ['events','Events & activations','Launches, events, booths and kiosks, from the 3D design to the night itself.',['Event producers','3D designers'],'work:@events'],
     ['ai','AI department','AI images, AI films and hybrid shoots, for our clients and for other agencies.',['AI artists','AI editors','Producers'],'svc-ai']
   ];
-  var oChart=document.getElementById('oChart'), oLines=document.getElementById('oLines'), oDeps=document.getElementById('oDeps'), oDet=document.getElementById('oDet'), oSel=-1, oT=null, oP=[];
-  oDeps.innerHTML=DEPS.map(function(d,j){return '<button class="od" style="--j:'+j+'" data-j="'+j+'"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+OIC[d[0]]+'</svg></i><b>'+esc(d[1])+'</b><span class="dd">'+esc(d[2])+'</span></button>'}).join('');
-  [].forEach.call(oChart.querySelectorAll('.op'),function(f,j){f.style.setProperty('--j',j)});
-  function oPos(el){var x=0,y=0,e=el;while(e&&e!==oChart){x+=e.offsetLeft;y+=e.offsetTop;e=e.offsetParent}return {x:x+el.offsetWidth/2,t:y,b:y+el.offsetHeight}}
-  function oDraw(){
-    var NS='http://www.w3.org/2000/svg', f=oPos(oChart.querySelector('.r1 .op')), L=[].map.call(oChart.querySelectorAll('.r2 .op'),function(e){return {img:oPos(e.querySelector('img')),all:oPos(e)}}), D=[].map.call(oDeps.children,oPos);
-    var y1=(f.b+L[0].img.t)/2, lb=Math.max.apply(null,L.map(function(l){return l.all.b})), y2=(lb+D[0].t)/2, cx=L[Math.floor(L.length/2)].all.x;
-    oLines.innerHTML='';oP=[];
-    function add(d,g,dep){var p=document.createElementNS(NS,'path');p.setAttribute('d',d);p.dataset.g=g;if(dep!=null)p.dataset.dep=dep;oLines.appendChild(p);oP.push(p);return p}
-    L.forEach(function(l){add('M'+f.x+' '+(f.b+4)+'V'+y1+'H'+l.img.x+'V'+(l.img.t-4),0)});
-    L.forEach(function(l){add('M'+l.all.x+' '+(l.all.b+4)+'V'+y2,1,null).classList.add('lead')});
-    D.forEach(function(d,j){add('M'+cx+' '+y2+'H'+d.x+'V'+(d.t-4),2,j)});
-  }
-  function oAnim(){oP.forEach(function(p){var n=p.getTotalLength();p.style.transition='none';p.style.strokeDasharray=n;p.style.strokeDashoffset=n});oLines.getBoundingClientRect();
-    oP.forEach(function(p){p.style.transition='stroke-dashoffset .8s cubic-bezier(.45,.05,.25,1) '+(.45+(+p.dataset.g)*.35)+'s, stroke .35s, stroke-width .35s';p.style.strokeDashoffset=0})}
-  function oSet(i){
-    var first=oSel<0; oSel=i; var d=DEPS[i];
-    [].forEach.call(oDeps.children,function(b,j){b.classList.toggle('sel',j===i);b.setAttribute('aria-pressed',j===i)});
-    oP.forEach(function(p){p.classList.toggle('hot',p.dataset.dep==i||p.classList.contains('lead'))});
-    oDet.classList.add('fade');
-    setTimeout(function(){oDet.innerHTML='<p class="eyebrow">Team '+(i+1)+' of '+DEPS.length+'</p><h3>'+esc(d[1])+'</h3><p>'+esc(d[2])+'</p><div class="oroles">'+d[3].map(function(r){return '<span>'+esc(r)+'</span>'}).join('')+'</div>'+(d[4]?'<button class="go2" data-go="'+d[4]+'">See their work '+GO+'</button>':'');oDet.classList.remove('fade')},first?0:200);
-  }
-  function oStop(){clearInterval(oT);oT=null}
-  function oPlay(){oStop();if(flow)return;oSel=-1;oDet.innerHTML='';var i=0;setTimeout(function(){if(!slides[cur].classList.contains('s-team'))return;oSet(0);oT=setInterval(function(){i=(i+1)%DEPS.length;oSet(i)},3200)},1300)}
-  oDeps.addEventListener('click',function(e){var b=e.target.closest('.od');if(!b||flow)return;oStop();oSet(+b.dataset.j)});
-  oDeps.addEventListener('mouseover',function(e){var b=e.target.closest('.od');if(!b||flow||!oT&&oSel==b.dataset.j)return;if(oT){oStop()}oSet(+b.dataset.j)});
+  var oDeps=document.getElementById('oDeps');
+  oDeps.innerHTML=DEPS.map(function(d,j){return '<div class="ot" style="--j:'+j+'"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+OIC[d[0]]+'</svg></i><b>'+esc(d[1])+'</b><p>'+esc(d[2])+'</p><span class="orl">'+d[3].map(esc).join(' · ')+'</span>'+(d[4]?'<button class="go2" data-go="'+d[4]+'">See their work <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></button>':'')+'</div>'}).join('');
+  function oStop(){} function oPlay(){}
 
   /* just for fun: what can your budget do? (not a price list) */
   var BUD=[

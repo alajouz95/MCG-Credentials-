@@ -28,7 +28,7 @@ Plain HTML, CSS and JavaScript, with no build step. Please pull before you edit,
 - `SVI`: which projects sit under which service.
 - `RC`: the result cards on the Digital marketing slide.
 - `CASES`: the 19 case studies (brief, what we did, result).
-- `DEPS`: the seven in-house teams on the "Our team" slide.
+- `DEPS`: the seven in-house teams on the "Our team" slide (shown as cards). The leadership names and photos are in `index.html`, under "Leadership".
 - `AIT`: the three tiles on the AI department slide.
 - `GROW_KW`, `GBEIRUT`, `GLEAD`, `GERA`: the "Watch us grow up" slider game (Kuwait headcount by year, the Beirut branch, the four leadership moments, and the caption for each year). Headcounts between 2004 and today are estimates; replace them with real numbers when available.
 - `CL`: client logos. Sector codes:
