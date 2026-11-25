@@ -9,8 +9,22 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap">
 <link rel="stylesheet" href="styles.css?v=43f698b5">
+<script>(function(){try{var h=location.hash;if((!h||h==='#'||h==='#1'||h==='#intro')&&!/nointro/.test(location.search)&&!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches))document.documentElement.classList.add('intro')}catch(e){}})();</script>
+<link rel="stylesheet" href="intro.css?v=a6ec7051">
 </head>
 <body>
+<div id="intro" tabindex="-1" data-logo="assets/logo_white.webp" aria-label="MCG intro">
+  <canvas id="inCv" aria-hidden="true"></canvas>
+  <div class="in-txt" id="inT0"><p class="in-s">Every big idea</p><p class="in-s">starts small.</p></div>
+  <div class="in-txt" id="inT1"><p class="in-big">We think it.</p></div>
+  <div class="in-txt" id="inT2"><p class="in-big">We make it.</p></div>
+  <div class="in-txt" id="inT3"><p class="in-big">We grow it.</p><p class="in-stats">800+ brands · 22 years<br>Kuwait &amp; Beirut</p></div>
+  <div class="in-txt" id="inT4"><p class="in-big">Welcome to MCG.</p></div>
+  <button class="in-skip" id="inSkip" type="button">Skip intro</button>
+  <div class="in-hint" id="inHint"><span id="inHintTx">Scroll</span><i></i></div>
+  <div class="in-bar"><i id="inBar"></i></div>
+  <div class="in-track"></div>
+</div>
 
 
 <div id="vp">
@@ -457,7 +471,8 @@
   <p>Turn your phone sideways<br>for the full view.</p><small>Tap anywhere to continue</small>
 </div></div>
 
-<script src="script.js?v=0ebae939"></script>
+<script src="intro.js?v=b0d216ad"></script>
+<script src="script.js?v=0a1907a9"></script>
 
 </body>
 </html>

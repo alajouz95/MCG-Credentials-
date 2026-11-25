@@ -11,6 +11,12 @@ Plain HTML, CSS and JavaScript, with no build step. Please pull before you edit,
 - Service words for `show=`: brand, social, digital, media, influencers, film, events, malls, podcasts, ai.
 - `#case-honda` opens a case study directly.
 
+## Intro
+Plain visits to `thisismcg.com` open with a short scroll intro (a spark explodes into the MCG logo, then dives into the credentials). It lives in `intro.js` and `intro.css`; the words are at the top of `index.html`, inside `<div id="intro">`.
+- Links with a `#` (like `#for-Client-Name`, `#show=...`, `#case-...`) skip it.
+- `thisismcg.com/?nointro` skips it too.
+- Visitors can tap "Skip intro" at any time.
+
 ## Files
 - `index.html`: the slides. Each slide is a `<section class="slide">`, in order.
 - `styles.css`: all styles.

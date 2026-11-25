@@ -26,10 +26,12 @@ var RESULTS={
     stage.style.width=SW+'px'; stage.style.height=SH+'px';
     stage.style.setProperty('--bx',((SW-1280)/2)+'px'); stage.style.setProperty('--by',((SH-720)/2)+'px');
     stage.style.setProperty('--s',s); stage.classList.toggle('rot',rotated);
-    if(rotated&&!turnShown){turnShown=true;turnEl.classList.add('on');setTimeout(function(){turnEl.classList.remove('on')},3200);}
+    if(rotated&&!turnShown&&!document.documentElement.classList.contains('intro')){turnShown=true;turnEl.classList.add('on');setTimeout(function(){turnEl.classList.remove('on')},3200);}
   }
   turnEl.addEventListener('click',function(){turnEl.classList.remove('on')});
   window.addEventListener('resize',fit);
+  /* after the intro: show the turn-your-phone hint and replay the cover's entrance */
+  window.addEventListener('mcg:introdone',function(){fit();var s=slides[cur];s.classList.remove('is-active');void s.offsetWidth;s.classList.add('is-active');onEnter(s)});
 
   /* --- the tour: which slides are in it depends on what the client picked --- */
   var picks=[], order=[];
@@ -87,6 +89,7 @@ var RESULTS={
 
   /* keyboard */
   document.addEventListener('keydown',function(e){
+    if(document.documentElement.classList.contains('intro'))return;
     if(openModal){if(e.key==='Escape')closeModal();else if(openModal===lb&&e.key==='ArrowRight')lbStep(1);else if(openModal===lb&&e.key==='ArrowLeft')lbStep(-1);else if(openModal===cv&&e.key==='ArrowRight')caseStep(1);else if(openModal===cv&&e.key==='ArrowLeft')caseStep(-1);return}
     if(flow)return;
     if(e.target&&e.target.closest&&e.target.closest('input'))return;
