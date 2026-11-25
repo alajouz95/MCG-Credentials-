@@ -117,13 +117,15 @@
           if(tc[i]===0){if(t>.45+jit[i]*.07)ci=0}else if(t>.35)ci=tc[i];
           s*=1.15-.35*et;
         }else{                                    /* the logo, breathing */
-          ci=tc[i];x=tx+Math.sin(time*1.7+jit[i])*.5;y=ty+Math.cos(time*1.3+jit[i])*.5;s*=.55;al=.75;
-          if(k>0){var px=fx+(x-fx)*Z, py=fy+(y-fy)*Z, qx=fx+(x-fx)*Z*.82, qy=fy+(y-fy)*Z*.82;
+          ci=tc[i];x=tx+Math.sin(time*1.7+jit[i])*.5;y=ty+Math.cos(time*1.3+jit[i])*.5;s*=.55;
+          /* the particles hand over to the sharp logo; a few stay on as sparkles */
+          var hf=cl((p-P3)/.04);al=(i%13===0)?(1-hf)*.75+hf*Math.max(0,Math.sin(time*2.2+jit[i]*5))*.9:(1-hf)*.75;
+          if(k>0){al=1;var px=fx+(x-fx)*Z, py=fy+(y-fy)*Z, qx=fx+(x-fx)*Z*.82, qy=fy+(y-fy)*Z*.82;
             if((px<-40||px>W+40||py<-40||py>Hh+40)&&(qx<-40||qx>W+40||qy<-40||qy>Hh+40))continue;
             ctx.strokeStyle=COL[ci];ctx.globalAlpha=.55;ctx.lineWidth=Math.max(.6,s*Math.min(3,Z/8));ctx.beginPath();ctx.moveTo(qx,qy);ctx.lineTo(px,py);ctx.stroke();ctx.globalAlpha=1;x=px;y=py;s*=Math.min(6,1+Z/12)}
         }
       }
-      var r=s*2.6;ctx.globalAlpha=al;ctx.drawImage(sprites[ci],x-r,y-r,r*2,r*2);
+      if(al<.01)continue;var r=s*2.6;ctx.globalAlpha=al;ctx.drawImage(sprites[ci],x-r,y-r,r*2,r*2);
     }
     ctx.globalAlpha=1;
 
@@ -139,7 +141,7 @@
     /* while the logo holds: rings grow out of the three dots */
     if(p>=P3&&p<P4+.04){var hw=win(p,P3,P3+.03,P4-.02,P4+.04);for(var dq=0;dq<3;dq++){var dx2=lx+dots[dq][0]*LW,dy2=ly+dots[dq][1]*LH;for(var rg=0;rg<2;rg++){var ph=((time*.55+dq*.33+rg*.5)%1);ctx.strokeStyle='rgba('+['31,167,224','233,76,151','242,145,35'][dq]+','+(hw*.55*(1-ph))+')';ctx.lineWidth=2;ctx.beginPath();ctx.arc(dx2,dy2,6+ph*LW*.22,0,6.2832);ctx.stroke()}}}
     /* once the pieces land, the real logo fades in underneath so it reads sharp */
-    if(p>P3-.05&&logoImg.complete&&logoImg.naturalWidth){var la=cl((p-(P3-.05))/.06)*(k>0?cl(1-k*3.2):1);if(la>0){ctx.globalCompositeOperation='source-over';ctx.globalAlpha=la*.92;
+    if(p>P3-.06&&logoImg.complete&&logoImg.naturalWidth){var la=cl((p-(P3-.06))/.07)*(k>0?cl(1-k*3.2):1);if(la>0){ctx.globalCompositeOperation='source-over';ctx.globalAlpha=la;
       if(k>0){ctx.save();ctx.translate(fx,fy);ctx.scale(Z,Z);ctx.drawImage(logoImg,lx-fx,ly-fy,LW,LH);ctx.restore()}else ctx.drawImage(logoImg,lx,ly,LW,LH);
       ctx.globalAlpha=1;ctx.globalCompositeOperation='lighter'}}
     /* the portal: the pink dot opens up into the credentials */
