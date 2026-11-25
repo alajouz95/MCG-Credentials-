@@ -59,3 +59,6 @@ html.intro-choose .ch-card.ai{animation-delay:.28s}
   .ch-cards{grid-template-columns:1fr 1fr;gap:18px}
   .ch-card{padding:28px 28px 24px}
 }
+
+/* the logo stands in for "MCG" in titles */
+#intro .lg{display:inline-block;height:.96em;width:auto;vertical-align:-.24em;margin-right:.04em}

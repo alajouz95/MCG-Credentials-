@@ -66,6 +66,9 @@ h1 em{font-style:normal;background:linear-gradient(90deg,var(--blue),var(--sky) 
 .nexus p i{width:8px;height:8px;border-radius:50%;background:var(--pink);box-shadow:0 0 0 0 rgba(233,76,151,.7);animation:ping 1.8s infinite}
 @keyframes ping{70%{box-shadow:0 0 0 10px rgba(233,76,151,0)}100%{box-shadow:0 0 0 0 rgba(233,76,151,0)}}
 
+/* the logo stands in for "MCG" in titles */
+.lg{display:inline-block;height:.96em;width:auto;vertical-align:-.24em;margin-right:.04em}
+
 /* sections */
 section{position:relative;padding:84px 0}
 @media (min-width:760px){section{padding:120px 0}}
@@ -175,7 +178,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
   <div class="orb" aria-hidden="true"><i class="r1"></i><i class="r2"></i><i class="r3"></i><b></b><span class="s1"></span><span class="s2"></span><span class="s3"></span></div>
   <div class="wrap">
     <p class="crumb rv"><i><b style="background:var(--blue)"></b><b style="background:var(--pink)"></b><b style="background:var(--orange)"></b></i>A division of MCG</p>
-    <h1 class="rv" style="--d:.08s">MCG <em>AI</em></h1>
+    <h1 class="rv" style="--d:.08s"><img class="lg" src="assets/logo_white.webp" alt="MCG"> <em>AI</em></h1>
     <p class="sub rv" style="--d:.16s">Enterprise AI Transformation</p>
     <p class="lede rv" style="--d:.24s">We help organisations put AI to work, from the first strategy session to AI running safely inside the business every day.</p>
     <div class="ctas rv" style="--d:.32s">
@@ -195,8 +198,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
       <div class="par"><img src="assets/logo_color.webp" alt="MCG"><span>Parent brand</span></div>
       <div class="br" aria-hidden="true"></div>
       <div class="two">
-        <a class="div ag" href="./?nointro"><b>MCG Agency</b><span>Marketing &amp; Communications</span><em>See credentials →</em></a>
-        <div class="div on"><b>MCG AI</b><span>Enterprise AI Transformation</span><em>You are here</em></div>
+        <a class="div ag" href="./?nointro"><b><img class="lg" src="assets/logo_white.webp" alt="MCG"> Agency</b><span>Marketing &amp; Communications</span><em>See credentials →</em></a>
+        <div class="div on"><b><img class="lg" src="assets/logo_white.webp" alt="MCG"> AI</b><span>Enterprise AI Transformation</span><em>You are here</em></div>
       </div>
     </div>
   </div>
@@ -246,7 +249,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
 <section class="partner" id="neuecode">
   <div class="wrap">
     <p class="k rv">In collaboration with</p>
-    <h2 class="rv">MCG AI × NeueCode</h2>
+    <h2 class="rv"><img class="lg" src="assets/logo_white.webp" alt="MCG"> AI × NeueCode</h2>
     <div class="pcard rv" style="--d:.1s">
       <div class="pl">
         <div class="lock"><img src="assets/logo_white.webp" alt="MCG"><span class="x">×</span><span class="nc">NeueCode</span></div>
@@ -269,7 +272,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
     <p class="k rv">Already in motion</p>
     <h2 class="rv">We don't just talk about AI. We use it every day.</h2>
     <div class="agrid">
-      <div class="a rv" style="--c:var(--blue)"><i></i><b>The AI Club by MCG</b><span>A professional AI community in Kuwait.</span></div>
+      <div class="a rv" style="--c:var(--blue)"><i></i><b>The AI Club by <img class="lg" src="assets/logo_white.webp" alt="MCG"></b><span>A professional AI community in Kuwait.</span></div>
       <div class="a rv" style="--c:var(--pink);--d:.06s"><i></i><b>AI training for companies</b><span>Workshops and programs that get teams using AI well.</span></div>
       <div class="a rv" style="--c:var(--orange);--d:.12s"><i></i><b>AI Film Festival at NEXUS</b><span>Launched with NEXUS for storytellers in Kuwait.</span></div>
       <div class="a rv" style="--c:var(--sky);--d:.18s"><i></i><b>An in-house AI studio</b><span>AI images and films for MADO, Lina's &amp; Dina's, Baraka Dates and more.</span></div>
