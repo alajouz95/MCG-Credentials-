@@ -133,6 +133,82 @@ h2{font-weight:700;font-size:clamp(32px,8vw,56px);line-height:1.04;letter-spacin
 .how{margin-top:8px;padding:16px 18px;border-radius:14px;background:rgba(255,255,255,.05);font-size:14px;color:var(--mist)}
 .how b{color:var(--ink)}
 
+
+/* what's included */
+.more{margin-top:16px;border-top:1px solid var(--line);padding-top:12px}
+.more summary{list-style:none;display:inline-flex;align-items:center;gap:8px;cursor:pointer;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--c)}
+.more summary::-webkit-details-marker{display:none}
+.more summary svg{width:15px;height:15px;transition:transform .3s}
+.more[open] summary svg{transform:rotate(45deg)}
+.inc{margin-top:12px;list-style:none;display:grid;gap:9px}
+.inc li{position:relative;padding-left:22px;font-size:14.5px;line-height:1.45;color:var(--ink)}
+.inc li::before{content:"";position:absolute;left:2px;top:.5em;width:9px;height:9px;border-radius:50%;background:var(--c);box-shadow:0 0 10px var(--c)}
+
+/* deploy */
+.dep{margin-top:40px;border-radius:24px;background:rgba(255,255,255,.03);box-shadow:inset 0 0 0 1px var(--line);overflow:hidden}
+.dtabs{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--line)}
+.dtabs button{appearance:none;border:0;background:transparent;color:var(--mist);font-family:inherit;padding:16px 8px 14px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;position:relative;transition:background .3s,color .3s}
+.dtabs button b{font-weight:700;font-size:clamp(14px,3.6vw,17px);color:var(--ink)}
+.dtabs button span{font-size:11.5px}
+.dtabs button::after{content:"";position:absolute;left:18%;right:18%;bottom:-1px;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--blue),var(--pink));transform:scaleX(0);transition:transform .35s}
+.dtabs button[aria-selected="true"]{background:rgba(31,167,224,.08);color:var(--sky)}
+.dtabs button[aria-selected="true"]::after{transform:scaleX(1)}
+.dbody{display:grid;grid-template-columns:1fr;gap:6px;padding:22px 18px 26px}
+@media (min-width:900px){.dbody{grid-template-columns:1.05fr .95fr;gap:34px;padding:34px 36px 38px;align-items:center}}
+.dvis svg{width:100%;height:auto;display:block}
+#dsvg .lbl{font:700 12px var(--f);letter-spacing:.2em;fill:rgba(246,248,251,.6)}
+#dsvg .sm{font:500 11px var(--f);fill:rgba(246,248,251,.55)}
+#dsvg .sm.pk{fill:#F36FAE}
+#dsvg .ai{font:800 18px var(--f);fill:#fff}
+#dsvg .srv rect{fill:rgba(127,208,240,.16)}#dsvg .srv circle{fill:#7FD0F0}
+#dsvg .docs rect{fill:rgba(255,255,255,.08);stroke:rgba(246,248,251,.25)}#dsvg .docs path{stroke:rgba(246,248,251,.35);stroke-width:2;stroke-linecap:round}
+#dsvg .ln{fill:none;stroke:rgba(127,208,240,.45);stroke-width:2;stroke-dasharray:5 6}
+#dsvg .d1{fill:#1FA7E0}#dsvg .d2{fill:#7FD0F0}#dsvg .d3{fill:#E94C97}
+#dsvg g{transition:opacity .45s}
+#dsvg .cut,#dsvg .chip-co,#dsvg .inside{opacity:0}
+#dsvg.m-hybrid .chip-co,#dsvg.m-hybrid .inside{opacity:1}
+#dsvg.m-private .chip-co,#dsvg.m-private .inside,#dsvg.m-private .cut{opacity:1}
+#dsvg.m-private .flow,#dsvg.m-private .chip-cl,#dsvg.m-private .link{opacity:0}
+#dsvg.m-private .cl{opacity:.35}
+#dsvg.m-cloud .lg2 circle.d3,#dsvg.m-cloud .lg2 text:nth-of-type(1){opacity:.35}
+.dtxt h3{font-weight:700;font-size:clamp(22px,5.6vw,28px);letter-spacing:-.03em}
+.dtxt .t{margin-top:4px;font-weight:600;font-size:15px;color:var(--sky)}
+.dtxt p.d{margin-top:12px;font-size:15px;color:var(--mist)}
+.dtxt dl{margin-top:18px;display:grid;gap:12px}
+.dtxt dl div{display:grid;grid-template-columns:96px 1fr;gap:12px;padding-top:12px;border-top:1px solid var(--line)}
+.dtxt dt{font-weight:700;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--mist-2);padding-top:2px}
+.dtxt dd{font-size:14.5px;color:var(--ink)}
+.dtxt.sw{animation:swIn .45s cubic-bezier(.2,.8,.2,1)}
+@keyframes swIn{from{opacity:0;transform:translateY(8px)}}
+
+/* teams */
+.tm{margin-top:36px}
+.ttabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.ttabs::-webkit-scrollbar{display:none}
+.ttabs button{flex:none;appearance:none;border:0;font-family:inherit;cursor:pointer;padding:10px 16px;border-radius:999px;background:rgba(255,255,255,.06);box-shadow:inset 0 0 0 1px var(--line);color:var(--mist);font-weight:600;font-size:13.5px;transition:background .25s,color .25s}
+.ttabs button[aria-selected="true"]{background:var(--ink);color:#081A35;box-shadow:none}
+.tcards{margin-top:18px;display:grid;grid-template-columns:1fr;gap:12px}
+@media (min-width:760px){.tcards{grid-template-columns:repeat(3,1fr);gap:14px}}
+.tc{padding:22px 20px;border-radius:18px;background:rgba(255,255,255,.04);box-shadow:inset 0 0 0 1px var(--line);animation:swIn .45s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i)*.06s)}
+.tc i{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;background:rgba(31,167,224,.14);color:var(--sky);font-style:normal;font-weight:800;font-size:13px}
+.tc p{margin-top:12px;font-size:15.5px;line-height:1.45;color:var(--ink)}
+
+/* how we work */
+.steps{margin-top:40px;list-style:none;display:grid;grid-template-columns:1fr;gap:0;position:relative}
+.steps li{position:relative;display:grid;grid-template-columns:44px 1fr;column-gap:16px;padding:0 0 26px}
+.steps li::before{content:"";position:absolute;left:21px;top:44px;bottom:0;width:2px;background:linear-gradient(var(--blue),rgba(233,76,151,.4))}
+.steps li:last-child::before{display:none}
+.steps i{grid-row:span 2;display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--pink));font-style:normal;font-weight:800;font-size:16px;color:#fff;box-shadow:0 10px 26px rgba(31,167,224,.3)}
+.steps b{font-weight:700;font-size:19px;letter-spacing:-.02em;padding-top:2px}
+.steps span{margin-top:4px;font-size:14.5px;color:var(--mist)}
+@media (min-width:900px){
+  .steps{grid-template-columns:repeat(5,1fr);gap:18px}
+  .steps li{grid-template-columns:1fr;padding:0}
+  .steps li::before{left:52px;right:-18px;top:21px;bottom:auto;width:auto;height:2px;background:linear-gradient(90deg,var(--blue),rgba(233,76,151,.4))}
+  .steps i{grid-row:auto}
+  .steps b{margin-top:16px}
+}
+
 /* already */
 .agrid{margin-top:40px;display:grid;grid-template-columns:1fr;gap:12px}
 @media (min-width:760px){.agrid{grid-template-columns:repeat(4,1fr);gap:14px}}
@@ -180,7 +256,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
     <p class="crumb rv"><i><b style="background:var(--blue)"></b><b style="background:var(--pink)"></b><b style="background:var(--orange)"></b></i>A division of MCG</p>
     <h1 class="rv" style="--d:.08s"><img class="lg" src="assets/logo_white.webp" alt="MCG"> <em>AI</em></h1>
     <p class="sub rv" style="--d:.16s">Enterprise AI Transformation</p>
-    <p class="lede rv" style="--d:.24s">We help organisations put AI to work, from the first strategy session to AI running safely inside the business every day.</p>
+    <p class="lede rv" style="--d:.24s">We help organisations put AI to work, in the cloud, hybrid or fully private, from the first strategy session to AI running safely inside the business every day.</p>
     <div class="ctas rv" style="--d:.32s">
       <a class="btn pri" href="#focus">What we focus on <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
       <a class="btn sec" href="#neuecode">Our collaboration with NeueCode</a>
@@ -217,6 +293,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
         <p class="t">Find where AI really pays off.</p>
         <p>We look at how your business works, pick the use cases worth doing first, and build a clear roadmap your leadership can sign off.</p>
         <ul><li>AI readiness review</li><li>Use-case roadmap</li><li>Business case and governance</li></ul>
+        <details class="more"><summary>What's included <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><ul class="inc"><li>AI readiness assessment for the whole company</li><li>Use-case discovery sessions with each department</li><li>A roadmap and business case leadership can sign off</li><li>AI policy: data, privacy, approvals and who can use what</li><li>Choosing the right setup: cloud, hybrid or fully private</li><li>A change plan so people actually adopt it</li></ul></details>
       </article>
       <article class="v rv" style="--c:var(--sky);--d:.08s">
         <span class="n">02</span>
@@ -225,6 +302,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
         <p class="t">AI that runs inside your business.</p>
         <p>We set up and run AI agents and tools for your teams, including private AI that stays on your own servers, with NeueCode.</p>
         <ul><li>AI agents for your teams</li><li>Private, on-premise AI</li><li>Setup, hosting and support</li></ul>
+        <details class="more"><summary>What's included <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><ul class="inc"><li>Custom AI assistants for each department</li><li>A knowledge assistant over your own documents, in Arabic and English</li><li>Automations that connect AI to your email, CRM and ERP</li><li>Private AI agents on your own servers, with NeueCode</li><li>Setup, hosting, monitoring and support</li><li>Regular updates as new and better models come out</li></ul></details>
       </article>
       <article class="v rv" style="--c:var(--pink)">
         <span class="n">03</span>
@@ -233,6 +311,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
         <p class="t">Teams that actually use it.</p>
         <p>Hands-on workshops and training that turn AI from a buzzword into a daily habit, for leaders and for every team.</p>
         <ul><li>Leadership sessions</li><li>Team workshops</li><li>Playbooks and prompt libraries</li></ul>
+        <details class="more"><summary>What's included <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><ul class="inc"><li>Leadership briefings on what AI means for your business</li><li>Hands-on workshops for marketing, social media and content teams</li><li>Programs built around each department's real work</li><li>Half-day, one-day, two-day or weekly formats</li><li>Prompt libraries and playbooks your teams keep</li><li>AI champions inside your teams, and certificates for every participant</li></ul></details>
       </article>
       <article class="v rv" style="--c:var(--orange);--d:.08s">
         <span class="n">04</span>
@@ -241,7 +320,75 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
         <p class="t">New ideas, built fast.</p>
         <p>We prototype new AI products, experiences and content, and test them quickly with real people before you scale them.</p>
         <ul><li>Prototypes and pilots</li><li>AI experiences for events</li><li>AI content and films</li></ul>
+        <details class="more"><summary>What's included <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><ul class="inc"><li>Quick prototypes and pilots of new AI ideas</li><li>AI experiences for events, exhibitions and booths</li><li>Hybrid production: we shoot what must be real, AI builds the rest</li><li>AI films, visuals and digital characters</li><li>Internal tools built around how your team works</li><li>Testing with real people before you scale anything</li></ul></details>
       </article>
+    </div>
+  </div>
+</section>
+
+<section id="deploy">
+  <div class="wrap">
+    <p class="k rv">How we deploy AI</p>
+    <h2 class="rv">Cloud, hybrid or fully private. You choose where your data lives.</h2>
+    <p class="intro-p rv">We're not tied to one provider. We recommend the setup that fits your data, your rules and your budget, and we can start in one and grow into another.</p>
+    <div class="dep rv" style="--d:.1s">
+      <div class="dtabs" role="tablist" aria-label="Ways to deploy AI">
+        <button role="tab" aria-selected="true" data-m="cloud"><b>Cloud AI</b><span>Fastest to start</span></button>
+        <button role="tab" aria-selected="false" data-m="hybrid"><b>Hybrid AI</b><span>The best of both</span></button>
+        <button role="tab" aria-selected="false" data-m="private"><b>Private AI</b><span>On your own servers</span></button>
+      </div>
+      <div class="dbody">
+        <div class="dvis">
+          <svg id="dsvg" class="m-cloud" viewBox="0 0 520 300" role="img" aria-label="Where the AI runs and where your data goes">
+            <defs>
+              <linearGradient id="gco" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#13315F"/><stop offset="1" stop-color="#0A1E40"/></linearGradient>
+              <linearGradient id="gai" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1FA7E0"/><stop offset="1" stop-color="#E94C97"/></linearGradient>
+              <path id="pOut" d="M196 150 C 250 120, 300 120, 352 150"/>
+              <path id="pIn" d="M352 162 C 300 192, 250 192, 196 162"/>
+              <path id="pLoop" d="M52 154 C 52 114, 178 114, 178 154 C 178 194, 52 194, 52 154"/>
+            </defs>
+            <g class="co">
+              <rect x="20" y="52" width="190" height="200" rx="20" fill="url(#gco)" stroke="rgba(246,248,251,.3)"/>
+              <text x="115" y="40" text-anchor="middle" class="lbl">YOUR COMPANY</text>
+              <g class="srv"><rect x="44" y="200" width="142" height="12" rx="4"/><rect x="44" y="218" width="142" height="12" rx="4"/><circle cx="54" cy="206" r="2.5"/><circle cx="54" cy="224" r="2.5"/></g>
+              <g class="docs"><rect x="44" y="62" width="34" height="38" rx="5"/><rect x="88" y="62" width="34" height="38" rx="5"/><rect x="132" y="62" width="34" height="38" rx="5"/><path d="M51 73h20M51 81h20M51 89h14M95 73h20M95 81h20M95 89h14M139 73h20M139 81h20M139 89h14"/></g>
+              <text x="115" y="116" text-anchor="middle" class="sm">documents · data · systems</text>
+            </g>
+            <g class="cl">
+              <path d="M372 210 h96 a42 42 0 0 0 4 -84 a54 54 0 0 0 -102 -16 a40 40 0 0 0 2 100 z" fill="rgba(255,255,255,.05)" stroke="rgba(246,248,251,.3)"/>
+              <text x="430" y="40" text-anchor="middle" class="lbl">CLOUD</text>
+            </g>
+            <g class="link"><use href="#pOut" class="ln"/><use href="#pIn" class="ln"/></g>
+            <g class="cut"><circle cx="274" cy="156" r="16" fill="#0A1E40" stroke="#E94C97"/><path d="M267 149l14 14M281 149l-14 14" stroke="#E94C97" stroke-width="2.2" stroke-linecap="round"/><text x="292" y="200" text-anchor="middle" class="sm pk">no outside connection</text></g>
+            <g class="chip chip-cl"><rect x="398" y="134" width="64" height="44" rx="10" fill="url(#gai)"/><text x="430" y="162" text-anchor="middle" class="ai">AI</text></g>
+            <g class="chip chip-co"><rect x="83" y="132" width="64" height="44" rx="10" fill="url(#gai)"/><text x="115" y="160" text-anchor="middle" class="ai">AI</text></g>
+            <g class="flow">
+              <circle r="5" class="d1"><animateMotion dur="2.2s" repeatCount="indefinite"><mpath href="#pOut"/></animateMotion></circle>
+              <circle r="5" class="d1"><animateMotion dur="2.2s" begin="1.1s" repeatCount="indefinite"><mpath href="#pOut"/></animateMotion></circle>
+              <circle r="5" class="d2"><animateMotion dur="2.2s" begin=".5s" repeatCount="indefinite"><mpath href="#pIn"/></animateMotion></circle>
+              <circle r="5" class="d2"><animateMotion dur="2.2s" begin="1.6s" repeatCount="indefinite"><mpath href="#pIn"/></animateMotion></circle>
+            </g>
+            <g class="inside">
+              <circle r="4.5" class="d3"><animateMotion dur="3s" repeatCount="indefinite"><mpath href="#pLoop"/></animateMotion></circle>
+              <circle r="4.5" class="d3"><animateMotion dur="3s" begin="1s" repeatCount="indefinite"><mpath href="#pLoop"/></animateMotion></circle>
+              <circle r="4.5" class="d3"><animateMotion dur="3s" begin="2s" repeatCount="indefinite"><mpath href="#pLoop"/></animateMotion></circle>
+            </g>
+            <g class="lg2"><circle cx="40" cy="284" r="5" class="d3"/><text x="52" y="288" class="sm">sensitive data</text><circle cx="170" cy="284" r="5" class="d1"/><text x="182" y="288" class="sm">everyday work</text></g>
+          </svg>
+        </div>
+        <div class="dtxt" id="dtxt" aria-live="polite"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="teams">
+  <div class="wrap">
+    <p class="k rv">What it looks like day to day</p>
+    <h2 class="rv">What AI can do for each of your teams.</h2>
+    <div class="tm rv" style="--d:.1s">
+      <div class="ttabs" id="ttabs" role="tablist" aria-label="Teams"></div>
+      <div class="tcards" id="tcards"></div>
     </div>
   </div>
 </section>
@@ -264,6 +411,20 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
         <p class="how"><b>How it works with us:</b> we find the right use cases, set NeueCode up for your teams, train them, and stay with you as it grows.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <p class="k rv">How we work</p>
+    <h2 class="rv">From the first meeting to AI your teams use every day.</h2>
+    <ol class="steps">
+      <li class="rv"><i>1</i><b>Assess</b><span>We meet your teams, look at how work gets done today, and score your AI readiness.</span></li>
+      <li class="rv" style="--d:.06s"><i>2</i><b>Plan</b><span>We pick the use cases worth doing first and agree the setup: cloud, hybrid or private.</span></li>
+      <li class="rv" style="--d:.12s"><i>3</i><b>Build</b><span>We set up the tools and agents, connect them to your systems and test them with real users.</span></li>
+      <li class="rv" style="--d:.18s"><i>4</i><b>Train</b><span>Your teams learn to use them well, with playbooks built around their own work.</span></li>
+      <li class="rv" style="--d:.24s"><i>5</i><b>Run and improve</b><span>We support, measure and add new use cases as you grow.</span></li>
+    </ol>
   </div>
 </section>
 
@@ -309,6 +470,38 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
   /* reveal on scroll */
   var els=[].slice.call(document.querySelectorAll('.rv'));
   if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});els.forEach(function(e){io.observe(e)})}else els.forEach(function(e){e.classList.add('in')});
+
+  /* deploy: cloud, hybrid, private */
+  var DEP={
+    cloud:{h:'Cloud AI',t:'The fastest way to start.',d:'We set up the business versions of leading AI tools for your teams, like ChatGPT, Claude, Gemini or Microsoft Copilot, with the right accounts, access rules and training.',r:[['Best for','Marketing, sales and everyday productivity'],['Your data','Handled by the provider under its business terms'],['Setup','The quickest of the three']]},
+    hybrid:{h:'Hybrid AI',t:'Sensitive data stays in. Everyday work uses the cloud.',d:'Private AI handles your confidential documents and data inside your network. Cloud AI handles content, research and general work. We connect the two with clear rules on what goes where.',r:[['Best for','Most mid-size and large companies'],['Your data','Confidential data never leaves your network'],['Powered by','Cloud AI tools plus NeueCode for the private side']]},
+    private:{h:'Private AI',t:'Everything stays on your own servers.',d:'AI agents run inside your own infrastructure or private cloud, and can run fully offline. With NeueCode, a person approves every action that changes something, and every step is recorded for audit.',r:[['Best for','Banks, government, energy, healthcare and telecom'],['Your data','Never leaves your servers'],['Powered by','NeueCode']]}
+  };
+  var dsvg=document.getElementById('dsvg'),dtxt=document.getElementById('dtxt'),dtabs=[].slice.call(document.querySelectorAll('.dtabs button'));
+  function esc(x){return String(x).replace(/&/g,'&amp;').replace(/</g,'&lt;')}
+  function setDep(m){var D=DEP[m];dsvg.setAttribute('class','m-'+m);dtabs.forEach(function(b){b.setAttribute('aria-selected',b.dataset.m===m?'true':'false')});
+    dtxt.classList.remove('sw');void dtxt.offsetWidth;dtxt.classList.add('sw');
+    dtxt.innerHTML='<h3>'+esc(D.h)+'</h3><p class="t">'+esc(D.t)+'</p><p class="d">'+esc(D.d)+'</p><dl>'+D.r.map(function(x){return '<div><dt>'+esc(x[0])+'</dt><dd>'+esc(x[1])+'</dd></div>'}).join('')+'</dl>'}
+  dtabs.forEach(function(b){b.addEventListener('click',function(){setDep(b.dataset.m);depAuto=false})});
+  setDep('cloud');
+  /* cycle through the three until someone taps one */
+  var depAuto=true;setInterval(function(){if(!depAuto)return;var r=dsvg.getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;var ks=['cloud','hybrid','private'],c=ks.indexOf(dsvg.getAttribute('class').slice(2));setDep(ks[(c+1)%3])},5200);
+
+  /* teams */
+  var TEAMS=[
+    ['Marketing',['Campaign ideas and content in Arabic and English, in your brand voice.','AI visuals and films, from concept to final cut.','Performance reports written up for you every week.']],
+    ['Customer service',['An assistant that answers customers on your website and WhatsApp, in Arabic and English.','A summary of every ticket and call, with the next step.','Draft replies your team checks and sends in one click.']],
+    ['HR',['A policy assistant employees can ask anything, any time.','First-pass summaries of CVs against the job brief.','Onboarding guides built for each new joiner.']],
+    ['Finance',['Data pulled out of invoices and statements automatically.','Monthly reports and variance notes drafted for review.','Answers about spend and budgets, straight from your data.']],
+    ['Operations',['Your SOPs and manuals turned into an assistant teams can ask.','Routine reports, follow-ups and handovers done automatically.','Issues and delays flagged early from your daily data.']],
+    ['Leadership',['Board packs and long reports summarised in minutes.','Market and competitor briefs whenever you need them.','One place to ask questions across company data.']]
+  ];
+  var tt=document.getElementById('ttabs'),tcd=document.getElementById('tcards');
+  tt.innerHTML=TEAMS.map(function(t,i){return '<button role="tab" aria-selected="'+(i?'false':'true')+'" data-i="'+i+'">'+esc(t[0])+'</button>'}).join('');
+  function setTeam(i){[].forEach.call(tt.children,function(b,j){b.setAttribute('aria-selected',j===i?'true':'false')});tcd.innerHTML=TEAMS[i][1].map(function(x,j){return '<div class="tc" style="--i:'+j+'"><i>0'+(j+1)+'</i><p>'+esc(x)+'</p></div>'}).join('')}
+  tt.addEventListener('click',function(e){var b=e.target.closest('button');if(b)setTeam(+b.dataset.i)});
+  setTeam(0);
+
   /* NEXUS line shows only during the event */
   var now=new Date();if(now<new Date('2026-11-29T00:00:00+03:00'))document.getElementById('nexus').hidden=false;
   /* hero: a living network in our colours */
