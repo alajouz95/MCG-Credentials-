@@ -15,7 +15,7 @@
 
   var W,Hh,DPR,N,diag,cx,cy,LW,LH,sprites=[];
   var a0,r0,dl,spd,sw,ba,br,sz,fc,tu,tv,tc,jit;      /* per-particle values */
-  var dots=[[0,0],[0,0],[0,0]], logoReady=false, logoImg=new Image();
+  var dots=[[0,0],[0,0],[0,0]], logoReady=false, logoImg=new Image(), LA=515/1331;
 
   function sprite(c){var s=document.createElement('canvas'),n=32;s.width=s.height=n;var g=s.getContext('2d'),r=g.createRadialGradient(n/2,n/2,0,n/2,n/2,n/2);r.addColorStop(0,'#fff');r.addColorStop(.18,c);r.addColorStop(.45,c+'55');r.addColorStop(1,c+'00');g.fillStyle=r;g.fillRect(0,0,n,n);return s}
   COL.forEach(function(c){sprites.push(sprite(c))});
@@ -25,7 +25,7 @@
     W=window.innerWidth;Hh=window.innerHeight;DPR=Math.min(2,window.devicePixelRatio||1);
     cv.width=Math.round(W*DPR);cv.height=Math.round(Hh*DPR);
     diag=Math.sqrt(W*W+Hh*Hh);cx=W/2;cy=Hh*.44;
-    LW=Math.min(W*.8,620);LH=LW*236/600;
+    LW=Math.min(W*.8,620);LH=LW*LA;
     var n=Math.round(Math.min(3200,Math.max(1400,W*Hh/220)));
     if(n!==N){N=n;
       a0=new Float32Array(N);r0=new Float32Array(N);dl=new Float32Array(N);spd=new Float32Array(N);sw=new Float32Array(N);ba=new Float32Array(N);br=new Float32Array(N);sz=new Float32Array(N);fc=new Uint8Array(N);tu=new Float32Array(N);tv=new Float32Array(N);tc=new Uint8Array(N);jit=new Float32Array(N);
@@ -39,7 +39,7 @@
   }
   /* read the logo's pixels: white letters, plus the blue, pink and orange dots */
   function sampleLogo(){
-    var w=300,h=Math.round(w*236/600),c=document.createElement('canvas');c.width=w;c.height=h;var g=c.getContext('2d');g.drawImage(logoImg,0,0,w,h);
+    var w=320,h=Math.round(w*LA),c=document.createElement('canvas');c.width=w;c.height=h;var g=c.getContext('2d');g.drawImage(logoImg,0,0,w,h);
     var d;try{d=g.getImageData(0,0,w,h).data}catch(e){return}
     var pts=[],cols=[],acc=[[0,0,0],[0,0,0],[0,0,0]];
     for(var y=0;y<h;y+=1)for(var x=0;x<w;x+=1){var k=(y*w+x)*4;if(d[k+3]<150)continue;var r=d[k],gg=d[k+1],b=d[k+2],ci=0;
@@ -53,7 +53,7 @@
     acc.forEach(function(a,q){if(a[2])dots[q]=[a[0]/a[2],a[1]/a[2]]});
     logoReady=true;
   }
-  logoImg.onload=function(){setup()};
+  logoImg.onload=function(){if(logoImg.naturalWidth)LA=logoImg.naturalHeight/logoImg.naturalWidth;setup()};
   logoImg.src=box.dataset.logo;
   setup();
   window.addEventListener('resize',setup);
@@ -117,7 +117,7 @@
           if(tc[i]===0){if(t>.45+jit[i]*.07)ci=0}else if(t>.35)ci=tc[i];
           s*=1.15-.35*et;
         }else{                                    /* the logo, breathing */
-          ci=tc[i];x=tx+Math.sin(time*1.7+jit[i])*.5;y=ty+Math.cos(time*1.3+jit[i])*.5;s*=.8;
+          ci=tc[i];x=tx+Math.sin(time*1.7+jit[i])*.5;y=ty+Math.cos(time*1.3+jit[i])*.5;s*=.55;al=.75;
           if(k>0){var px=fx+(x-fx)*Z, py=fy+(y-fy)*Z, qx=fx+(x-fx)*Z*.82, qy=fy+(y-fy)*Z*.82;
             if((px<-40||px>W+40||py<-40||py>Hh+40)&&(qx<-40||qx>W+40||qy<-40||qy>Hh+40))continue;
             ctx.strokeStyle=COL[ci];ctx.globalAlpha=.55;ctx.lineWidth=Math.max(.6,s*Math.min(3,Z/8));ctx.beginPath();ctx.moveTo(qx,qy);ctx.lineTo(px,py);ctx.stroke();ctx.globalAlpha=1;x=px;y=py;s*=Math.min(6,1+Z/12)}
