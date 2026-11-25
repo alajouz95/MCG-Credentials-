@@ -8,9 +8,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap">
-<link rel="stylesheet" href="styles.css?v=43f698b5">
+<link rel="stylesheet" href="styles.css?v=06f9bc8c">
 <script>(function(){try{var h=location.hash;if((!h||h==='#'||h==='#1'||h==='#intro')&&!/nointro/.test(location.search)&&!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches))document.documentElement.classList.add('intro')}catch(e){}})();</script>
-<link rel="stylesheet" href="intro.css?v=a6ec7051">
+<link rel="stylesheet" href="intro.css?v=ae460a9e">
 </head>
 <body>
 <div id="intro" tabindex="-1" data-logo="assets/logo_white.webp" aria-label="MCG intro">
@@ -24,6 +24,14 @@
   <div class="in-hint" id="inHint"><span id="inHintTx">Scroll</span><i></i></div>
   <div class="in-bar"><i id="inBar"></i></div>
   <div class="in-track"></div>
+  <div class="in-choose" id="inChoose" aria-hidden="true">
+    <div class="ch-top"><img src="assets/logo_white.webp" alt="MCG"><p class="ch-k">Two divisions. One group.</p><p class="ch-h">Where would you like to start?</p></div>
+    <div class="ch-tree" aria-hidden="true"><i></i></div>
+    <div class="ch-cards">
+      <button class="ch-card ag" id="chAgency" type="button"><span class="ch-n">01</span><b>MCG Agency</b><span class="ch-s">Marketing &amp; Communications</span><span class="ch-d">Brand, content, campaigns, media and events, for 800+ brands since 2004.</span><span class="ch-go">See our credentials <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></button>
+      <a class="ch-card ai" id="chAI" href="ai.html"><span class="ch-n">02</span><b>MCG AI</b><span class="ch-s">Enterprise AI Transformation</span><span class="ch-d">AI consulting, AI as a service, enablement and an innovation lab. In collaboration with NeueCode.</span><span class="ch-go">Explore MCG AI <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></a>
+    </div>
+  </div>
 </div>
 
 
@@ -37,14 +45,14 @@
     <span class="float" style="left:900px;top:240px;width:14px;height:14px;background:var(--pink);animation-delay:-3s"></span>
     <span class="float" style="left:1010px;top:170px;width:10px;height:10px;background:var(--cyan);animation-delay:-6s"></span>
     <img class="logo rise" style="--d:0" src="assets/logo_white.webp" alt="MCG">
-    <p class="eyebrow tag rise" style="--d:1">Credentials · 2026</p>
+    <p class="eyebrow tag rise" style="--d:1">MCG Agency · Credentials 2026</p>
     <div class="pad">
       <p class="for rise" style="--d:1" id="forLine" hidden>Prepared for <b id="forName"></b></p>
       <p class="for rise" style="--d:1" id="focusLine" hidden>Focused on <b id="focusName"></b></p>
       <div class="kicker rise" style="--d:1"><span class="rule"></span><p class="eyebrow">MCG · Kuwait &amp; Beirut · Since 2004</p></div>
       <h1 class="h1 rise" style="--d:2">We think it.<br>We make it.<br>We grow it<span class="dots3" aria-hidden="true"><i></i><i></i><i></i></span></h1>
       <p class="lede rise" style="--d:3">Strategy, content, campaigns, events and AI films, all under one roof. For Honda, GMC, Kuwait Airways, Microsoft and 800+ more brands since 2004.</p>
-      <button class="btn rise" style="--d:4" data-go="1">Take the tour <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></button>
+      <div class="cbtns rise" style="--d:4"><button class="btn" data-go="1">Take the tour <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></button><a class="btn btn-ai" href="ai.html">Explore MCG AI <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></div>
     </div>
   </section>
 
@@ -471,7 +479,7 @@
   <p>Turn your phone sideways<br>for the full view.</p><small>Tap anywhere to continue</small>
 </div></div>
 
-<script src="intro.js?v=b0d216ad"></script>
+<script src="intro.js?v=e7d2fa30"></script>
 <script src="script.js?v=0a1907a9"></script>
 
 </body>

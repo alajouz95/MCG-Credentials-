@@ -66,12 +66,20 @@
   box.scrollTop=0;
   box.addEventListener('scroll',function(){var m=box.scrollHeight-box.clientHeight;target=m>0?cl(box.scrollTop/m):0},{passive:true});
   try{box.focus({preventScroll:true})}catch(e){}
+  /* laptops: the wheel lands on the fixed layers, not on the scroll area, so move it ourselves */
+  function onWheel(e){if(done)return;var d=e.deltaY;if(!d)return;if(e.deltaMode===1)d*=40;else if(e.deltaMode===2)d*=box.clientHeight;
+    d*=Math.abs(d)>=50?2.5:1.4;box.scrollTop+=d;e.preventDefault()}
+  window.addEventListener('wheel',onWheel,{passive:false});
 
+  var chosen=false,chosenAt=0;
+  /* the end of the intro: show the two divisions, MCG Agency and MCG AI */
+  function showChoose(){if(chosen||done)return;chosen=true;chosenAt=performance.now();H.classList.add('intro-choose');window.removeEventListener('wheel',onWheel);document.getElementById('inChoose').setAttribute('aria-hidden','false');try{document.getElementById('chAgency').focus({preventScroll:true})}catch(e){}}
   function finish(){
-    if(done)return;done=true;H.classList.add('intro-out');
-    setTimeout(function(){H.classList.remove('intro','intro-out');if(box.parentNode)box.parentNode.removeChild(box);try{window.dispatchEvent(new Event('mcg:introdone'))}catch(e){}},700);
+    if(done)return;done=true;window.removeEventListener('wheel',onWheel);H.classList.add('intro-out');
+    setTimeout(function(){H.classList.remove('intro','intro-out','intro-choose');if(box.parentNode)box.parentNode.removeChild(box);try{window.dispatchEvent(new Event('mcg:introdone'))}catch(e){}},700);
   }
-  document.getElementById('inSkip').addEventListener('click',finish);
+  document.getElementById('inSkip').addEventListener('click',showChoose);
+  document.getElementById('chAgency').addEventListener('click',finish);
 
   function frame(now){
     if(done&&!H.classList.contains('intro'))return;
@@ -79,7 +87,7 @@
     p+=(target-p)*(1-Math.pow(1-.085,dt/16.7));if(Math.abs(target-p)<.0004)p=target;
     if(!boomed&&p>=P1){boomed=true;if(navigator.vibrate)try{navigator.vibrate([18,30,40])}catch(e){}}
     if(p<P1-.02)boomed=false;
-    if(target>=.995&&p>=.975)finish();
+    if(target>=.995&&p>=.975)showChoose();
 
     var trail=p<P1?.42:p<P2+.04?.2:p<P3?.3:p<P4?.5:.24;
     ctx.setTransform(DPR,0,0,DPR,0,0);ctx.globalCompositeOperation='source-over';
@@ -145,7 +153,8 @@
     for(var w=0;w<5;w++){var o=ws[w];T[w].style.opacity=o;T[w].style.transform='translateY('+((1-o)*14)+'px)';T[w].style.visibility=o>0?'visible':'hidden'}
     hint.style.opacity=cl(1-target*30);
     bar.style.transform='scaleX('+p+')';
-    box.style.opacity=k>.88?cl(1-(k-.88)/.12):'';
+    cv.style.opacity=k>.9?cl(1-(k-.9)/.1):'';
+    if(chosen&&now-chosenAt>900)return;
     requestAnimationFrame(frame);
   }
   requestAnimationFrame(frame);

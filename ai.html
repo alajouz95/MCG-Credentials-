@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#071630">
+<title>MCG AI · Enterprise AI Transformation</title>
+<meta name="description" content="MCG AI, the enterprise AI division of MCG: AI consulting, AI as a service, AI enablement and an AI innovation lab, in collaboration with NeueCode.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap">
+<style>
+:root{--navy:#071630;--navy-2:#0D2B52;--ink:#F6F8FB;--mist:rgba(246,248,251,.74);--mist-2:rgba(246,248,251,.52);--line:rgba(246,248,251,.14);--orange:#F29123;--pink:#E94C97;--blue:#1FA7E0;--sky:#7FD0F0;--f:'Montserrat','Helvetica Neue',Helvetica,Arial,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--navy);color:var(--ink);font-family:var(--f);line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+.wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 20px}
+@media (min-width:760px){.wrap{padding:0 40px}}
+
+/* top bar */
+.top{position:fixed;top:0;left:0;right:0;z-index:50;padding-top:env(safe-area-inset-top);transition:background .3s,box-shadow .3s}
+.top.solid{background:rgba(7,22,48,.86);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand img{height:26px;width:auto;display:block}
+.brand span{padding-left:12px;border-left:1px solid rgba(246,248,251,.3);font-weight:700;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--sky)}
+.tbtn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;background:var(--blue);color:#05203A;font-weight:700;font-size:12px;letter-spacing:.06em;text-decoration:none;transition:transform .25s,box-shadow .25s}
+.tbtn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(31,167,224,.35)}
+
+/* hero */
+.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;overflow:hidden;padding:110px 0 90px}
+#net{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(70% 60% at 25% 45%,rgba(7,22,48,.55),rgba(7,22,48,.15) 80%);pointer-events:none}
+.orb{display:none}
+@media (min-width:900px){.orb{display:block;position:absolute;right:5%;top:50%;width:min(40vw,540px);aspect-ratio:1;translate:0 -46%;z-index:1;pointer-events:none}}
+.orb i{position:absolute;border-radius:50%}
+.orb .r1{inset:0;border:1px dashed rgba(127,208,240,.28);animation:spin 60s linear infinite}
+.orb .r2{inset:13%;border:1px solid rgba(127,208,240,.2);animation:spin 40s linear infinite reverse}
+.orb .r3{inset:26%;border:1px dotted rgba(233,76,151,.35);animation:spin 30s linear infinite}
+.orb b{position:absolute;inset:36%;border-radius:50%;background:radial-gradient(circle at 36% 32%,#fff 0%,#BFEAFF 10%,#1FA7E0 38%,rgba(233,76,151,.75) 72%,rgba(233,76,151,0) 74%);box-shadow:0 0 120px 30px rgba(31,167,224,.35),0 0 60px 10px rgba(233,76,151,.2);animation:breathe 4.5s ease-in-out infinite}
+.orb span{position:absolute;animation:spin linear infinite}
+.orb span::after{content:"";position:absolute;left:50%;top:-6px;width:12px;height:12px;margin-left:-6px;border-radius:50%;background:var(--c);box-shadow:0 0 18px 2px var(--c)}
+.orb .s1{inset:0;--c:var(--orange);animation-duration:18s}
+.orb .s2{inset:13%;--c:var(--pink);animation-duration:12s;animation-direction:reverse}
+.orb .s3{inset:26%;--c:var(--blue);animation-duration:9s}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes breathe{50%{transform:scale(1.06);filter:brightness(1.15)}}
+.hero .wrap{position:relative;z-index:2}
+.crumb{display:inline-flex;align-items:center;gap:10px;margin-bottom:22px;padding:7px 14px 7px 8px;border-radius:999px;background:rgba(255,255,255,.06);box-shadow:inset 0 0 0 1px var(--line);font-weight:600;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mist)}
+.crumb i{display:inline-flex;gap:3px}
+.crumb i b{width:7px;height:7px;border-radius:50%}
+h1{font-weight:800;font-size:clamp(56px,16vw,132px);line-height:.92;letter-spacing:-.05em}
+h1 em{font-style:normal;background:linear-gradient(90deg,var(--blue),var(--sky) 45%,var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{margin-top:14px;font-weight:700;font-size:clamp(13px,3.4vw,17px);letter-spacing:.2em;text-transform:uppercase;color:var(--sky)}
+.lede{margin-top:22px;max-width:560px;font-size:clamp(17px,4.4vw,21px);line-height:1.5;color:var(--mist)}
+.ctas{margin-top:32px;display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;font-weight:700;font-size:13px;letter-spacing:.05em;text-decoration:none;transition:transform .25s,box-shadow .25s,background .25s}
+.btn svg{width:16px;height:16px}
+.btn.pri{background:var(--blue);color:#05203A}
+.btn.pri:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(31,167,224,.35)}
+.btn.sec{background:rgba(255,255,255,.07);box-shadow:inset 0 0 0 1px rgba(246,248,251,.28);color:var(--ink)}
+.btn.sec:hover{background:rgba(255,255,255,.13)}
+.nexus{position:absolute;left:0;right:0;bottom:calc(22px + env(safe-area-inset-bottom));z-index:2}
+.nexus p{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mist)}
+.nexus p i{width:8px;height:8px;border-radius:50%;background:var(--pink);box-shadow:0 0 0 0 rgba(233,76,151,.7);animation:ping 1.8s infinite}
+@keyframes ping{70%{box-shadow:0 0 0 10px rgba(233,76,151,0)}100%{box-shadow:0 0 0 0 rgba(233,76,151,0)}}
+
+/* sections */
+section{position:relative;padding:84px 0}
+@media (min-width:760px){section{padding:120px 0}}
+.k{display:flex;align-items:center;gap:12px;margin-bottom:16px;font-weight:700;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--sky)}
+.k::before{content:"";width:28px;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--blue),var(--pink))}
+h2{font-weight:700;font-size:clamp(32px,8vw,56px);line-height:1.04;letter-spacing:-.04em;max-width:760px}
+.intro-p{margin-top:16px;max-width:620px;font-size:clamp(16px,4vw,18px);color:var(--mist)}
+
+/* structure */
+.org{margin-top:44px;display:flex;flex-direction:column;align-items:center}
+.org .par{width:100%;max-width:760px;padding:22px;border-radius:18px;background:linear-gradient(135deg,#13315F,#0A1E40);box-shadow:inset 0 0 0 1px rgba(246,248,251,.28),0 20px 50px rgba(3,10,25,.45);text-align:center}
+.org .par img{height:34px;width:auto}
+.org .par span{display:block;margin-top:8px;font-weight:600;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mist-2)}
+.org .br{position:relative;width:100%;max-width:760px;height:46px}
+.org .br::before{content:"";position:absolute;left:50%;top:0;width:1.5px;height:22px;background:rgba(246,248,251,.35)}
+.org .br::after{content:"";position:absolute;left:25%;right:25%;top:22px;height:24px;border:1.5px solid rgba(246,248,251,.35);border-bottom:0;border-radius:10px 10px 0 0}
+.org .two{display:grid;grid-template-columns:1fr 1fr;gap:12px;width:100%;max-width:760px}
+.org .div{display:flex;flex-direction:column;gap:6px;padding:20px 16px;border-radius:16px;text-align:center;text-decoration:none;background:rgba(255,255,255,.04);box-shadow:inset 0 0 0 1px var(--line);transition:transform .3s,background .3s}
+.org .div b{font-weight:700;font-size:clamp(17px,4.6vw,24px);letter-spacing:-.02em}
+.org .div span{font-size:clamp(11.5px,3vw,14px);color:var(--mist)}
+.org .div em{margin-top:6px;font-style:normal;font-weight:700;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--mist-2)}
+.org .div.ag:hover{transform:translateY(-3px);background:rgba(242,145,35,.08)}
+.org .div.on{background:linear-gradient(180deg,rgba(31,167,224,.2),rgba(31,167,224,.06));box-shadow:inset 0 0 0 1.5px var(--blue),0 20px 50px rgba(31,167,224,.18)}
+.org .div.on em{color:var(--sky)}
+
+/* verticals */
+.vgrid{margin-top:44px;display:grid;grid-template-columns:1fr;gap:14px}
+@media (min-width:760px){.vgrid{grid-template-columns:1fr 1fr;gap:18px}}
+.v{position:relative;padding:26px 24px 24px;border-radius:20px;background:rgba(255,255,255,.04);box-shadow:inset 0 0 0 1px var(--line);overflow:hidden;transition:transform .35s,background .35s}
+.v:hover{transform:translateY(-4px);background:rgba(255,255,255,.07)}
+.v::after{content:"";position:absolute;right:-70px;top:-70px;width:220px;height:220px;border-radius:50%;background:radial-gradient(closest-side,var(--c),transparent);opacity:.2;pointer-events:none}
+.v .ic{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;background:color-mix(in srgb,var(--c) 18%,transparent);color:var(--c)}
+.v .ic svg{width:24px;height:24px}
+.v .n{position:absolute;right:24px;top:26px;font-weight:700;font-size:12px;letter-spacing:.18em;color:var(--mist-2)}
+.v h3{margin-top:18px;font-weight:700;font-size:clamp(22px,5.6vw,28px);letter-spacing:-.03em}
+.v .t{margin-top:4px;font-weight:600;font-size:15px;color:var(--c)}
+.v p{margin-top:10px;font-size:15px;color:var(--mist)}
+.v ul{margin-top:16px;list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.v li{padding:6px 11px;border-radius:999px;background:rgba(255,255,255,.06);font-weight:500;font-size:12px;color:var(--ink)}
+
+/* partner */
+.partner{background:linear-gradient(180deg,transparent,rgba(31,167,224,.07) 30%,rgba(31,167,224,.07) 70%,transparent)}
+.pcard{margin-top:44px;display:grid;grid-template-columns:1fr;border-radius:24px;overflow:hidden;box-shadow:inset 0 0 0 1px rgba(127,208,240,.35);background:rgba(7,22,48,.6)}
+@media (min-width:900px){.pcard{grid-template-columns:.9fr 1.1fr}}
+.pl{position:relative;padding:32px 26px;background:radial-gradient(80% 80% at 0% 0%,rgba(31,167,224,.3),transparent 70%),radial-gradient(70% 70% at 100% 100%,rgba(233,76,151,.22),transparent 70%),#0A2148;overflow:hidden}
+.lock{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.lock img{height:30px;width:auto}
+.lock .x{font-weight:300;font-size:26px;color:var(--mist-2)}
+.lock .nc{font-weight:800;font-size:30px;letter-spacing:-.04em}
+.pl h3{margin-top:26px;font-weight:700;font-size:clamp(24px,6vw,32px);line-height:1.12;letter-spacing:-.03em}
+.pl p{margin-top:12px;font-size:15.5px;color:var(--mist)}
+.pl a.ext{margin-top:22px;display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;padding-bottom:5px;border-bottom:2px solid var(--blue)}
+.pl a.ext svg{width:14px;height:14px}
+.pr{padding:14px 26px 26px;display:flex;flex-direction:column}
+@media (min-width:900px){.pr{padding:30px 34px}}
+.pt{display:grid;grid-template-columns:42px 1fr;gap:14px;padding:18px 0;border-bottom:1px solid var(--line)}
+.pt:last-of-type{border-bottom:0}
+.pt i{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:rgba(31,167,224,.14);color:var(--sky)}
+.pt i svg{width:20px;height:20px}
+.pt b{display:block;font-weight:700;font-size:16px;letter-spacing:-.01em}
+.pt span{display:block;margin-top:3px;font-size:14px;color:var(--mist)}
+.how{margin-top:8px;padding:16px 18px;border-radius:14px;background:rgba(255,255,255,.05);font-size:14px;color:var(--mist)}
+.how b{color:var(--ink)}
+
+/* already */
+.agrid{margin-top:40px;display:grid;grid-template-columns:1fr;gap:12px}
+@media (min-width:760px){.agrid{grid-template-columns:repeat(4,1fr);gap:14px}}
+.a{padding:22px 20px;border-radius:18px;background:rgba(255,255,255,.04);box-shadow:inset 0 0 0 1px var(--line)}
+.a i{display:block;width:10px;height:10px;border-radius:50%;background:var(--c);box-shadow:0 0 18px var(--c)}
+.a b{display:block;margin-top:14px;font-weight:700;font-size:17px;letter-spacing:-.02em}
+.a span{display:block;margin-top:6px;font-size:14px;color:var(--mist)}
+
+/* contact */
+.talk{padding-bottom:60px}
+.tbox{position:relative;padding:40px 24px;border-radius:28px;text-align:center;overflow:hidden;background:radial-gradient(70% 90% at 50% 0%,rgba(31,167,224,.35),transparent 70%),radial-gradient(60% 80% at 100% 100%,rgba(233,76,151,.25),transparent 70%),radial-gradient(50% 70% at 0% 100%,rgba(242,145,35,.2),transparent 70%),#0B2148;box-shadow:inset 0 0 0 1px rgba(127,208,240,.3)}
+@media (min-width:760px){.tbox{padding:64px 48px}}
+.tbox h2{margin:0 auto}
+.tbox .intro-p{margin:14px auto 0}
+.tbox .ctas{justify-content:center}
+.cinfo{margin-top:28px;display:flex;flex-wrap:wrap;justify-content:center;gap:10px 22px;font-size:14px;color:var(--mist)}
+.cinfo a{text-decoration:none;border-bottom:1px solid rgba(246,248,251,.3)}
+.agency{margin-top:22px;display:flex;flex-direction:column;align-items:center;gap:14px;padding:26px 22px;border-radius:22px;background:rgba(255,255,255,.04);box-shadow:inset 0 0 0 1px var(--line);text-align:center}
+@media (min-width:760px){.agency{flex-direction:row;justify-content:space-between;text-align:left;padding:26px 32px}}
+.agency b{display:block;font-weight:700;font-size:18px;letter-spacing:-.02em}
+.agency span{display:block;margin-top:4px;font-size:14px;color:var(--mist)}
+.agency .btn{background:var(--orange);color:#081A35}
+.agency .btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(242,145,35,.35)}
+footer{padding:30px 0 calc(30px + env(safe-area-inset-bottom));border-top:1px solid var(--line);font-size:12.5px;color:var(--mist-2)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
+
+/* reveal on scroll */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1);transition-delay:var(--d,0s)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.nexus p i,.orb *{animation:none}}
+</style>
+</head>
+<body>
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="brand" href="./?nointro" aria-label="MCG home"><img src="assets/logo_white.webp" alt="MCG"><span>AI</span></a>
+    <a class="tbtn" href="#talk">Talk to us</a>
+  </div>
+</header>
+
+<div class="hero">
+  <canvas id="net" aria-hidden="true"></canvas>
+  <div class="orb" aria-hidden="true"><i class="r1"></i><i class="r2"></i><i class="r3"></i><b></b><span class="s1"></span><span class="s2"></span><span class="s3"></span></div>
+  <div class="wrap">
+    <p class="crumb rv"><i><b style="background:var(--blue)"></b><b style="background:var(--pink)"></b><b style="background:var(--orange)"></b></i>A division of MCG</p>
+    <h1 class="rv" style="--d:.08s">MCG <em>AI</em></h1>
+    <p class="sub rv" style="--d:.16s">Enterprise AI Transformation</p>
+    <p class="lede rv" style="--d:.24s">We help organisations put AI to work, from the first strategy session to AI running safely inside the business every day.</p>
+    <div class="ctas rv" style="--d:.32s">
+      <a class="btn pri" href="#focus">What we focus on <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+      <a class="btn sec" href="#neuecode">Our collaboration with NeueCode</a>
+    </div>
+  </div>
+  <div class="nexus" id="nexus" hidden><div class="wrap"><p><i></i>Meet us at NEXUS · The Arena Kuwait · 26–28 Nov</p></div></div>
+</div>
+
+<section id="group">
+  <div class="wrap">
+    <p class="k rv">Where we sit</p>
+    <h2 class="rv">One group. Two divisions.</h2>
+    <p class="intro-p rv">MCG has been building brands in Kuwait since 2004. MCG AI is our division for companies that want AI working across the whole business, not just in their marketing.</p>
+    <div class="org rv" style="--d:.1s">
+      <div class="par"><img src="assets/logo_white.webp" alt="MCG"><span>Parent brand</span></div>
+      <div class="br" aria-hidden="true"></div>
+      <div class="two">
+        <a class="div ag" href="./?nointro"><b>MCG Agency</b><span>Marketing &amp; Communications</span><em>See credentials →</em></a>
+        <div class="div on"><b>MCG AI</b><span>Enterprise AI Transformation</span><em>You are here</em></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="focus">
+  <div class="wrap">
+    <p class="k rv">What we focus on</p>
+    <h2 class="rv">Four ways we help you put AI to work.</h2>
+    <div class="vgrid">
+      <article class="v rv" style="--c:var(--blue)">
+        <span class="n">01</span>
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg></span>
+        <h3>AI Consulting</h3>
+        <p class="t">Find where AI really pays off.</p>
+        <p>We look at how your business works, pick the use cases worth doing first, and build a clear roadmap your leadership can sign off.</p>
+        <ul><li>AI readiness review</li><li>Use-case roadmap</li><li>Business case and governance</li></ul>
+      </article>
+      <article class="v rv" style="--c:var(--sky);--d:.08s">
+        <span class="n">02</span>
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="6" rx="2"/><rect x="3" y="14" width="18" height="6" rx="2"/><path d="M7 7h.01M7 17h.01"/></svg></span>
+        <h3>AI as a Service</h3>
+        <p class="t">AI that runs inside your business.</p>
+        <p>We set up and run AI agents and tools for your teams, including private AI that stays on your own servers, with NeueCode.</p>
+        <ul><li>AI agents for your teams</li><li>Private, on-premise AI</li><li>Setup, hosting and support</li></ul>
+      </article>
+      <article class="v rv" style="--c:var(--pink)">
+        <span class="n">03</span>
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M16 4.5a3.2 3.2 0 0 1 0 6.4M18 14.5c1.8.8 3 2.6 3 5.5"/></svg></span>
+        <h3>AI Enablement</h3>
+        <p class="t">Teams that actually use it.</p>
+        <p>Hands-on workshops and training that turn AI from a buzzword into a daily habit, for leaders and for every team.</p>
+        <ul><li>Leadership sessions</li><li>Team workshops</li><li>Playbooks and prompt libraries</li></ul>
+      </article>
+      <article class="v rv" style="--c:var(--orange);--d:.08s">
+        <span class="n">04</span>
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6M10 3v6L4.5 18.5A1.7 1.7 0 0 0 6 21h12a1.7 1.7 0 0 0 1.5-2.5L14 9V3"/><path d="M7.5 15h9"/></svg></span>
+        <h3>AI Innovation Lab</h3>
+        <p class="t">New ideas, built fast.</p>
+        <p>We prototype new AI products, experiences and content, and test them quickly with real people before you scale them.</p>
+        <ul><li>Prototypes and pilots</li><li>AI experiences for events</li><li>AI content and films</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="partner" id="neuecode">
+  <div class="wrap">
+    <p class="k rv">In collaboration with</p>
+    <h2 class="rv">MCG AI × NeueCode</h2>
+    <div class="pcard rv" style="--d:.1s">
+      <div class="pl">
+        <div class="lock"><img src="assets/logo_white.webp" alt="MCG"><span class="x">×</span><span class="nc">NeueCode</span></div>
+        <h3>Private AI agents for serious organisations.</h3>
+        <p>NeueCode builds enterprise AI agents that draft documents, answer questions over company data, research and run routine work. MCG AI brings NeueCode to organisations in Kuwait and the region, and helps their teams put it to work.</p>
+        <a class="ext" href="https://neuecode.com" target="_blank" rel="noopener">Visit neuecode.com <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+      </div>
+      <div class="pr">
+        <div class="pt"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></i><div><b>Your data stays with you</b><span>It runs on your own servers or private cloud, and can run fully offline.</span></div></div>
+        <div class="pt"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></i><div><b>People stay in control</b><span>A person approves every action that changes something, and every step is recorded.</span></div></div>
+        <div class="pt"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V10l7-5 7 5v11M9 21v-6h6v6"/></svg></i><div><b>Built for regulated sectors</b><span>Banking, government, energy, healthcare and telecom. In Arabic and English.</span></div></div>
+        <p class="how"><b>How it works with us:</b> we find the right use cases, set NeueCode up for your teams, train them, and stay with you as it grows.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="already">
+  <div class="wrap">
+    <p class="k rv">Already in motion</p>
+    <h2 class="rv">We don't just talk about AI. We use it every day.</h2>
+    <div class="agrid">
+      <div class="a rv" style="--c:var(--blue)"><i></i><b>The AI Club by MCG</b><span>A professional AI community in Kuwait.</span></div>
+      <div class="a rv" style="--c:var(--pink);--d:.06s"><i></i><b>AI training for companies</b><span>Workshops and programs that get teams using AI well.</span></div>
+      <div class="a rv" style="--c:var(--orange);--d:.12s"><i></i><b>AI Film Festival at NEXUS</b><span>Launched with NEXUS for storytellers in Kuwait.</span></div>
+      <div class="a rv" style="--c:var(--sky);--d:.18s"><i></i><b>An in-house AI studio</b><span>AI images and films for MADO, Lina's &amp; Dina's, Baraka Dates and more.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="talk" id="talk">
+  <div class="wrap">
+    <div class="tbox rv">
+      <p class="k" style="justify-content:center">Let's talk AI</p>
+      <h2>Where could AI make the biggest difference for you?</h2>
+      <p class="intro-p">Tell us how your business works today. We'll come back with the first three things worth doing.</p>
+      <div class="ctas">
+        <a class="btn pri" href="https://calendly.com/husseinajouz/30min" target="_blank" rel="noopener">Book a 30-minute call</a>
+        <a class="btn sec" href="mailto:info@mcgmasters.com?subject=MCG%20AI">info@mcgmasters.com</a>
+      </div>
+      <p class="cinfo"><a href="tel:+96522202220">+965 2220 2220</a><span>Al Hamra Tower, Floor 18, Kuwait</span><a href="https://www.mcgmasters.com" target="_blank" rel="noopener">mcgmasters.com</a></p>
+    </div>
+    <div class="agency rv">
+      <div><b>Looking for marketing &amp; communications?</b><span>That's MCG Agency: brand, content, campaigns, media and events.</span></div>
+      <a class="btn" href="./?nointro">See MCG Agency credentials <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap"><span>© 2026 MCG · Kuwait &amp; Beirut</span><span>MCG AI · Enterprise AI Transformation</span></div></footer>
+
+<script>
+(function(){
+  /* top bar turns solid after the hero */
+  var top=document.getElementById('top');
+  function onS(){top.classList.toggle('solid',window.scrollY>40)}window.addEventListener('scroll',onS,{passive:true});onS();
+  /* reveal on scroll */
+  var els=[].slice.call(document.querySelectorAll('.rv'));
+  if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});els.forEach(function(e){io.observe(e)})}else els.forEach(function(e){e.classList.add('in')});
+  /* NEXUS line shows only during the event */
+  var now=new Date();if(now<new Date('2026-11-29T00:00:00+03:00'))document.getElementById('nexus').hidden=false;
+  /* hero: a living network in our colours */
+  var cv=document.getElementById('net'),ctx=cv.getContext('2d'),W,H,D,pts=[],mx=-999,my=-999;
+  var C=['31,167,224','127,208,240','233,76,151','242,145,35'];
+  function size(){var r=cv.getBoundingClientRect();W=r.width;H=r.height;D=Math.min(2,window.devicePixelRatio||1);cv.width=W*D;cv.height=H*D;
+    var n=Math.round(Math.min(110,Math.max(46,W*H/14000)));pts=[];for(var i=0;i<n;i++){var c=Math.random();pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25,r:1+Math.random()*2.2,c:c<.62?0:c<.8?1:c<.92?2:3,ph:Math.random()*6.28})}}
+  size();window.addEventListener('resize',size);
+  cv.parentNode.addEventListener('pointermove',function(e){var r=cv.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top});
+  cv.parentNode.addEventListener('pointerleave',function(){mx=my=-999});
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches, vis=true;
+  new IntersectionObserver(function(es){vis=es[0].isIntersecting}).observe(cv);
+  function f(t){requestAnimationFrame(f);if(!vis)return;ctx.setTransform(D,0,0,D,0,0);ctx.clearRect(0,0,W,H);var L=Math.min(150,Math.max(100,W/7));
+    for(var i=0;i<pts.length;i++){var p=pts[i];if(!reduce){p.x+=p.vx;p.y+=p.vy;if(p.x<-20)p.x=W+20;if(p.x>W+20)p.x=-20;if(p.y<-20)p.y=H+20;if(p.y>H+20)p.y=-20}
+      var dxm=p.x-mx,dym=p.y-my,dm=Math.sqrt(dxm*dxm+dym*dym);if(dm<120&&dm>0){p.x+=dxm/dm*.6;p.y+=dym/dm*.6}
+      for(var j=i+1;j<pts.length;j++){var q=pts[j],dx=p.x-q.x,dy=p.y-q.y,d=dx*dx+dy*dy;if(d<L*L){var a=(1-Math.sqrt(d)/L)*.35;ctx.strokeStyle='rgba('+C[p.c===0?q.c:p.c]+','+a+')';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.stroke()}}}
+    for(i=0;i<pts.length;i++){p=pts[i];var tw=.6+.4*Math.sin(t/900+p.ph);ctx.fillStyle='rgba('+C[p.c]+','+tw+')';ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,6.283);ctx.fill()}
+    /* a pulse travels along one link at a time */
+  }
+  requestAnimationFrame(f);
+})();
+</script>
+</body>
+</html>

@@ -17,6 +17,9 @@ Plain visits to `thisismcg.com` open with a short scroll intro (a spark explodes
 - `thisismcg.com/?nointro` skips it too.
 - Visitors can tap "Skip intro" at any time.
 
+## MCG AI page
+`ai.html` (thisismcg.com/ai) is the MCG AI division page: the four focus areas and the collaboration with NeueCode. It is one self-contained file (styles and script inside). The intro ends on a choice between MCG Agency (the credentials) and MCG AI (this page).
+
 ## Files
 - `index.html`: the slides. Each slide is a `<section class="slide">`, in order.
 - `styles.css`: all styles.
