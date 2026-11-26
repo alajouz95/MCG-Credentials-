@@ -441,6 +441,11 @@ var RESULTS={
   "u": "assets/logos/c04.webp"
  },
  {
+  "n": "Ford Alghanim",
+  "s": "A",
+  "u": "assets/logos/c90.webp"
+ },
+ {
   "n": "GMC",
   "s": "A",
   "u": "assets/logos/c10.webp"
@@ -847,7 +852,7 @@ var RESULTS={
   function layoutWall(n){var W=1168,H=wall.clientHeight||380,g=8,best=null;for(var c=3;c<=16;c++){var w=(W-(c-1)*g)/c,r=Math.ceil(n/c),h=(H-(r-1)*g)/r;if(h<34)continue;var tw=Math.min(w,h*1.55,196),th=Math.min(h,tw/1.55);var sc=tw*th;if(!best||sc>best.s)best={c:c,w:tw,h:th,s:sc}}return best}
   /* key clients get bigger tiles: TIER1 = large, TIER2 = wide, everyone else = small */
   var TIER1=['Honda Alghanim','GMC','Kuwait Airways','Microsoft','KFH','BYD Alghanim','Mercedes-Benz','Huawei'];
-  var TIER2=['Baraka Dates','MADO','Kuwait International Fair','Subaru','Caltex','Pirelli','Mitsubishi','Johnson & Johnson','Gulf Insurance Group','Capital Markets Authority','Crowne Plaza','Enaya Insurance'];
+  var TIER2=['Ford Alghanim','Baraka Dates','MADO','Kuwait International Fair','Subaru','Caltex','Pirelli','Mitsubishi','Johnson & Johnson','Gulf Insurance Group','Capital Markets Authority','Crowne Plaza','Enaya Insurance'];
   function tierOf(n){return TIER1.indexOf(n)>=0?1:TIER2.indexOf(n)>=0?2:0}
   function caseByLogo(n){for(var i=0;i<CASES.length;i++)if(CASES[i].logo===n)return CASES[i].id;return ''}
   function layoutMosaic(list){var W=1168,H=wall.clientHeight||420,g=6,u=0,best=null,big=false;list.forEach(function(x){u+=x.t===1?4:x.t===2?2:1;if(x.t)big=true});
