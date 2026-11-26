@@ -20,6 +20,13 @@ Plain visits to `thisismcg.com` open with a short scroll intro (a spark explodes
 ## MCG AI page
 `ai.html` (thisismcg.com/ai) is the MCG AI division page: the four focus areas and the collaboration with NeueCode. It is one self-contained file (styles and script inside). The intro ends on a choice between MCG Agency (the credentials) and MCG AI (this page).
 
+## AI Readiness Assessment
+`assessment/` (thisismcg.com/assessment) is the standalone AI Readiness Assessment for the exhibition screen and phones, in English and Arabic.
+- `content-en.js` and `content-ar.js`: every question, answer, level, recommendation and label.
+- `scoring.js`: the scoring rules, on their own (0 to 3 per answer, dimension and overall scores, levels and tiers).
+- `app.js`: the screens. It returns to the start after 150 seconds without a touch, and collects no personal data.
+- `?lang=ar` opens it in Arabic.
+
 ## Files
 - `index.html`: the slides. Each slide is a `<section class="slide">`, in order.
 - `styles.css`: all styles.
