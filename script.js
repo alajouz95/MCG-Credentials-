@@ -701,6 +701,11 @@ var RESULTS={
   "u": "assets/logos/c74.webp"
  },
  {
+  "n": "Noisette Chocolate",
+  "s": "H",
+  "u": "assets/logos/c93.webp"
+ },
+ {
   "n": "Sheesh Othman",
   "s": "H",
   "u": "assets/logos/c82.webp"
@@ -724,6 +729,11 @@ var RESULTS={
   "n": "Huawei",
   "s": "T",
   "u": "assets/logos/c18.webp"
+ },
+ {
+  "n": "Alpha Store",
+  "s": "T",
+  "u": "assets/logos/c92.webp"
  },
  {
   "n": "Behbehani",
@@ -844,16 +854,6 @@ var RESULTS={
   "n": "Kuwait Society for Persons with Disability",
   "s": "P",
   "u": "assets/logos/c70.webp"
- },
- {
-  "n": "Alpha Store",
-  "s": "T",
-  "u": "assets/logos/c92.webp"
- },
- {
-  "n": "Noisette Chocolate",
-  "s": "H",
-  "u": "assets/logos/c93.webp"
  }
 ];
   var SEC=[['all','All'],['A','Automotive'],['F','Banking & finance'],['R','Real estate & venues'],['H','Food & hospitality'],['T','Retail & tech'],['P','Public sector & education']];
