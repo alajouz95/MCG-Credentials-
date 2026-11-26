@@ -844,6 +844,16 @@ var RESULTS={
   "n": "Kuwait Society for Persons with Disability",
   "s": "P",
   "u": "assets/logos/c70.webp"
+ },
+ {
+  "n": "Alpha Store",
+  "s": "T",
+  "u": "assets/logos/c92.webp"
+ },
+ {
+  "n": "Noisette Chocolate",
+  "s": "H",
+  "u": "assets/logos/c93.webp"
  }
 ];
   var SEC=[['all','All'],['A','Automotive'],['F','Banking & finance'],['R','Real estate & venues'],['H','Food & hospitality'],['T','Retail & tech'],['P','Public sector & education']];
@@ -1118,7 +1128,7 @@ var RESULTS={
     {id:'bait',c:'Bait Al Sabon',badge:'assets/b_bait.webp',ey:'Skincare · Photo & video',h:'Handmade skincare, told honestly.',p:'Tell the story of traditional, handmade skincare without making it feel old-fashioned or overdone.',did:['A summer outdoor photo and video shoot','Content for social media'],items:['bait']},
     {id:'footlocker',c:'Foot Locker',ey:'Retail · Campaign · Social',h:'Saudi National Day, in style.',p:'Content for Foot Locker Middle East.',did:['Content for Foot Locker’s Saudi National Day celebration','Social video for Foot Locker Middle East'],items:['fl_snd','fl_store']},
     {id:'images',c:'Images',logo:'Images',ey:'Retail · Campaign',h:'Ten years, told by history’s great minds.',p:'A tenth-anniversary campaign for Images.',did:['A tenth-anniversary campaign','A series of eight illustrated visuals'],items:['images_kv']},
-    {id:'noisette',c:'Noisette Chocolate',ey:'Food · Social media',h:'From 22 likes to 265, in two weeks.',p:'Social media for a chocolate brand, with results in the first two weeks.',did:['Social media management','Content and reels'],res:'noisette',items:['noisette']},
+    {id:'noisette',c:'Noisette Chocolate',logo:'Noisette Chocolate',ey:'Food · Social media',h:'From 22 likes to 265, in two weeks.',p:'Social media for a chocolate brand, with results in the first two weeks.',did:['Social media management','Content and reels'],res:'noisette',items:['noisette']},
     {id:'cccl',c:'Children’s Cancer Center of Lebanon',logo:'Children\'s Cancer Center Lebanon',ey:'Charity · Event',h:'A fundraising gala we were proud to support.',p:'A fundraising gala for the Children’s Cancer Center of Lebanon.',did:['A fundraising gala with live music and speeches','Event photography and video'],items:['cccl']},
     {id:'boxhill',c:'Box Hill College',logo:'Box Hill College Kuwait',ey:'Education · Digital campaign',h:'3,000+ student enquiries.',p:'Boosting student enrolments for the academic year.',did:['Lead campaigns aimed at parents and students','Ads in more than one language','Retargeting for people who had already shown interest'],res:'boxhill',items:[]}
   ];
